@@ -195,7 +195,7 @@
             this.checkCookie();
 
             // this.currentItem = this.tabs[0];
-            this.functionBox.status = true;
+            this.tabs[this.tabs.length - 1].status = true;
 
             window.addEventListener('resize', this.getHeight);
             this.getHeight();
