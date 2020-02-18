@@ -33,10 +33,23 @@
             <!-- <iframe :src="currentItem.url" frameborder="0" scrolling="auto"></iframe> -->
             <iframe :style="contentStyleObj" v-for="item in tabs" :src="item.url" frameborder="0" scrolling="auto"
                 v-show="item.status"></iframe>
+            <div :style="contentStyleObj" id="function_box" v-show="functionBox.status">
+                <ul class="blocks">
+                    <li v-for="(item,index) in blocks">
+                        <a :href="item.url" class="block"><span>{{item.title}}</span></a>
+                    </li>
+                </ul>
+                <textarea rows="10" cols="30" v-model="notes" placeholder="你可以在这里记录各科目的网课要求。"></textarea>
+                <!-- <button @click="setCookie('notes', notes, 365)">保存</button> -->
+            </div>
         </div>
     </div>
 </body>
 <script>
+    // var iframe = document.getElementsByTagName("iframe");
+    // iframe[1].onload = function () {
+    //     alert("iframe load  done");
+    // };
     var app = new Vue({
         el: '#view',
         data: {
@@ -66,12 +79,55 @@
                     title: "传智播客",
                     status: false,
                     url: "http://stu.ityxb.com/Classroom/course/learning"
+                },
+                {
+                    title: "斗鱼关注",
+                    status: false,
+                    url: "https://www.douyu.com/directory/myFollow"
+                },
+                {
+                    title: "更多",
+                    status: false
                 }
 
             ],
+            functionBox: {
+                status: false
+            },
             contentStyleObj: {
-                height: ''
-            }
+                height: '',
+                width: '100%'
+            },
+            notes: "",
+            blocks: [{
+                    title: "教务系统",
+                    url: "http://ee-c.lcu.edu.cn/si/student/group"
+                },
+                {
+                    title: "超星学习通",
+                    url: "http://i.chaoxing.com/base"
+                },
+                // {
+                // title: "课表",
+                // status: false,
+                // url: "http://jwcweb.lcu.edu.cn/jwglxt/"
+                // },
+                {
+                    title: "大学英语挂机网",
+                    url: "http://210.44.112.108"
+                },
+                {
+                    title: "传智播客",
+                    url: "http://stu.ityxb.com/Classroom/course/learning"
+                },
+                {
+                    title: "斗鱼关注",
+                    url: "https://www.douyu.com/directory/myFollow"
+                },
+                {
+                    title: "更多"
+                }
+            ]
         },
         methods: {
             changeTab(selectedTab) {
@@ -79,16 +135,63 @@
                 for (var i = 0; i < this.tabs.length; i++) {
                     this.tabs[i].status = false;
                 }
-                this.tabs[selectedTab].status = true;
+                if (selectedTab == this.tabs.length - 1)
+                    this.functionBox.status = true;
+                else
+                    this.tabs[selectedTab].status = true;
             },
             getHeight() {
                 var h = window.innerHeight || document.documentElement.clientHeight || document.body
                     .clientHeight;
                 this.contentStyleObj.height = h - document.getElementById("container").offsetHeight - 15 +
                     'px';
+            },
+
+            // Cookies
+            setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+                console.info(cname + "=" + cvalue + "; " + expires);
+                document.cookie = cname + "=" + cvalue + "; " + expires;
+                console.info(document.cookie);
+            },
+            getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                console.log("获取cookie,现在循环")
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    console.log(c)
+                    while (c.charAt(0) == ' ') c = c.substring(1);
+                    if (c.indexOf(name) != -1) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            },
+            clearCookie() {
+                // this.setCookie("username", "", -1);
+            },
+            checkCookie() {
+                this.notes = this.getCookie("notes");
+                // var user = this.getCookie("username");
+                // if (user != "") {
+                //     console.info("Welcome again " + user);
+                // } else {
+                //     user = prompt("Please enter your name:", "");
+                //     if (user != "" && user != null) {
+                //         this.setCookie("username", user, 365);
+                //     }
+                // }
+
             }
         },
+        beforeCreate() {
+
+        },
         created() {
+            this.checkCookie();
 
             // this.currentItem = this.tabs[0];
             this.tabs[0].status = true;
@@ -114,6 +217,11 @@
             //     return h - tabHeight;
             // }
         },
+        watch: {
+            notes: function () {
+                this.setCookie("notes", this.notes, 365);
+            }
+        }
     })
 </script>
 <!-- <script charset="gbk" src="https://www.baidu.com/js/opensug.js"></script>
