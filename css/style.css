@@ -1,5 +1,5 @@
 body {
-    background: center/cover no-repeat fixed #3b3b3b;
+    background: center/cover no-repeat fixed #555555;
     /* backdrop-filter: blur(10px); */
     margin: 0;
     font-family: "SF Pro Display", "苹方";
@@ -25,7 +25,7 @@ body {
 #app {
     width: 100%;
     background: transparent;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgb(255, 255, 255);
     /* backdrop-filter: blur(15px); */
     /* background: rgba(51, 51, 51, 0.384); */
     /* backdrop-filter: blur(10px); */
