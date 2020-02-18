@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LCU在线</title>
+    <!-- eleme -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- vue -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script> -->
+    <script src="js/vue.js"></script>
+    <!-- eleme -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <div id="view">
+        <div id="container">
+            <ul class="tabs">
+                <!-- <li v-for="(item,index) in tabs" @click="changeTab(item)" :class="'tab '+item.status">{{item.title}}
+                </li> -->
+                <li v-for="(item,index) in tabs" @click="changeTab(index)"
+                    :class="'tab' + (item.status?' activeTab':' inactiveTab')">
+                    {{item.title}}
+                </li>
+            </ul>
+        </div>
+        <div id="app">
+            <!-- <iframe :src="currentItem.url" frameborder="0" scrolling="auto"></iframe> -->
+            <iframe :style="contentStyleObj" v-for="item in tabs" :src="item.url" frameborder="0" scrolling="auto"
+                v-show="item.status"></iframe>
+        </div>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#view',
+        data: {
+            currentItem: {},
+            visible: false,
+            tabs: [{
+                    title: "U+新工科智慧云",
+                    status: false,
+                    url: "http://ee-c.lcu.edu.cn/si/student/group"
+                },
+                {
+                    title: "超星学习通",
+                    status: false,
+                    url: "http://i.chaoxing.com/base"
+                },
+                // {
+                //     title: "课表",
+                //     status: false,
+                //     url: "http://jwcweb.lcu.edu.cn/jwglxt/"
+                // },
+                {
+                    title: "大学英语挂机网",
+                    status: false,
+                    url: "http://210.44.112.108"
+                },
+                {
+                    title: "传智播客",
+                    status: false,
+                    url: "http://stu.ityxb.com/Classroom/course/learning"
+                }
+
+            ],
+            contentStyleObj: {
+                height: ''
+            }
+        },
+        methods: {
+            changeTab(selectedTab) {
+                // this.currentItem = selectedTab;
+                for (var i = 0; i < this.tabs.length; i++) {
+                    this.tabs[i].status = false;
+                }
+                this.tabs[selectedTab].status = true;
+            },
+            getHeight() {
+                var h = window.innerHeight || document.documentElement.clientHeight || document.body
+                    .clientHeight;
+                this.contentStyleObj.height = h - document.getElementById("container").offsetHeight - 15 +
+                    'px';
+            }
+        },
+        created() {
+
+            // this.currentItem = this.tabs[0];
+            this.tabs[0].status = true;
+
+            window.addEventListener('resize', this.getHeight);
+            this.getHeight();
+
+            /*console.log(document.getElementsByTagName("iframe")[0].offsetHeight);
+            var i = document.getElementsByTagName("iframe").length;
+            // while (i--) document.getElementsByTagName("iframe")[i].height = this.frameHeight;
+            while (--i) document.getElementsByTagName("iframe")[i].offsetHeight = this.frameHeight;
+            console.log(document.getElementsByTagName("iframe")[0].offsetHeight);*/
+
+        },
+        destroyed() {
+            window.removeEventListener('resize', this.getHeight);
+        },
+        computed: {
+            // frameHeight: function () {
+            //     var h = window.innerHeight || document.documentElement.clientHeight || document.body
+            //         .clientHeight;
+            //     var tabHeight = 10 || document.getElementsById("container").offsetHeight;
+            //     return h - tabHeight;
+            // }
+        },
+    })
+</script>
+<!-- <script charset="gbk" src="https://www.baidu.com/js/opensug.js"></script>
+<script type="text/javascript">
+    BaiduSuggestion.bind('search_submit', { // Input ID
+        "XOffset": "0", // Proposal frame position X offset, unit px.
+        "YOffset": "0", // Prompt box position vertical Y offset, unit px.
+        "fontColor": "#ff0000", // Prompt text color.
+        "fontColorHI": "#0000ff", // Prompt box highlight text color when selected.
+        "fontSize": "14px", // font size
+        "fontFamily": "Microsoft YaHei", // Text fontFamily.
+        "borderColor": "#008000", // Prompt box border color.
+        "bgcolorHI": "#f0f0f0", // Prompt box highlights the selected color.
+        "sugSubmit": true // Whether to submit the form when the entry in the prompt box is selected.
+    }, function (Callback) {
+        console.log('You have chosen：' + Callback);
+    });
+</script> -->
+
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- eleme -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        body {
+            background:transparent;
+            /* background: url("https://userapi.rthsoftware.cn/gycabc123jroo9f7u/bing.jpg") center/cover no-repeat fixed; */
+            /* backdrop-filter: blur(10px); */
+            backdrop-filter: blur(15px);
+            margin: 0;
+            font-family: "SF Pro Display", "苹方";
+        }
+
+        #view {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 90%;
+            padding-top: 30px;
+            /* background: #000; */
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        #app {
+            width: 90%;
+            background: #ffffff;
+            /* background-color: rgba(255, 255, 255, .3); */
+            /* backdrop-filter: blur(15px); */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        #app>div {
+            width: 100%;
+            height: 620px;
+        }
+
+        #main {
+            display: block;
+            width:100%;
+        }
+
+        .home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100%;
+
+        }
+
+        .srch {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            height: 150px;
+            /* height: 100%; */
+        }
+
+        #uplus {
+            display: none;
+        }
+
+        #urp {
+            display: none;
+        }
+
+        #unipus {
+            display: none;
+        }
+
+        #app>div {
+            height: 620px;
+            width: 100%;
+            background: #ffffff;
+        }
+
+        /* #app>div>iframe {
+            width: 100%;
+            height: 620px;
+            background: #ffffff;
+        } */
+        #app>iframe {
+            width: 100%;
+            height: 620px;
+            background: #ffffff;
+        }
+        /* #main{
+            height: 620px;
+        } */
+        .tabs {
+            /* margin-left: 30px; */
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: rgba(51, 51, 51, 0.384);
+            backdrop-filter: blur(18px);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .tab {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .tab:hover {
+            background-color: #111;
+        }
+
+        iframe {
+            scroll-behavior: smooth;
+
+        }
+
+        .shuxing {
+            /* -webkit-animation: fadeInDown 1s;
+            animation: fadeInDown 1s;	 */
+            margin-top: 20px;
+            padding: 0 20px;
+            color: #4a4266;
+        }
+
+        .shuxing .l {
+            display: none !important
+        }
+
+        #search_input {
+            width: 100%;
+            height: 40px;
+            padding: 0 5px;
+            border: none;
+            outline: 0;
+            font-size: 16px;
+            color: #4a4266;
+            background-color: transparent;
+        }
+
+        .search_part {
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        span {
+            display: block;
+            overflow: hidden;
+            padding-left: 2px;
+            font-size: 12px;
+            vertical-align: middle;
+        }
+
+        .search_bar {
+            /* -webkit-animation: fadeIn 2.5s;
+            animation: fadeIn 2.5s; */
+            display: table;
+            /* width: 88%; */
+            width: 600px;
+            max-width: 1000px;
+            height: 45px;
+            margin: 0 auto;
+            /* box-shadow: 0 0 5px 0 rgba(70, 70, 40, .4); */
+            border-radius: 105px;
+            vertical-align: middle;
+            background-color: #eeeeee;
+        }
+
+        #search_submit {
+            float: right;
+            height: 45px;
+            padding: 0 13px 0 13px;
+            border: none;
+            outline: 0;
+            font-size: 18px;
+            font-weight: 500;
+            color: #4a4266;
+            background-color: transparent;
+        }
+
+        .logo {
+            width: 300px;
+        }
+
+/* shortcuts -----------------------------------------------------------------------------------*/
+        .main{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .contcontainer {
+            width: 100%;
+            /* height: 100px; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .container {
+            width: 80%;
+            /* height: 100px; */
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            align-content: stretch;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+        }
+        .container *{
+            display: flex;
+        }
+        .vForCont {
+            width: 40vh;
+            margin: 10px;
+        }
+        .button {
+            width: 100%;
+            height: 30vh;
+            background-color: #eeeeee;
+            border-radius: 10px;
+        }
+        .button:hover {
+            background-color: #a7a7a7!important;
+            transition: all ease-in-out .2s;
+        }
+        a {
+            text-decoration: none;
+            font-family: "SF Pro Display", "苹方";
+        }
+
+        .button span {
+            font-family: "SF Pro Display", "苹方";
+            color: black;
+            line-height: 30vh;
+            padding-left: 3vh;
+            font-weight: 600;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="view">
+                <div class="home">
+                    <!-- <img src="https://www.dogedoge.com/assets/logo_homepage.normal.v108.svg" alt="" class="logo"> -->
+                    <div class="srch">
+                        <img src="https://www.dogedoge.com/assets/logo_homepage_mobile.normal.v107.svg" alt=""
+                            class="logo">
+                        <div class="search_part">
+                            <form action="https://www.dogedoge.com/results" class="search_bar">
+                                <!-- <input name="from" type="hidden" value="1011440l">
+                                    <input name="ie" type="hidden" value="utf-8"> -->
+                                <input type="submit" id="search_submit" value="↵">
+                                <span>
+                                    <!-- <input class="search" type="text" name="word" autocomplete="off" id="search_input" baiduSug="1"> -->
+                                    <input class="search" type="text" name="q" autocomplete="off" id="search_input"
+                                        baiduSug="1">
+                                </span>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="main">
+                        <div class="contcontainer">
+                            <div class="container">
+                                <div class="vForCont" v-for="item in urlList">
+                                    <a :href="item.url" class="button" :style="'background-color:'+item.color+'!important;'">
+                                        <span :style="'color:'+item.fontColor">{{item.title}}</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+</body>
+<!-- vue -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script> -->
+<script src="js/vue.js"></script>
+<!-- eleme -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    var app = new Vue({
+        el: '#view',
+        data: {
+            message: 'Hello Vue!',
+            currentTab: 'main',
+            visible: false,
+            urlList: [
+                {
+                    title: "哔哩哔哩",
+                    icon: "",
+                    url: "https://space.bilibili.com/4325844/favlist",
+                    color: "#df85a0",
+                    fontColor: "#FFF"
+                }, {
+                    title: "教务在线",
+                    icon: "",
+                    url: "http://jwcweb.lcu.edu.cn/lzjw182/f?p=213"
+                }, {
+                    title: "聊大图书馆",
+                    icon: "",
+                    url: "http://www-lib.lcu.edu.cn/"
+                }, {
+                    title: "易班优课",
+                    icon: "",
+                    url: "https://www.yooc.me/dashboard/mygroup"
+                }, {
+                    title: "校园网登录",
+                    icon: "",
+                    url: "http://172.30.2.2:8088"
+                }, {
+                    title: "批改网",
+                    icon: "",
+                    url: "https://www.pigai.org/index.php?c=write&a=myclass",
+                    color:"#29abe2",
+                    fontColor:"white"
+                },
+            ]
+        },
+        methods: {
+            changeTab(tab) {
+                this.currentTab = tab;
+                console.log(this.currentTab);
+            }
+        },
+    })
+</script>
+
+<script>
+    // div.style.height = screen.availHeight;
+    // unipus.style.height = screen.availHeight;
+    // var firefox = navigator.userAgent.indexOf('Firefox') != -1;
+    // function MouseWheel(e, doc) {
+    //     e.preventDefault && e.preventDefault(), e.returnValue = false;
+    //     var up = firefox && e.detail < 0 || e.wheelDelta > 0;
+
+    //     doc.body.scrollTop = doc.documentElement.scrollTop += up ? -50 : 50;//每次滚动50px
+    // }
+    // function bindMouseWhee(ifr) {
+    //     try {
+    //         var doc = ifr.contentWindow.document;
+    //         firefox ? doc.addEventListener('DOMMouseScroll', function (e) { MouseWheel(e, doc) }, false) : (doc.onmousewheel = function (e) { MouseWheel(e || ifr.contentWindow.event, doc) });
+    //     }
+    //     catch (e) { alert('跨域无法获取iframe加载document' + e) }
+    // }
+</script>
+<script charset="gbk" src="https://www.baidu.com/js/opensug.js"></script>
+<script type="text/javascript">
+    BaiduSuggestion.bind('search_submit', {  // Input ID
+        "XOffset": "0",             // Proposal frame position X offset, unit px.
+        "YOffset": "0",             // Prompt box position vertical Y offset, unit px.
+        "fontColor": "#ff0000",       // Prompt text color.
+        "fontColorHI": "#0000ff",     // Prompt box highlight text color when selected.
+        "fontSize": "14px",           // font size
+        "fontFamily": "Microsoft YaHei",    // Text fontFamily.
+        "borderColor": "#008000",     // Prompt box border color.
+        "bgcolorHI": "#f0f0f0",       // Prompt box highlights the selected color.
+        "sugSubmit": true             // Whether to submit the form when the entry in the prompt box is selected.
+    }, function (Callback) { console.log('You have chosen：' + Callback); });
+</script>
+
+</html>

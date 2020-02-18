@@ -1,0 +1,137 @@
+body {
+    background: center/cover no-repeat fixed #3b3b3b;
+    /* backdrop-filter: blur(10px); */
+    margin: 0;
+    font-family: "SF Pro Display", "苹方";
+}
+
+#view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#container {
+    width: 100%;
+    /* padding-top: 30px; */
+    /* background: #000; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+#app {
+    width: 100%;
+    background: transparent;
+    background-color: rgba(255, 255, 255, 0.3);
+    /* backdrop-filter: blur(15px); */
+    /* background: rgba(51, 51, 51, 0.384); */
+    /* backdrop-filter: blur(10px); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden;
+}
+
+#app>div {
+    width: 100%;
+    height: 620px;
+}
+
+#main {
+    display: block;
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+
+}
+
+.srch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    /* height: 100%; */
+}
+
+#uplus {
+    display: none;
+}
+
+#urp {
+    display: none;
+}
+
+#unipus {
+    display: none;
+}
+
+#app>div {
+    height: 620px;
+    width: 100%;
+    background: #ffffff;
+}
+
+/* #app>div>iframe {
+            width: 100%;
+            height: 620px;
+            background: #ffffff;
+        } */
+#app>iframe {
+    width: 100%;
+    /* height: 10px; */
+}
+
+/* #main{
+            height: 620px;
+        } */
+.tabs {
+    /* margin-left: 30px; */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* background-color: rgba(51, 51, 51, 0.384); */
+    /* backdrop-filter: blur(18px); */
+}
+
+.tab {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 5px 16px;
+    text-decoration: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.activeTab {
+    color: white;
+    /* background-color: rgba(51, 51, 51, 0.384); */
+    background-color: #5b5b5b;
+}
+
+.inactiveTab {}
+
+.tab:hover {
+    /* background-color: rgba(51, 51, 51, 0.384); */
+    background-color: #515151;
+    transition: all .2s;
+    cursor: pointer;
+}
+
+iframe {
+    scroll-behavior: smooth;
+
+}
