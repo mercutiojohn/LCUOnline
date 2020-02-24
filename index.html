@@ -56,14 +56,14 @@
             currentItem: {},
             visible: false,
             tabs: [{
-                    title: "U+新工科智慧云",
-                    status: false,
-                    url: "http://ee-c.lcu.edu.cn/si/student/group"
-                },
-                {
                     title: "超星学习通",
                     status: false,
                     url: "http://i.chaoxing.com/base"
+                },
+                {
+                    title: "U+新工科智慧云",
+                    status: false,
+                    url: "http://ee-c.lcu.edu.cn/si/student/group"
                 },
                 // {
                 //     title: "课表",
@@ -100,11 +100,11 @@
                     status: false,
                     url: "http://nz.1000phone.com/studentIndex"
                 },
-                {
-                    title: "计划",
-                    status: false,
-                    url: "https://www.notion.so/mercutio/8029f70aeeaf44fc9312f788507414fd"
-                }
+                // {
+                //     title: "计划",
+                //     status: false,
+                //     url: "https://www.notion.so/mercutio/8029f70aeeaf44fc9312f788507414fd"
+                // }
 
             ],
             functionBox: {
@@ -210,8 +210,8 @@
             this.checkCookie();
 
             // this.currentItem = this.tabs[0];
-            this.tabs[this.tabs.length - 1].status = true;
-
+            // this.tabs[this.tabs.length - 1].status = true;
+            this.tabs[0] = true;
             window.addEventListener('resize', this.getHeight);
             this.getHeight();
 
