@@ -26,6 +26,7 @@
                 <li v-for="(item,index) in tabs" @click="changeTab(index)"
                     :class="'tab' + (item.status?' activeTab':' inactiveTab')">
                     {{item.title}}
+                    <a :href="item.url" style="color: #ffffffbb; text-decoration:none">GO</a>
                 </li>
             </ul>
         </div>
@@ -85,6 +86,11 @@
                     title: "传智播客",
                     status: false,
                     url: "http://stu.ityxb.com/Classroom/course/learning"
+                },
+                {
+                    title: "传智播客刷视频",
+                    status: false,
+                    url: "http://stu.ityxb.com/learning/3b97338b3d7546e6936aabd43f7d16a9/preview/list"
                 },
                 {
                     title: "斗鱼关注",
