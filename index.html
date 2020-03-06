@@ -13,7 +13,9 @@
     <script src="js/vue.js"></script>
     <!-- eleme -->
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mainPage.css">
+    <link rel="stylesheet" href="css/blocks.css">
+    <link rel="stylesheet" href="css/functionBox.css">
 
 </head>
 
@@ -23,30 +25,38 @@
             <ul class="tabs">
                 <!-- <li v-for="(item,index) in tabs" @click="changeTab(item)" :class="'tab '+item.status">{{item.title}}
                 </li> -->
+                <li @click="changeTab('functionBox')" :class="'tab' + (functionBox.status?' activeTab':' inactiveTab')">
+                    主页
+                </li>
                 <li v-for="(item,index) in tabs" @click="changeTab(index)"
                     :class="'tab' + (item.status?' activeTab':' inactiveTab')">
                     {{item.title}}
-                    <a :href="item.url" style="color: #ffffffbb; text-decoration:none">GO</a>
+                    <a :href="item.url" style="color: #ffffffbb; text-decoration:none" target="_blank">↗</a>
                 </li>
             </ul>
         </div>
         <div id="app">
             <!-- <iframe :src="currentItem.url" frameborder="0" scrolling="auto"></iframe> -->
-            <iframe :style="contentStyleObj" v-for="item in tabs" :src="item.url" frameborder="0" scrolling="auto"
-                v-show="item.status"></iframe>
-            <!-- <div :style="contentStyleObj" id="function_box" v-show="functionBox.status">
+            <div :style="contentStyleObj" id="function_box" v-if="functionBox.status">
                 <ul class="blocks">
                     <li v-for="(item,index) in blocks">
-                        <a :href="item.url" class="block"><span>{{item.title}}</span></a>
+                        <span>{{item.title}}</span>
+                        <hr />
+                        <a v-for="(link,index) in item.url" :href="link" class="block" target="_blank">
+                            <span>{{index+1}}&nbsp;&nbsp;</span>
+                            <span>{{link}}</span>
+                        </a>
                     </li>
                 </ul>
-                <textarea class="notes" v-model="notes" placeholder="你可以在这里记录各科目的网课要求。"></textarea>
-                button @click="setCookie('notes', notes, 365)">保存</button>
-            </div> -->
+                <!-- <textarea class="notes" v-model="notes" placeholder="你可以在这里记录各科目的网课要求。"></textarea> -->
+                <!-- <button @click="setCookie('notes', notes, 365)">保存</button> -->
+            </div>
+            <iframe :style="contentStyleObj" v-for="item in tabs" :src="item.url" frameborder="0" scrolling="auto"
+                v-if="item.status"></iframe>
         </div>
     </div>
 </body>
-<script>
+<script type="module">
     // var iframe = document.getElementsByTagName("iframe");
     // iframe[1].onload = function () {
     //     alert("iframe load  done");
@@ -130,7 +140,7 @@
 
             ],
             functionBox: {
-                status: false
+                status: true
             },
             contentStyleObj: {
                 height: '',
@@ -138,38 +148,67 @@
             },
             notes: "",
             blocks: [{
-                    title: "教务系统",
-                    url: "http://ee-c.lcu.edu.cn/si/student/group"
-                },
-                {
-                    title: "超星学习通",
-                    url: "http://i.chaoxing.com/base"
-                },
-                // {
-                // title: "课表",
-                // status: false,
-                // url: "http://jwcweb.lcu.edu.cn/jwglxt/"
-                // },
-                {
-                    title: "大学英语挂机网",
-                    url: "http://210.44.112.108"
-                },
-                {
-                    title: "传智播客",
-                    url: "http://stu.ityxb.com/Classroom/course/learning"
-                },
-                {
-                    title: "斗鱼关注",
-                    url: "https://www.douyu.com/directory/myFollow"
-                },
-                {
-                    title: "更多"
-                }
+            "title": "数据库",
+            "url": ["https://www.bilibili.com/video/av20449194",
+            "http://ee-c.lcu.edu.cn/si/student/studentHeadline/8a7d8a95703d185c0170438b164e0e01/teachClassStudent"
             ]
+            }, {
+            "title": "毛概",
+            "url": [
+            "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=206752418&vc=1&clazzid=13628828&enc=728905676290eef8d0dc38cdee3f5482"
+            ]
+            }, {
+            "title": "信息安全",
+            "url": [
+            "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=207249971&clazzid=14930293&vc=1&cpi=111705708&enc=e454a5f8505f2152eb41c36cee1b3860"
+            ]
+            }, {
+            "title": "操作系统",
+            "url": ["https://www.bilibili.com/video/av6538245?p=38",
+            "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=206110716&clazzid=12235279&vc=1&cpi=111705708&enc=bf057bda6247443f83107bcb0a9c8280"
+            ]
+            }, {
+            "title": "团队激励",
+            "url":
+            ["http://ee-c.lcu.edu.cn/si/student/studentHeadline/fb017e8c6f7b40d50170051da1a23929/teachClassStudent",
+            "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=206154273&clazzid=12280027&vc=1&cpi=111705708&enc=8ecc8a9eb332bff5933d64040d9c2230"
+            ]
+            }, {
+            "title": "Java",
+            "url": ["http://ee-c.lcu.edu.cn/si/student/studentHeadline/fb017e8c6e789fd9016f0ee96f2d3285/stuCourseInfo",
+            "http://stu.ityxb.com/learning/3b97338b3d7546e6936aabd43f7d16a9/preview/list"
+            ]
+            }, {
+            "title": "英语",
+            "url": [
+            "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=205991712&clazzid=11988613&vc=1&cpi=111705708&enc=5631fa62522de5e965a295121b2fbfac"
+            ]
+            }, {
+            "title": "概率论",
+            "url": ["file:///D:/视频/下载的视频/高数叔概率论与数理统计/",
+            "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=207354731&vc=1&clazzid=14743425&enc=eed97f64c9fa8563d5339dd8ab5ab9d5"
+            ]
+            }]
         },
         methods: {
+            // getJsonInfo() {
+
+            //     this.$http.get('info.json').then(function(response){
+            //         console.log(response.data.data);
+            //         var resdata = response.data.data;
+            //         this.peps = resdata;
+            //     }).catch(function(response){
+            //         console.log(response);
+            //         console.log("居然没有弹窗");
+            //     })
+            // },
             changeTab(selectedTab) {
                 // this.currentItem = selectedTab;
+                if (selectedTab == "functionBox") {
+                    this.functionBox.status = true;
+                } else {
+                    this.functionBox.status = false;
+                }
                 for (var i = 0; i < this.tabs.length; i++) {
                     this.tabs[i].status = false;
                 }
@@ -230,10 +269,16 @@
         },
         created() {
             this.checkCookie();
-
+            // this.blocks = require('blocks.json');
+            // console.log(require('blocks.json'));
+            // this.$http.get('tabs.json').then(response => {
+            //     console.log(response)
+            // }, response => {
+            //     console.log('tabs数据加载失败')
+            // });
             // this.currentItem = this.tabs[0];
             // this.tabs[this.tabs.length - 1].status = true;
-            this.tabs[0].status = true;
+            // this.tabs[0].status = true;
             window.addEventListener('resize', this.getHeight);
             this.getHeight();
 
