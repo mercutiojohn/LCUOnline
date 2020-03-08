@@ -40,12 +40,17 @@
             <div :style="contentStyleObj" id="function_box" v-if="functionBox.status">
                 <ul class="blocks">
                     <li v-for="(item,index) in blocks">
-                        <span>{{item.title}}</span>
-                        <hr />
-                        <a v-for="(link,index) in item.url" :href="link" class="block" target="_blank">
-                            <span>{{index+1}}&nbsp;&nbsp;</span>
-                            <span>{{link}}</span>
-                        </a>
+                        <div>
+                            <input type="checkbox"></input>
+                            <span>{{item.title}}</span>
+                        </div>
+                        <!-- <hr /> -->
+                        <div>
+                            <a v-for="(link,index) in item.url" :href="link" class="block" target="_blank">
+                                <span>{{index+1}}&nbsp;&nbsp;</span>
+                                <span>{{link}}</span>
+                            </a>
+                        </div>
                     </li>
                 </ul>
                 <!-- <textarea class="notes" v-model="notes" placeholder="你可以在这里记录各科目的网课要求。"></textarea> -->
