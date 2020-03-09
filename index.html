@@ -40,7 +40,7 @@
             <div :style="contentStyleObj" id="function_box" v-if="functionBox.status">
                 <ul class="blocks">
                     <li v-for="(item,index) in blocks">
-                        <div class="blockHead">
+                        <div :class="'blockHead'">
                             <input type="checkbox" v-model="item.checked"></input>
                             <span>{{item.title}}</span>
                         </div>
