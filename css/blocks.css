@@ -8,7 +8,7 @@
     align-content: stretch;
     padding-left: 0;
     /* bgc */
-    /* overflow: scroll; */
+    overflow: scroll;
     /* scrollbar-width: 0; */
 
 }
@@ -18,8 +18,8 @@
     /* width: auto; */
     /* max-width: 300px; */
     flex-direction: column;
-    width: 200px;
-    height: 100px;
+    width: 220px;
+    height: 110px;
     margin: 10px;
     padding: 10px;
     /* align-items: center; */
@@ -28,6 +28,7 @@
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.185);
     border-radius: 10px;
     background-color: #fff;
+    overflow: hidden;
 }
 
 .blocks li div a {
