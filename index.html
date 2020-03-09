@@ -31,7 +31,8 @@
                 <li v-for="(item,index) in tabs" @click="changeTab(index)"
                     :class="'tab' + (item.status?' activeTab':' inactiveTab')">
                     {{item.title}}
-                    <a :href="item.url" style="color: #ffffffbb; text-decoration:none" target="_blank">↗</a>
+                    <a v-if="!item.status" :href="item.url" style="color: #ffffffbb; text-decoration:none"
+                        target="_blank">↗</a>
                 </li>
             </ul>
         </div>
@@ -126,11 +127,11 @@
                     url: "https://ke.youdao.com/user/mycourse/",
                     status: false
                 },
-                {
-                    title: "千锋",
-                    status: false,
-                    url: "http://nz.1000phone.com/studentIndex"
-                },
+                // {
+                //     title: "千锋",
+                //     status: false,
+                //     url: "http://nz.1000phone.com/studentIndex"
+                // },
                 {
                     title: "B站",
                     status: false,
