@@ -41,7 +41,8 @@
                 <ul class="blocks">
                     <li v-for="(item,index) in blocks">
                         <div :class="'blockHead'">
-                            <input type="checkbox" v-model="item.checked"></input>
+                            <input type="checkbox" v-model="done[index]"></input>
+                            <span :class="'done'" v-show="done[index]">已完成</span>
                             <span>{{item.title}}</span>
                         </div>
                         <!-- <hr /> -->
@@ -150,7 +151,8 @@
             },
             contentStyleObj: {
                 height: '',
-                width: '100%'
+                width: '100%',
+                backgroundColor:'#eee'
             },
             notes: "",
             blocks: [{
@@ -331,7 +333,8 @@
                     "bgColor":"",
                     "color":0
                 }
-            ]
+            ],
+            done:[]
         },
         methods: {
             // getJsonInfo() {
@@ -395,6 +398,7 @@
             },
             checkCookie() {
                 this.notes = this.getCookie("notes");
+                this.done = JSON.parse(this.getCookie("done"));
                 // var user = this.getCookie("username");
                 // if (user != "") {
                 //     console.info("Welcome again " + user);
@@ -450,7 +454,12 @@
         watch: {
             notes: function () {
                 this.setCookie("notes", this.notes, 365);
+            },
+            done: function(){
+                this.setCookie("done", JSON.stringify(this.done), 365);
+                // TODO: weekly check
             }
+
         }
     })
 </script>
