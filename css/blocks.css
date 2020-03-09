@@ -18,7 +18,7 @@
     /* max-width: 300px; */
     flex-direction: column;
     width: 200px;
-    height: 170px;
+    height: 100px;
     margin: 10px;
     padding: 10px;
     /* align-items: center; */
@@ -28,9 +28,9 @@
     border-radius: 10px;
 }
 
-.blocks li a {
+.blocks li div a {
     padding: 4px 7px;
-    margin: 5px 0;
+    margin: 2px 5px;
     background: rgba(126, 126, 126, 0.075);
     transition: all ease-in-out .3s;
     color: black;
@@ -39,7 +39,7 @@
     display: flex;
 }
 
-.blocks li a:hover {
+.blocks li div a:hover {
     background: #ccc;
     transition: all ease-in-out .5s;
 }
@@ -49,4 +49,10 @@
 a {
     text-decoration: none;
     color: rgb(57, 143, 255);
+}
+
+.blockBody {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
