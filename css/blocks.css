@@ -36,9 +36,15 @@
     background: rgba(126, 126, 126, 0.075);
     transition: all ease-in-out .3s;
     color: black;
+    display: flex;
+    align-items: center;
     border-radius: 5px;
     overflow: hidden;
     display: flex;
+}
+
+.blocks li div a span {
+    margin-left: 4px;
 }
 
 .blocks li div a:hover {
@@ -63,4 +69,10 @@ a {
     padding: 3px;
     border-radius: 4px;
     background: rgb(0, 187, 100);
+}
+
+.icon {
+    width: auto;
+    height: 22px;
+    margin: 3px;
 }
