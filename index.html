@@ -24,13 +24,32 @@
 <body>
     <div id="view">
         <transition name="fade">
+            <div id="timeWrap" v-if="timeWrapDisplay" :style="wrapStyleObj">
+                <div class="headArea" :style="wrapSearchStyleObj">
+                    <span class="close" v-on:click="timeWrapDisplay = false">
+                        <i class="el-icon-close"></i>
+                    </span>
+
+                    <el-switch v-model="timePreferences.showSecond" active-text="显示秒" inactive-text="">
+                    </el-switch>
+                    <el-switch v-model="timePreferences.twelveFormat" active-text="12小时制" inactive-text="">
+                    </el-switch>
+                </div>
+            </div>
+        </transition>
+        <transition name="fade">
             <div id="searchWrap" v-if="searchWrapDisplay" :style="wrapStyleObj">
+                <span class="close" v-on:click="searchWrapDisplay = false">
+                    <i class="el-icon-close"></i>
+                </span>
                 <div class="headArea" :style="wrapSearchStyleObj">
                     <!-- <div class="searchBox_inWrap">
                         <input class="navBar_home_inputText" type="text" name="" id="" placeholder="今日事，今日毕。"
                             v-on:click="searchWrapDisplay = true">
                     </div> -->
-                    <span class="close" v-on:click="searchWrapDisplay = false">X</span>
+                    <el-radio-group v-model="targetUrl">
+                        <el-radio v-for="(item,index) in searchUrls" :label="item">{{item.title}}</el-radio>
+                    </el-radio-group>
                 </div>
 
             </div>
@@ -56,9 +75,10 @@
             <div :style="contentStyleObj" id="function_box" v-if="functionBox.status">
                 <div class="blockBox">
                     <div id="headBox">
-                        <div id="time">
-                            <span id="timeContent">{{date}}</span>
-                            <span id="twelveLabel">{{timePreferences.twelveLabel}}</span>
+                        <div id="time" v-on:click="timeWrapDisplay = true">
+                            <span id="timeContent" :class="searchWrapDisplay?'hideTime':''">{{date}}</span>
+                            <span id="twelveLabel" :class="searchWrapDisplay?'hideTime':''"
+                                v-if="timePreferences.twelveFormat">{{timePreferences.twelveLabel}}</span>
                         </div>
                         <div id="quote">
                             <span>今日事，今日毕。</span>
@@ -67,10 +87,10 @@
 
                     <!-- <span id="timeContent">{{time}}</span> -->
                     <div class="searchBox">
-                        <i class="el-icon-search"></i>
-                        <form action="http://www.baidu.com/s" target="_blank">
-                            <input class="navBar_home_inputText" type="text" name="wd" id="" placeholder="搜索"
-                                v-on:click="searchWrapDisplay = true">
+                        <i class="el-icon-search searchIcon"></i>
+                        <form :action="targetUrl.url" target="_blank">
+                            <input class="navBar_home_inputText" type="text" :name="targetUrl.queryWord" id=""
+                                :placeholder="targetUrl.title" v-on:click="searchWrapDisplay = true">
                         </form>
                     </div>
                     <div id="settingsBar">
@@ -140,13 +160,49 @@
             img_url: 'img/',
             done: [],
             searchWrapDisplay: false,
+            timeWrapDisplay: false,
             timePreferences: {
                 showSecond: false,
                 twelveFormat: true,
                 twelveLabel: ''
             },
             blocksPreferences: {
-                showAll: true
+                showAll: false
+            },
+            targetUrl: {
+                "title": "多吉",
+                "url": "https://www.dogedoge.com/results",
+                "queryWord": "q"
+            },
+            searchUrls: {
+                doge: {
+                    "title": "多吉",
+                    "url": "https://www.dogedoge.com/results",
+                    "queryWord": "q"
+                },
+                wenku: {
+                    "title": "文库",
+                    "url": "https://wenku.baidu.com/search",
+                    "queryWord": "word"
+                },
+                mdn: {
+                    "title": "MDN",
+                    "url": "https://developer.mozilla.org/zh-CN/search",
+                    "queryWord": "q"
+                },
+                google: {
+                    "title": "谷歌",
+                    "url": "https://www.google.com/search",
+                    "queryWord": "q"
+                },
+                baidu: {
+                    "title": "百度",
+                    "url": "http://www.baidu.com/s",
+                    "queryWord": "wd"
+                },
+
+
+
             },
             //DataBases
             platforms: [
@@ -583,6 +639,9 @@
             checkCookie() {
                 this.notes = this.getCookie("notes");
                 this.done = JSON.parse(this.getCookie("done"));
+                this.targetUrl = JSON.parse(this.getCookie("targetUrl"));
+                this.blocksPreferences = JSON.parse(this.getCookie("blocksPreferences"));
+                this.timePreferences = JSON.parse(this.getCookie("timsPreferences"));
                 // var user = this.getCookie("username");
                 // if (user != "") {
                 //     console.info("Welcome again " + user);
@@ -612,7 +671,6 @@
             // TODO
         },
         created() {
-            this.checkCookie();
             // this.blocks = require('blocks.json');
             // console.log(require('blocks.json'));
             // this.$http.get('tabs.json').then(response => {
@@ -626,6 +684,7 @@
             window.addEventListener('resize', this.getHeight);
             this.getHeight();
             this.date = this.getTime();
+            this.checkCookie();
             /*console.log(document.getElementsByTagName("iframe")[0].offsetHeight);
             var i = document.getElementsByTagName("iframe").length;
             // while (i--) document.getElementsByTagName("iframe")[i].height = this.frameHeight;
@@ -660,7 +719,17 @@
             done: function () {
                 this.setCookie("done", JSON.stringify(this.done), 365);
                 // TODO: weekly check
+            },
+            targetUrl: function () {
+                this.setCookie("targetUrl", JSON.stringify(this.targetUrl), 1);
+            },
+            blocksPreferences: function () {
+                this.setCookie("blocksPreferences", JSON.stringify(this.blocksPreferences), 365);
+            },
+            timePreferences: function () {
+                this.setCookie("timePreferences", JSON.stringify(this.blocksPreferences), 365);
             }
+
 
         }
     })
