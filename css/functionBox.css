@@ -29,15 +29,19 @@
     background: #17181a;
 }
 
-#time {
+#headBox {
     padding-top: 50px;
     padding-bottom: 30px;
+    width: 80%;
     /* change */
     /* color: white; */
     /* font-size: 40px; */
     /* font-weight: 800; */
     /* font-family: 'SF Pro Display'; */
     height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 #timeContent {
@@ -54,12 +58,16 @@
 
 }
 
+#quote {
+    color: rgba(255, 255, 255, 0.349);
+}
+
 .searchBox {
     margin-top: 0px;
     width: 80%;
     max-width: 700px;
     margin-bottom: 30px;
-    z-index: 10000;
+    z-index: 1001;
 }
 
 

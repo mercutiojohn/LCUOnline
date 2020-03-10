@@ -54,15 +54,22 @@
             <!-- <iframe :src="currentItem.url" frameborder="0" scrolling="auto"></iframe> -->
             <div :style="contentStyleObj" id="function_box" v-if="functionBox.status">
                 <div class="blockBox">
-                    <div id="time">
-                        <span id="timeContent">{{date}}</span>
-                        <span id="twelveLabel">{{timePreferences.twelveLabel}}</span>
+                    <div id="headBox">
+                        <div id="time">
+                            <span id="timeContent">{{date}}</span>
+                            <span id="twelveLabel">{{timePreferences.twelveLabel}}</span>
+                        </div>
+                        <div id="quote">
+                            <span>今日事，今日毕。</span>
+                        </div>
                     </div>
 
                     <!-- <span id="timeContent">{{time}}</span> -->
                     <div class="searchBox">
-                        <input class="navBar_home_inputText" type="text" name="" id="" placeholder="今日事，今日毕。"
-                            v-on:click="searchWrapDisplay = true">
+                        <form action="http://www.baidu.com/s" target="_blank">
+                            <input class="navBar_home_inputText" type="text" name="wd" id="" placeholder="搜索"
+                                v-on:click="searchWrapDisplay = true">
+                        </form>
                     </div>
                     <ul class="blocks">
                         <li v-for="(item,index) in blocks">
@@ -423,7 +430,7 @@
             timePreferences: {
                 showSecond: false,
                 twelveFormat: true,
-                twelveLabel: '哈哈哈'
+                twelveLabel: ''
             }
 
         },
