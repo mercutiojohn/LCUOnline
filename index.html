@@ -24,7 +24,7 @@
     <div id="view">
         <transition name="fade">
             <div id="searchWrap" v-if="searchWrapDisplay" :style="wrapStyleObj">
-                <div class="headArea">
+                <div class="headArea" :style="wrapSearchStyleObj">
                     <div class="searchBox_inWrap">
                         <input class="navBar_home_inputText" type="text" name="" id="" placeholder="今日事，今日毕。"
                             v-on:click="searchWrapDisplay = true">
@@ -181,6 +181,9 @@
             wrapStyleObj: {
                 height: '',
                 width: '100%'
+            },
+            wrapSearchStyleObj: {
+                marginTop: ''
             },
             notes: "",
             blocks: [{
@@ -445,6 +448,8 @@
                 this.contentStyleObj.height = h - document.getElementById("container").offsetHeight - 15 +
                     'px';
                 this.wrapStyleObj.height = h + 'px';
+                // this.wrapSearchStyleObj.marginTop = document.getElementById("container").offsetHeight + window.getComputedStyle(document.querySelector('.searchBox'),null).marginTop;
+
             },
 
             // Cookies
