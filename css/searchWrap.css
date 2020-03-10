@@ -1,0 +1,55 @@
+#searchWrap {
+    width: 100%;
+    height: 200px;
+    background: #17181a3f;
+    backdrop-filter: blur(50px);
+    position: absolute;
+    z-index: 1000;
+    /* transition: all ease-in-out .5s; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s;
+}
+
+/* .fade-leave-active below version 2.1.8 */
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.close {
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    color: white;
+    background-color: #27282aa2;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.headArea {
+    width: 90%;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    margin-top: 135px;
+    margin-bottom: 30px;
+}
+
+.searchBox_inWrap {
+    width: 80%;
+    max-width: 700px;
+    /* flex-direction: row; */
+}

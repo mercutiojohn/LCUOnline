@@ -16,11 +16,24 @@
     <link rel="stylesheet" href="css/mainPage.css">
     <link rel="stylesheet" href="css/blocks.css">
     <link rel="stylesheet" href="css/functionBox.css">
+    <link rel="stylesheet" href="css/searchWrap.css">
 
 </head>
 
 <body>
     <div id="view">
+        <transition name="fade">
+            <div id="searchWrap" v-if="searchWrapDisplay" :style="wrapStyleObj">
+                <div class="headArea">
+                    <div class="searchBox_inWrap">
+                        <input class="navBar_home_inputText" type="text" name="" id="" placeholder="今日事，今日毕。"
+                            v-on:click="searchWrapDisplay = true">
+                    </div>
+                    <span class="close" v-on:click="searchWrapDisplay = false">X</span>
+                </div>
+
+            </div>
+        </transition>
         <div id="container">
             <ul class="tabs">
                 <!-- <li v-for="(item,index) in tabs" @click="changeTab(item)" :class="'tab '+item.status">{{item.title}}
@@ -42,7 +55,8 @@
             <div :style="contentStyleObj" id="function_box" v-if="functionBox.status">
                 <div class="blockBox">
                     <div class="searchBox">
-                        <input class="navBar_home_inputText" type="text" name="" id="">
+                        <input class="navBar_home_inputText" type="text" name="" id="" placeholder="今日事，今日毕。"
+                            v-on:click="searchWrapDisplay = true">
                     </div>
                     <ul class="blocks">
                         <li v-for="(item,index) in blocks">
@@ -164,6 +178,10 @@
                 width: '100%',
                 backgroundColor: '#eee'
             },
+            wrapStyleObj: {
+                height: '',
+                width: '100%'
+            },
             notes: "",
             blocks: [{
                 "title": "六级",
@@ -195,9 +213,9 @@
                     {
                         "title": 3,
                         "ref": "http://ee-c.lcu.edu.cn/si/student/studentHeadline/8a7d8a95703d185c0170438b164e0e01/teachClassStudent"
-                    },{
-                        "title":12,
-                        "ref":"https://www.douyu.com/2398207"
+                    }, {
+                        "title": 12,
+                        "ref": "https://www.douyu.com/2398207"
                     }
                 ]
             }, {
@@ -379,18 +397,20 @@
                     "bgColor": "#ea5145",
                     "color": 1
                 }, {
-                "title": "U+(校外)",
-                "img": "uplus.png",
-                "bgColor": "#1e83ca",
-                "color": 1
-                },{
-                "title": "斗鱼",
-                "img": "",
-                "bgColor": "#ea5145",
-                "color": 1
+                    "title": "U+(校外)",
+                    "img": "uplus.png",
+                    "bgColor": "#1e83ca",
+                    "color": 1
+                }, {
+                    "title": "斗鱼",
+                    "img": "",
+                    "bgColor": "#ea5145",
+                    "color": 1
                 },
             ],
-            done: []
+            done: [],
+            searchWrapDisplay: false
+
         },
         methods: {
             // getJsonInfo() {
@@ -424,6 +444,7 @@
                     .clientHeight;
                 this.contentStyleObj.height = h - document.getElementById("container").offsetHeight - 15 +
                     'px';
+                this.wrapStyleObj.height = h + 'px';
             },
 
             // Cookies
@@ -500,12 +521,16 @@
             window.removeEventListener('resize', this.getHeight);
         },
         computed: {
-            // frameHeight: function () {
-            //     var h = window.innerHeight || document.documentElement.clientHeight || document.body
-            //         .clientHeight;
-            //     var tabHeight = 10 || document.getElementsById("container").offsetHeight;
-            //     return h - tabHeight;
-            // }
+            contentHeight: function () {
+                var h = window.innerHeight || document.documentElement.clientHeight || document.body
+                    .clientHeight;
+                return (h - document.getElementById("container").offsetHeight - 15 + 'px');
+            },
+            wrapHeight: function () {
+                var h = window.innerHeight || document.documentElement.clientHeight || document.body
+                    .clientHeight;
+                return h + 'px';
+            }
         },
         watch: {
             notes: function () {
