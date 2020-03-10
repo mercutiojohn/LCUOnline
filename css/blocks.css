@@ -1,3 +1,12 @@
+#settingsBar {
+    width: 90%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
 .blocks {
     display: flex;
     flex-direction: row;
@@ -12,7 +21,7 @@
     flex-wrap: wrap;
     padding-left: 0;
     /* bgc */
-    overflow: hidden;
+    /* overflow: hidden; */
     /* overflow: scroll; */
     scrollbar-width: 0;
 

@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>LCU在线</title>
     <!-- eleme -->
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"> -->
+    <link rel="stylesheet" href="css/elementUI.css">
     <!-- vue -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script> -->
     <script src="js/vue.js"></script>
@@ -66,17 +67,27 @@
 
                     <!-- <span id="timeContent">{{time}}</span> -->
                     <div class="searchBox">
+                        <i class="el-icon-search"></i>
                         <form action="http://www.baidu.com/s" target="_blank">
                             <input class="navBar_home_inputText" type="text" name="wd" id="" placeholder="搜索"
                                 v-on:click="searchWrapDisplay = true">
                         </form>
                     </div>
+                    <div id="settingsBar">
+                        <el-switch v-model="blocksPreferences.showAll" active-text="全部" inactive-text="今日">
+                        </el-switch>
+                    </div>
                     <ul class="blocks">
-                        <li v-for="(item,index) in blocks" v-show="ifToday(index)">
+                        <li v-for="(item,index) in blocks" v-show="ifToday(index) || blocksPreferences.showAll">
                             <div :class="'blockHead'">
-                                <input type="checkbox" v-model="done[index]"></input>
-                                <span :class="'done'" v-show="done[index]">已完成</span>
-                                <span>{{item.title}}</span>
+                                <div>
+                                    <el-checkbox v-model="done[index]"></el-checkbox>
+                                    <!-- <input type="checkbox" v-model="done[index]"></input> -->
+                                    <span>{{item.title}}</span>
+                                </div>
+                                <transition name="fade">
+                                    <span :class="'done'" v-show="done[index]">已完成</span>
+                                </transition>
                             </div>
                             <!-- <hr /> -->
                             <div :class="'blockBody'">
@@ -133,6 +144,9 @@
                 showSecond: false,
                 twelveFormat: true,
                 twelveLabel: ''
+            },
+            blocksPreferences: {
+                showAll: true
             },
             //DataBases
             platforms: [
@@ -371,7 +385,7 @@
                         {
                             "title": 6,
                             "ref":
-                                "https://www.icourse163.org/learn/UESTC-1003046001?tid=1450291448#/learn/announce"
+                                "https://www.icourse163.org/learn/UESTC-1003046001?tid=1450291448#/learn/content"
                         },
                     ]
                 }, {

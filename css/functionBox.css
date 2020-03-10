@@ -7,7 +7,7 @@
 .blockBox {
     width: 100%;
     height: 100%;
-    /* overflow: scroll; */
+    overflow: scroll;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -16,6 +16,13 @@
     /* change */
     background: #17181a;
 
+}
+
+.blockHead {
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .blockBox_black {
