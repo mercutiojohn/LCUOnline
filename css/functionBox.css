@@ -48,7 +48,9 @@
 
     font-size: 40px;
     font-weight: 800;
-    font-family: 'SF Pro Display';
+    font-family: -apple-system,
+        SF UI Text,
+        'SF Pro Display';
     /* change */
     color: white;
 }

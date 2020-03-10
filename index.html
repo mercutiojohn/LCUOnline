@@ -72,7 +72,7 @@
                         </form>
                     </div>
                     <ul class="blocks">
-                        <li v-for="(item,index) in blocks">
+                        <li v-for="(item,index) in blocks" v-show="ifToday(index)">
                             <div :class="'blockHead'">
                                 <input type="checkbox" v-model="done[index]"></input>
                                 <span :class="'done'" v-show="done[index]">已完成</span>
@@ -110,7 +110,102 @@
         data: {
             date: '',
             currentItem: {},
-            visible: false,
+            functionBox: {
+                status: true
+            },
+            contentStyleObj: {
+                height: '',
+                width: '100%',
+                backgroundColor: '#eee'
+            },
+            wrapStyleObj: {
+                height: '',
+                width: '100%'
+            },
+            wrapSearchStyleObj: {
+                marginTop: ''
+            },
+            notes: "",
+            img_url: 'img/',
+            done: [],
+            searchWrapDisplay: false,
+            timePreferences: {
+                showSecond: false,
+                twelveFormat: true,
+                twelveLabel: ''
+            },
+            //DataBases
+            platforms: [
+                {
+                    "title": "超星",
+                    "img": "chaoxing.png",
+                    "bgColor": "#b52831",
+                    "color": 1
+                }, {
+                    "title": "BiliBili",
+                    "img": "bilibili.png",
+                    "bgColor": "#00b5e5",
+                    "color": 1
+                },
+                {
+                    "title": "U+工科云",
+                    "img": "uplus.png",
+                    "bgColor": "#1e83ca",
+                    "color": 1
+                },
+                {
+                    "title": "传智播客",
+                    "img": "ityxb.png",
+                    "bgColor": "",
+                    "color": 0
+                },
+                {
+                    "title": "有道精品课",
+                    "img": "youdao.png",
+                    "bgColor": "#0bb55a",
+                    "color": 1
+                },
+                {
+                    "title": "中国大学MOOC",
+                    "img": "mooc.png",
+                    "bgColor": "",
+                    "color": 0
+                },
+                {
+                    "title": "Unipus",
+                    "img": "unipus.png",
+                    "bgColor": "#289cfb",
+                    "color": 1
+                },
+                {
+                    "title": "文件",
+                    "img": "",
+                    "bgColor": "",
+                    "color": 0
+                },
+                {
+                    "title": "批改网",
+                    "img": "pigai.png",
+                    "bgColor": "#28aae1",
+                    "color": 1
+                }, {
+                    "title": "优学院",
+                    "img": "youxy.png",
+                    "bgColor": "#ea5145",
+                    "color": 1
+                }, {
+                    "title": "U+(校外)",
+                    "img": "uplus.png",
+                    "bgColor": "#1e83ca",
+                    "color": 1
+                }, {
+                    "title": "斗鱼",
+                    "img": "",
+                    "bgColor": "#ea5145",
+                    "color": 1
+                },
+            ],
+
             tabs: [
                 // {
                 //     title: "日历",
@@ -184,254 +279,174 @@
                 // }
 
             ],
-            functionBox: {
-                status: true
-            },
-            contentStyleObj: {
-                height: '',
-                width: '100%',
-                backgroundColor: '#eee'
-            },
-            wrapStyleObj: {
-                height: '',
-                width: '100%'
-            },
-            wrapSearchStyleObj: {
-                marginTop: ''
-            },
-            notes: "",
-            blocks: [{
-                "title": "六级",
-                "url": [
-                    {
-                        "title": 5,
-                        "ref": "https://ke.youdao.com/course/detail/50664?Pdt=CourseWeb&loginBack=true"
-                    },
-                ]
-            }, {
-                "title": "Java",
-                "url": [
-                    {
-                        "title": 3,
-                        "ref": "http://ee-c.lcu.edu.cn/si/student/studentHeadline/fb017e8c6e789fd9016f0ee96f2d3285/stuCourseInfo"
-                    },
-                    {
-                        "title": 4,
-                        "ref": "http://stu.ityxb.com/learning/3b97338b3d7546e6936aabd43f7d16a9/preview/list"
-                    }
-                ]
-            }, {
-                "title": "数据库",
-                "url": [
-                    {
-                        "title": 2,
-                        "ref": "https://www.bilibili.com/video/av20449194",
-                    },
-                    {
-                        "title": 3,
-                        "ref": "http://ee-c.lcu.edu.cn/si/student/studentHeadline/8a7d8a95703d185c0170438b164e0e01/teachClassStudent"
-                    }, {
-                        "title": 12,
-                        "ref": "https://www.douyu.com/2398207"
-                    }
-                ]
-            }, {
-                "title": "操作系统",
-                "url": [
-                    {
-                        "title": 2,
-                        "ref": "https://www.bilibili.com/video/av6538245?p=38"
-                    },
-                    {
-                        "title": 1,
-                        "ref": "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=206110716&clazzid=12235279&vc=1&cpi=111705708&enc=bf057bda6247443f83107bcb0a9c8280"
-                    },
-                ]
-            }, {
-                "title": "英语",
-                "url": [
-                    {
-                        "title": 1,
-                        "ref":
-                            "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=205991712&clazzid=11988613&vc=1&cpi=111705708&enc=5631fa62522de5e965a295121b2fbfac",
 
-                    },
-                    {
-                        "title": 7,
-                        "ref": "http://210.44.112.108/book/book184/index.php?Quiz=N&whichActionPage="
-                    },
-                    {
-                        "title": 9,
-                        "ref": "http://www.pigai.org/index.php?c=write&a=myclass&f2=login"
-                    }
-                ]
-            }, {
-                "title": "概率论",
-                "url": [
-                    {
-                        "title": 8,
-                        "ref":
-                            "file:///D:/视频/下载的视频/高数叔概率论与数理统计/",
-                    },
-                    {
-                        "title": 1,
-                        "ref":
-                            "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=207354731&vc=1&clazzid=14743425&enc=eed97f64c9fa8563d5339dd8ab5ab9d5"
-                    }
-                ]
-            }, {
-                "title": "信息安全",
-                "url": [
-                    {
-                        "title": 1,
-                        "ref":
-                            "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=207249971&clazzid=14930293&vc=1&cpi=111705708&enc=e454a5f8505f2152eb41c36cee1b3860",
-                    },
-                    {
-                        "title": 6,
-                        "ref":
-                            "https://www.icourse163.org/learn/UESTC-1003046001?tid=1450291448#/learn/announce"
-                    },
-                ]
-            }, {
-                "title": "团队激励",
-                "url": [
-                    {
-                        "title": 3,
-                        "ref":
-                            "http://ee-c.lcu.edu.cn/si/student/studentHeadline/fb017e8c6f7b40d50170051da1a23929/teachClassStudent",
-                    },
-                    {
-                        "title": 1,
-                        "ref":
-                            "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=206154273&clazzid=12280027&vc=1&cpi=111705708&enc=8ecc8a9eb332bff5933d64040d9c2230"
-                    },
-                    {
-                        "title": 11,
-                        "ref":
-                            "https://www.eec-cn.com/si/student/studentHeadline/ff808081705d9b1a01706178fe2c69ea/WebcastList"
-                    }
-                ]
-            }, {
-                "title": "电子创新设计与实践",
-                "url":
-                    [
+            blocks:
+                [{
+                    "title": "六级",
+                    "url": [
+                        {
+                            "title": 5,
+                            "ref": "https://ke.youdao.com/course/detail/50664?Pdt=CourseWeb&loginBack=true"
+                        },
+                    ]
+                }, {
+                    "title": "Java",
+                    "url": [
+                        {
+                            "title": 3,
+                            "ref": "http://ee-c.lcu.edu.cn/si/student/studentHeadline/fb017e8c6e789fd9016f0ee96f2d3285/stuCourseInfo"
+                        },
+                        {
+                            "title": 4,
+                            "ref": "http://stu.ityxb.com/learning/3b97338b3d7546e6936aabd43f7d16a9/preview/list"
+                        }
+                    ]
+                }, {
+                    "title": "数据库",
+                    "url": [
+                        {
+                            "title": 2,
+                            "ref": "https://www.bilibili.com/video/av20449194",
+                        },
+                        {
+                            "title": 3,
+                            "ref": "http://ee-c.lcu.edu.cn/si/student/studentHeadline/8a7d8a95703d185c0170438b164e0e01/teachClassStudent"
+                        }, {
+                            "title": 12,
+                            "ref": "https://www.douyu.com/2398207"
+                        }
+                    ]
+                }, {
+                    "title": "操作系统",
+                    "url": [
+                        {
+                            "title": 2,
+                            "ref": "https://www.bilibili.com/video/av6538245?p=38"
+                        },
+                        {
+                            "title": 1,
+                            "ref": "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=206110716&clazzid=12235279&vc=1&cpi=111705708&enc=bf057bda6247443f83107bcb0a9c8280"
+                        },
+                    ]
+                }, {
+                    "title": "英语",
+                    "url": [
                         {
                             "title": 1,
                             "ref":
-                                "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=206800366&clazzid=14695409&vc=1&cpi=111705708&enc=2b0d88d82a0507b0f0c78c0845beb90b"
+                                "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=205991712&clazzid=11988613&vc=1&cpi=111705708&enc=5631fa62522de5e965a295121b2fbfac",
+
                         },
+                        {
+                            "title": 7,
+                            "ref": "http://210.44.112.108/book/book184/index.php?Quiz=N&whichActionPage="
+                        },
+                        {
+                            "title": 9,
+                            "ref": "http://www.pigai.org/index.php?c=write&a=myclass&f2=login"
+                        }
                     ]
-            }, {
-                "title": "数学建模-工科班",
-                "url":
-                    [
+                }, {
+                    "title": "概率论",
+                    "url": [
+                        {
+                            "title": 8,
+                            "ref":
+                                "file:///D:/视频/下载的视频/高数叔概率论与数理统计/",
+                        },
                         {
                             "title": 1,
                             "ref":
-                                "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=206188383&vc=1&clazzid=12340999&enc=eabaa8ccce45db9f646bc2967cd6e6e6"
+                                "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=207354731&vc=1&clazzid=14743425&enc=eed97f64c9fa8563d5339dd8ab5ab9d5"
+                        }
+                    ]
+                }, {
+                    "title": "信息安全",
+                    "url": [
+                        {
+                            "title": 1,
+                            "ref":
+                                "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=207249971&clazzid=14930293&vc=1&cpi=111705708&enc=e454a5f8505f2152eb41c36cee1b3860",
+                        },
+                        {
+                            "title": 6,
+                            "ref":
+                                "https://www.icourse163.org/learn/UESTC-1003046001?tid=1450291448#/learn/announce"
                         },
                     ]
-            }, {
-                "title": "毛概",
-                "url": [
-                    {
-                        "title": 1,
-                        "ref":
-                            "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=206752418&vc=1&clazzid=13628828&enc=728905676290eef8d0dc38cdee3f5482"
-                    },
+                }, {
+                    "title": "团队激励",
+                    "url": [
+                        {
+                            "title": 3,
+                            "ref":
+                                "http://ee-c.lcu.edu.cn/si/student/studentHeadline/fb017e8c6f7b40d50170051da1a23929/teachClassStudent",
+                        },
+                        {
+                            "title": 1,
+                            "ref":
+                                "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=206154273&clazzid=12280027&vc=1&cpi=111705708&enc=8ecc8a9eb332bff5933d64040d9c2230"
+                        },
+                        {
+                            "title": 11,
+                            "ref":
+                                "https://www.eec-cn.com/si/student/studentHeadline/ff808081705d9b1a01706178fe2c69ea/WebcastList"
+                        }
+                    ]
+                }, {
+                    "title": "电子创新设计与实践",
+                    "url":
+                        [
+                            {
+                                "title": 1,
+                                "ref":
+                                    "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=206800366&clazzid=14695409&vc=1&cpi=111705708&enc=2b0d88d82a0507b0f0c78c0845beb90b"
+                            },
+                        ]
+                }, {
+                    "title": "数学建模-工科班",
+                    "url":
+                        [
+                            {
+                                "title": 1,
+                                "ref":
+                                    "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=206188383&vc=1&clazzid=12340999&enc=eabaa8ccce45db9f646bc2967cd6e6e6"
+                            },
+                        ]
+                }, {
+                    "title": "毛概",
+                    "url": [
+                        {
+                            "title": 1,
+                            "ref":
+                                "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=206752418&vc=1&clazzid=13628828&enc=728905676290eef8d0dc38cdee3f5482"
+                        },
 
-                ]
-            }, {
-                "title": "形势与政策",
-                "url": [
-                    {
-                        "title": 10,
-                        "ref":
-                            "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=206752418&vc=1&clazzid=13628828&enc=728905676290eef8d0dc38cdee3f5482"
-                    }
+                    ]
+                }, {
+                    "title": "形势与政策",
+                    "url": [
+                        {
+                            "title": 10,
+                            "ref":
+                                "https://www.ulearning.cn/umooc/learner/study.do?operation=studyReport&courseID=12961"
+                        }
 
+                    ]
+                }
                 ]
-            }
-            ],
-            img_url: 'img/',
-            platforms: [
-                {
-                    "title": "超星",
-                    "img": "chaoxing.png",
-                    "bgColor": "#b52831",
-                    "color": 1
-                }, {
-                    "title": "BiliBili",
-                    "img": "bilibili.png",
-                    "bgColor": "#00b5e5",
-                    "color": 1
-                },
-                {
-                    "title": "U+工科云",
-                    "img": "uplus.png",
-                    "bgColor": "#1e83ca",
-                    "color": 1
-                },
-                {
-                    "title": "传智播客",
-                    "img": "ityxb.png",
-                    "bgColor": "",
-                    "color": 0
-                },
-                {
-                    "title": "有道精品课",
-                    "img": "youdao.png",
-                    "bgColor": "#0bb55a",
-                    "color": 1
-                },
-                {
-                    "title": "中国大学MOOC",
-                    "img": "mooc.png",
-                    "bgColor": "",
-                    "color": 0
-                },
-                {
-                    "title": "Unipus",
-                    "img": "unipus.png",
-                    "bgColor": "#289cfb",
-                    "color": 1
-                },
-                {
-                    "title": "文件",
-                    "img": "",
-                    "bgColor": "",
-                    "color": 0
-                },
-                {
-                    "title": "批改网",
-                    "img": "pigai.png",
-                    "bgColor": "#28aae1",
-                    "color": 1
-                }, {
-                    "title": "优学院",
-                    "img": "youxy.png",
-                    "bgColor": "#ea5145",
-                    "color": 1
-                }, {
-                    "title": "U+(校外)",
-                    "img": "uplus.png",
-                    "bgColor": "#1e83ca",
-                    "color": 1
-                }, {
-                    "title": "斗鱼",
-                    "img": "",
-                    "bgColor": "#ea5145",
-                    "color": 1
-                },
-            ],
-            done: [],
-            searchWrapDisplay: false,
-            timePreferences: {
-                showSecond: false,
-                twelveFormat: true,
-                twelveLabel: ''
-            }
+            ,
+
+            weekly:
+                [
+                    [0, 2, 10],
+                    [6, 2, 3, 11],
+                    [7, 1, 5, 4],
+                    [5],
+                    [3, 1, 5],
+                    [8, 9]
+                ]
+
 
         },
         methods: {
@@ -461,6 +476,16 @@
                     result = (h + ":" + m + ":" + s);
                 }
                 return result;
+            },
+            ifToday(index) {
+                var today = new Date();
+                var day = today.getDay() - 1;
+                for (var i = 0; i < this.weekly[day].length; i++) {
+                    if (index == this.weekly[day][i]) {
+                        return true;
+                    }
+                }
+                return false;
             },
             // getJsonInfo() {
 
