@@ -2,7 +2,14 @@ body {
     background: center/cover no-repeat fixed #555555;
     /* backdrop-filter: blur(10px); */
     margin: 0;
-    font-family: "SF Pro Display", "苹方";
+    font-family:
+        -apple-system,
+        SF UI Text,
+        PingFang SC,
+        Lucida Grande,
+        STheiti,
+        Microsoft YaHei,
+        sans-serif;
 }
 
 #view {
