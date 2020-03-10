@@ -4,6 +4,7 @@
     background: #17181a3f;
     backdrop-filter: blur(50px);
     position: absolute;
+    top: 0;
     z-index: 1000;
     /* transition: all ease-in-out .5s; */
     display: flex;

@@ -9,9 +9,11 @@
     justify-content: flex-start;
     align-content: center;
     justify-items: center;
+    flex-wrap: wrap;
     padding-left: 0;
     /* bgc */
     overflow: hidden;
+    /* overflow: scroll; */
     scrollbar-width: 0;
 
 }

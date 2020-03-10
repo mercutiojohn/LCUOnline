@@ -25,10 +25,10 @@
         <transition name="fade">
             <div id="searchWrap" v-if="searchWrapDisplay" :style="wrapStyleObj">
                 <div class="headArea" :style="wrapSearchStyleObj">
-                    <div class="searchBox_inWrap">
+                    <!-- <div class="searchBox_inWrap">
                         <input class="navBar_home_inputText" type="text" name="" id="" placeholder="今日事，今日毕。"
                             v-on:click="searchWrapDisplay = true">
-                    </div>
+                    </div> -->
                     <span class="close" v-on:click="searchWrapDisplay = false">X</span>
                 </div>
 
@@ -54,6 +54,12 @@
             <!-- <iframe :src="currentItem.url" frameborder="0" scrolling="auto"></iframe> -->
             <div :style="contentStyleObj" id="function_box" v-if="functionBox.status">
                 <div class="blockBox">
+                    <div id="time">
+                        <span id="timeContent">{{date}}</span>
+                        <span id="twelveLabel">{{timePreferences.twelveLabel}}</span>
+                    </div>
+
+                    <!-- <span id="timeContent">{{time}}</span> -->
                     <div class="searchBox">
                         <input class="navBar_home_inputText" type="text" name="" id="" placeholder="今日事，今日毕。"
                             v-on:click="searchWrapDisplay = true">
@@ -95,6 +101,7 @@
     var vm = new Vue({
         el: '#view',
         data: {
+            date: '',
             currentItem: {},
             visible: false,
             tabs: [
@@ -412,10 +419,42 @@
                 },
             ],
             done: [],
-            searchWrapDisplay: false
+            searchWrapDisplay: false,
+            timePreferences: {
+                showSecond: false,
+                twelveFormat: true,
+                twelveLabel: '哈哈哈'
+            }
 
         },
         methods: {
+            getTime() {
+                var today = new Date();
+                var h = today.getHours();
+                var m = today.getMinutes();
+                var s = today.getSeconds();
+                // add a zero in front of numbers<10 
+                m = this.checkTime(m);
+                s = this.checkTime(s);
+
+                if (this.timePreferences.twelveFormat) {
+                    // h = '下午' + (h % 12);
+                    if (h / 12 >= 1) {
+                        this.timePreferences.twelveLabel = "下午";
+                    } else {
+                        this.timePreferences.twelveLabel = "上午";
+                    }
+                    h = (h % 12);
+                    // TODO
+                }
+
+                var result = (h + ":" + m);
+
+                if (this.timePreferences.showSecond) {
+                    result = (h + ":" + m + ":" + s);
+                }
+                return result;
+            },
             // getJsonInfo() {
 
             //     this.$http.get('info.json').then(function(response){
@@ -448,10 +487,27 @@
                 this.contentStyleObj.height = h - document.getElementById("container").offsetHeight - 15 +
                     'px';
                 this.wrapStyleObj.height = h + 'px';
-                // this.wrapSearchStyleObj.marginTop = document.getElementById("container").offsetHeight + window.getComputedStyle(document.querySelector('.searchBox'),null).marginTop;
+                this.wrapSearchStyleObj.marginTop = document.getElementById("container").offsetHeight +
+                    this.getCss(document.querySelector('#timeContent'), 'offsetHeight') + 'px';
 
             },
-
+            getCss(curEle, attr) {
+                var val = null, reg = null;
+                if ("getComputedStyle" in window) {
+                    val = window.getComputedStyle(curEle, null)[attr];
+                } else { //ie6~8不支持上面属性
+                    //不兼容
+                    if (attr === "opacity") {
+                        val = curEle.currentStyle["filter"]; //'alpha(opacity=12,345)'
+                        reg = /^alphaopacity=(\d+(?:\.\d+)?)opacity=(\d+(?:\.\d+)?)$/i;
+                        val = reg.test(val) ? reg.exec(val)[1] / 100 : 1;
+                    } else {
+                        val = curEle.currentStyle[attr];
+                    }
+                }
+                reg = /^(-?\d+(\.\d)?)(px|pt|em|rem)?$/i;
+                return reg.test(val) ? parseFloat(val) : val;
+            },
             // Cookies
             setCookie(cname, cvalue, exdays) {
                 var d = new Date();
@@ -494,11 +550,20 @@
             defineColor(obj) {
                 return 'background-color:' + obj.bgColor + ';color:'
                     + (obj.color ? '#fff' : '#000') + ';';
-            }
+            },
+            checkTime(i) { if (i < 10) { i = "0" + i } return i }
 
         },
         beforeCreate() {
 
+        },
+        mounted() {
+            window.vue = this;
+            let _this = this;
+            this.timer = setInterval(() => {
+                _this.date = _this.getTime();
+            }, 1000);
+            // TODO
         },
         created() {
             this.checkCookie();
@@ -514,13 +579,18 @@
             // this.tabs[0].status = true;
             window.addEventListener('resize', this.getHeight);
             this.getHeight();
-
+            this.date = this.getTime();
             /*console.log(document.getElementsByTagName("iframe")[0].offsetHeight);
             var i = document.getElementsByTagName("iframe").length;
             // while (i--) document.getElementsByTagName("iframe")[i].height = this.frameHeight;
             while (--i) document.getElementsByTagName("iframe")[i].offsetHeight = this.frameHeight;
             console.log(document.getElementsByTagName("iframe")[0].offsetHeight);*/
 
+        },
+        beforeDestroy() {
+            if (this.timer) {
+                clearInterval(this.timer); // 在Vue实例销毁前，清除我们的定时器
+            }
         },
         destroyed() {
             window.removeEventListener('resize', this.getHeight);
