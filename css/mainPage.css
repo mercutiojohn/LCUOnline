@@ -1,3 +1,13 @@
+body,
+button,
+input,
+select,
+textarea {
+    font-family: PingFang SC, -apple-system, SF UI Text, Lucida Grande, STheiti, Microsoft YaHei, sans-serif;
+    outline: none;
+    -webkit-text-size-adjust: none;
+}
+
 body {
     background: center/cover no-repeat fixed #555555;
     /* backdrop-filter: blur(10px); */
@@ -135,7 +145,7 @@ body {
 .activeTab {
     color: #333;
     /* background-color: rgba(51, 51, 51, 0.384); */
-    background-color: #eeeeee;
+    background-color: #f6f7f9;
     flex-shrink: 0;
 }
 
@@ -148,6 +158,12 @@ body {
     background-color: #ffffff46;
     transition: all .2s;
     cursor: pointer;
+}
+
+.mainTab {
+    /* change */
+    background-color: #17181a;
+    color: #fff;
 }
 
 iframe {

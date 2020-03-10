@@ -18,17 +18,20 @@
     /* width: auto; */
     /* max-width: 300px; */
     flex-direction: column;
-    width: 220px;
-    height: 110px;
+    width: 20%;
+    height: auto;
     margin: 10px;
     padding: 10px;
     /* align-items: center; */
     justify-content: flex-start;
     /* border: 1px solid black; */
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.185);
+    box-shadow: 0 4px 20px rgba(0, 25, 104, .05);
+    /* box-shadow: 0 3px 10px rgba(0, 0, 0, 0.185); */
     border-radius: 10px;
     background-color: #fff;
     overflow: hidden;
+    /* change */
+    background-color: #27282a;
 }
 
 .blocks li div a {
@@ -46,6 +49,15 @@
 
 .blocks li div a span {
     margin-left: 4px;
+    color: #000;
+    /* change */
+    color: #fff;
+}
+
+.blockHead span {
+    color: #000;
+    /* change */
+    color: #fff;
 }
 
 .blocks li div a:hover {

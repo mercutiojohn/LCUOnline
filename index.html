@@ -25,7 +25,8 @@
             <ul class="tabs">
                 <!-- <li v-for="(item,index) in tabs" @click="changeTab(item)" :class="'tab '+item.status">{{item.title}}
                 </li> -->
-                <li @click="changeTab('functionBox')" :class="'tab' + (functionBox.status?' activeTab':' inactiveTab')">
+                <li @click="changeTab('functionBox')"
+                    :class="'tab' + (functionBox.status?' activeTab mainTab':' inactiveTab')">
                     主页
                 </li>
                 <li v-for="(item,index) in tabs" @click="changeTab(index)"
@@ -39,26 +40,31 @@
         <div id="app">
             <!-- <iframe :src="currentItem.url" frameborder="0" scrolling="auto"></iframe> -->
             <div :style="contentStyleObj" id="function_box" v-if="functionBox.status">
-
-                <ul class="blocks">
-                    <li v-for="(item,index) in blocks">
-                        <div :class="'blockHead'">
-                            <input type="checkbox" v-model="done[index]"></input>
-                            <span :class="'done'" v-show="done[index]">已完成</span>
-                            <span>{{item.title}}</span>
-                        </div>
-                        <!-- <hr /> -->
-                        <div :class="'blockBody'">
-                            <a v-for="(link,index) in item.url" :href="link.ref" class="block" target="_blank"
-                                :style="defineColor(platforms[link.title-1])">
-                                <!-- <span>{{index+1}}&nbsp;&nbsp;</span> -->
-                                <img v-if="platforms[link.title-1].img!=0" :class="'icon'"
-                                    :src="img_url + platforms[link.title-1].img" :alt="platforms[link.title-1].title">
-                                <span>{{platforms[link.title-1].title}}</span>
-                            </a>
-                        </div>
-                    </li>
-                </ul>
+                <div class="blockBox">
+                    <div class="searchBox">
+                        <input class="navBar_home_inputText" type="text" name="" id="">
+                    </div>
+                    <ul class="blocks">
+                        <li v-for="(item,index) in blocks">
+                            <div :class="'blockHead'">
+                                <input type="checkbox" v-model="done[index]"></input>
+                                <span :class="'done'" v-show="done[index]">已完成</span>
+                                <span>{{item.title}}</span>
+                            </div>
+                            <!-- <hr /> -->
+                            <div :class="'blockBody'">
+                                <a v-for="(link,index) in item.url" :href="link.ref" class="block" target="_blank"
+                                    :style="defineColor(platforms[link.title-1])">
+                                    <!-- <span>{{index+1}}&nbsp;&nbsp;</span> -->
+                                    <img v-if="platforms[link.title-1].img!=0" :class="'icon'"
+                                        :src="img_url + platforms[link.title-1].img"
+                                        :alt="platforms[link.title-1].title">
+                                    <span>{{platforms[link.title-1].title}}</span>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
                 <!-- <textarea class="notes" v-model="notes" placeholder="你可以在这里记录各科目的网课要求。"></textarea> -->
                 <!-- <button @click="setCookie('notes', notes, 365)">保存</button> -->
             </div>
