@@ -3,7 +3,7 @@ button,
 input,
 select,
 textarea {
-    font-family: PingFang SC, -apple-system, SF UI Text, Lucida Grande, STheiti, Microsoft YaHei, sans-serif;
+    font-family: -apple-system, SF UI Text, PingFang SC, Lucida Grande, STheiti, Microsoft YaHei, sans-serif;
     outline: none;
     -webkit-text-size-adjust: none;
 }
