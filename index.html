@@ -515,7 +515,7 @@
                     [0, 4, 6],
                     [0, 3, 1, 5],
                     [0, 8, 9],
-                    []
+                    [0]
                 ]
 
 
@@ -550,7 +550,8 @@
             },
             ifToday(index) {
                 var today = new Date();
-                var day = today.getDay() - 1;
+                // var day = (0 + 7 - 1) % 7;
+                var day = (today.getDay() + 7 - 1) % 7;
                 for (var i = 0; i < this.weekly[day].length; i++) {
                     if (index == this.weekly[day][i]) {
                         return true;
