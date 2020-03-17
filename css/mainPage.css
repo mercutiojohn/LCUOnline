@@ -139,6 +139,9 @@ body {
     /* justify-items: center; */
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
 }
 
@@ -158,6 +161,7 @@ body {
     background-color: #ffffff46;
     transition: all .2s;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .mainTab {
