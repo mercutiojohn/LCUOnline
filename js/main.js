@@ -2,9 +2,16 @@
 // iframe[1].onload = function () {
 //     alert("iframe load  done");
 // };
+// import Grid from 'vue-js-grid'
+// Vue.use(Grid);
 var vm = new Vue({
     el: '#view',
     data: {
+        // items: [
+        //     'a',
+        //     'b',
+        //     'c'
+        // ],
         date: '',
         currentItem: {},
         functionBox: {

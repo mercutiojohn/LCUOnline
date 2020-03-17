@@ -97,6 +97,11 @@
                         <el-switch v-model="blocksPreferences.showAll" active-text="全部" inactive-text="今日">
                         </el-switch>
                     </div>
+                    <!-- <grid :draggable="true" :sortable="true" :items="items" :height="100" :width="100">
+                        <template slot="cell" scope="props">
+                            <div>{{props.item}}</div>
+                        </template> -->
+                    <!-- </grid> -->
                     <ul class="blocks">
                         <li v-for="(item,index) in blocks" v-show="ifToday(index) || blocksPreferences.showAll">
                             <div :class="'blockHead'">
