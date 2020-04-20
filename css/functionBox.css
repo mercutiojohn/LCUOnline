@@ -68,8 +68,8 @@
 #timeContent {
 
     font-size: 40px;
-    font-weight: 800;
-    font-family: -apple-system,
+    /* font-weight: 800; */
+    font-family: "Mitype2018-90", -apple-system,
         SF UI Text,
         'SF Pro Display';
     /* change */
@@ -86,6 +86,14 @@
 }
 
 #week {
+    font-family: "Mitype2018-90",
+        -apple-system,
+        SF UI Text,
+        PingFang SC,
+        Lucida Grande,
+        STheiti,
+        Microsoft YaHei,
+        sans-serif;
     color: #fff;
     margin: 0 10px;
 }

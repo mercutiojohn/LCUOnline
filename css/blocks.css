@@ -20,11 +20,8 @@
     /* justify-items: center; */
     flex-wrap: wrap;
     padding-left: 0;
-    /* bgc */
     /* overflow: hidden; */
     /* overflow: scroll; */
-    scrollbar-width: 0;
-
 }
 
 .blocks li {

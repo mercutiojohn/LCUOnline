@@ -1,9 +1,54 @@
+@font-face {
+    font-family: "Mitype2018-90";
+    src: url("fonts/MiType/Mitype2018-90.otf");
+}
+
+@font-face {
+    font-family: "Mitype2018-80";
+    src: url("fonts/MiType/Mitype2018-80.otf");
+}
+
+@font-face {
+    font-family: "Mitype2018-70";
+    src: url("fonts/MiType/Mitype2018-70.otf");
+}
+
+@font-face {
+    font-family: "Mitype2018-60";
+    src: url("fonts/MiType/Mitype2018-60.otf");
+}
+
+@font-face {
+    font-family: "Mitype2018-50";
+    src: url("fonts/MiType/Mitype2018-50.otf");
+}
+
+@font-face {
+    font-family: "MitypeVF";
+    src: url("font/MitypeVF.ttf");
+}
+
 body,
 button,
 input,
 select,
 textarea {
-    font-family: -apple-system, SF UI Text, PingFang SC, Lucida Grande, STheiti, Microsoft YaHei, sans-serif;
+    font-family: -apple-system,
+        SF UI Text,
+        PingFang SC,
+        Lucida Grande,
+        STheiti,
+        Microsoft YaHei,
+        sans-serif,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        'Open Sans',
+        'Helvetica Neue',
+        sans-serif;
     outline: none;
     -webkit-text-size-adjust: none;
 }
