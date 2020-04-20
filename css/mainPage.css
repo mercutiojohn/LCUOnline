@@ -8,6 +8,10 @@ textarea {
     -webkit-text-size-adjust: none;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     background: center/cover no-repeat fixed #343537;
     /* backdrop-filter: blur(10px); */

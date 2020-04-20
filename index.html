@@ -12,6 +12,7 @@
     <!-- vue -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script> -->
     <script src="js/vue.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <!-- eleme -->
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <link rel="stylesheet" href="css/mainPage.css">
@@ -24,21 +25,37 @@
 <body>
     <div id="view">
         <transition name="fade">
-            <div id="timeWrap" v-if="timeWrapDisplay" :style="wrapStyleObj">
+            <div id="timeWrap" v-show="timeWrapDisplay" :style="wrapStyleObj">
                 <div class="headArea" :style="wrapSearchStyleObj">
-                    <span class="close" v-on:click="timeWrapDisplay = false">
-                        <i class="el-icon-close"></i>
-                    </span>
+                </div>
+                <span class="close" v-on:click="timeWrapDisplay = false">
+                    <i class="el-icon-close"></i>
+                </span>
 
-                    <el-switch v-model="timePreferences.showSecond" active-text="显示秒" inactive-text="">
-                    </el-switch>
-                    <el-switch v-model="timePreferences.twelveFormat" active-text="12小时制" inactive-text="">
-                    </el-switch>
+                <el-switch v-model="timePreferences.showSecond" active-text="显示秒" inactive-text="">
+                </el-switch>
+                <el-switch v-model="timePreferences.twelveFormat" active-text="12小时制" inactive-text="">
+                </el-switch>
+
+            </div>
+        </transition>
+        <transition name="fade">
+            <div id="todoWrap" v-show="todoWrapDisplay" :style="wrapStyleObj">
+                <!-- <div class="headArea" :style="wrapSearchStyleObj">
+                                    </div> -->
+                <div class="blank"></div>
+                <span class="close" v-on:click="todoWrapDisplay = false">
+                    <i class="el-icon-close"></i>
+                </span>
+                <div class="notifyContainer">
+                    <div class="notifyItem" v-for="item in noti">
+                        <iframe class="notify" :id="item.title" :src="item.url" frameborder="0" scrolling="auto"
+                            v-if="item.status"></iframe></div>
                 </div>
             </div>
         </transition>
         <transition name="fade">
-            <div id="searchWrap" v-if="searchWrapDisplay" :style="wrapStyleObj">
+            <div id="searchWrap" v-show="searchWrapDisplay" :style="wrapStyleObj">
                 <span class="close" v-on:click="searchWrapDisplay = false">
                     <i class="el-icon-close"></i>
                 </span>
@@ -51,6 +68,9 @@
                         <el-radio v-for="(item,index) in searchUrls" :label="item">{{item.title}}</el-radio>
                     </el-radio-group>
                 </div>
+                <div class="blank"></div>
+                <a href="https://www.jiumodiary.com/">鸠摩搜书</a>
+
 
             </div>
         </transition>
@@ -75,13 +95,15 @@
             <div :style="contentStyleObj" id="function_box" v-if="functionBox.status">
                 <div class="blockBox">
                     <div id="headBox">
-                        <div id="time" v-on:click="timeWrapDisplay = true">
+                        <div :id="!timeWrapDisplay?time:timeActive" v-on:click="timeWrapDisplay = true">
                             <span id="timeContent" :class="searchWrapDisplay?'hideTime':''">{{date}}</span>
                             <span id="twelveLabel" :class="searchWrapDisplay?'hideTime':''"
                                 v-if="timePreferences.twelveFormat">{{timePreferences.twelveLabel}}</span>
+                            <span id="week">第{{week}}周</span>
                         </div>
                         <div id="quote">
-                            <span>今日事，今日毕。</span>
+
+                            <span id="notifyButton" v-on:click="todoWrapDisplay = true">通知</span>
                         </div>
                     </div>
 
@@ -103,6 +125,7 @@
                         </template> -->
                     <!-- </grid> -->
                     <ul class="blocks">
+                        <!-- <block></block> -->
                         <li v-for="(item,index) in blocks" v-show="ifToday(index) || blocksPreferences.showAll">
                             <div :class="'blockHead'">
                                 <div>
@@ -137,6 +160,8 @@
     </div>
 </body>
 <script type="module" src="js/main.js"></script>
+<script type="module" src="js/block.js"></script>
+<script src="js/notify.js"></script>
 <!-- <script charset="gbk" src="https://www.baidu.com/js/opensug.js"></script>
 <script type="text/javascript">
     BaiduSuggestion.bind('search_submit', { // Input ID

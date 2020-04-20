@@ -34,6 +34,7 @@ var vm = new Vue({
         done: [],
         searchWrapDisplay: false,
         timeWrapDisplay: false,
+        todoWrapDisplay: false,
         timePreferences: {
             showSecond: false,
             twelveFormat: true,
@@ -73,10 +74,30 @@ var vm = new Vue({
                 "url": "http://www.baidu.com/s",
                 "queryWord": "wd"
             },
+            ibook: {
+                "title": "i-Book.in",
+                "url": "https://book.tstrs.me/psdle",
+                "queryWord": "q"
+            },
 
 
 
         },
+        noti: [{
+                title: "学习通",
+                status: true,
+                url: "http://notice.chaoxing.com/pc/notice/myNotice"
+            }, {
+                title: "U+",
+                status: true,
+                url: "http://ee-c.lcu.edu.cn/si/student/studentInform"
+            },
+            {
+                title: "传智播客",
+                status: true,
+                url: "http://stu.ityxb.com/notice/msg"
+            }
+        ],
         //DataBases
         platforms: [{
                 "title": "超星",
@@ -231,7 +252,10 @@ var vm = new Vue({
             "title": "六级",
             "url": [{
                 "title": 5,
-                "ref": "https://ke.youdao.com/course/detail/50664?Pdt=CourseWeb&loginBack=true"
+                "ref": "https://live.youdao.com/live/index.html?courseId=50664&lesson=2808486&type=1&groupId=-1"
+            }, {
+                "title": 5,
+                "ref": "https://ke.youdao.com/course/detail/50664"
             }],
             "notes": [{
                 "done": "",
@@ -476,17 +500,17 @@ var vm = new Vue({
             var d = new Date();
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
             var expires = "expires=" + d.toUTCString();
-            console.info(cname + "=" + cvalue + "; " + expires);
+            // console.info(cname + "=" + cvalue + "; " + expires);
             document.cookie = cname + "=" + cvalue + "; " + expires;
-            console.info(document.cookie);
+            // console.info(document.cookie);
         },
         getCookie(cname) {
             var name = cname + "=";
             var ca = document.cookie.split(';');
-            console.log("获取cookie,现在循环")
+            // console.log("获取cookie,现在循环")
             for (var i = 0; i < ca.length; i++) {
                 var c = ca[i];
-                console.log(c)
+                // console.log(c)
                 while (c.charAt(0) == ' ') c = c.substring(1);
                 if (c.indexOf(name) != -1) {
                     return c.substring(name.length, c.length);
@@ -534,9 +558,16 @@ var vm = new Vue({
         this.timer = setInterval(() => {
             _this.date = _this.getTime();
         }, 1000);
-        // TODO
+        const todos = fetch('https://mercutio_john.coding.net/p/LCUOnline/d/LCUOnline/git/raw/master/blocks.json').then(res => {
+            return res.json();
+        }).then(todos => {
+            console.log("===================================================");
+            console.log(blocks);
+            // this.todos = todos;
+        });
     },
     created() {
+
         // this.blocks = require('blocks.json');
         // console.log(require('blocks.json'));
         // this.$http.get('tabs.json').then(response => {
@@ -576,6 +607,19 @@ var vm = new Vue({
             var h = window.innerHeight || document.documentElement.clientHeight || document.body
                 .clientHeight;
             return h + 'px';
+        },
+        week: function () {
+            function getYearWeek(date) {
+                var date2 = new Date(date.getFullYear(), 0, 1);
+                var day1 = date.getDay();
+                if (day1 == 0) day1 = 7;
+                var day2 = date2.getDay();
+                if (day2 == 0) day2 = 7;
+                var d = Math.round((date.getTime() - date2.getTime() + (day2 - day1) * (24 * 60 * 60 * 1000)) / 86400000);
+                return Math.ceil(d / 7) + 1;
+            }
+            var start = new Date(2020, 2, 17);
+            return getYearWeek(start);
         }
     },
     watch: {
