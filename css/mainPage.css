@@ -1,6 +1,6 @@
 :root {
-    --top-distance: 32.4px;
-
+    --top-height: 33px;
+    --app-height: calc(100vh - var(--top-height));
 }
 
 /* ------------------------------- Fonts ------------------------------- */
@@ -130,6 +130,23 @@ body {
     margin: 0;
 }
 
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.f-top {
+    justify-content: flex-start;
+}
+
+.f-left {
+    align-items: flex-start;
+}
+
+
+
 #view {
     display: flex;
     justify-content: center;
@@ -137,11 +154,10 @@ body {
     flex-direction: column;
 }
 
-#container {
+#tab-container {
     width: 100%;
-    max-height: 50px;
-    /* padding-top: 30px; */
-    /* background: #000; */
+    height: var(--top-height);
+    /* max-height: 50px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -152,6 +168,7 @@ body {
 
 #app {
     width: 100%;
+    height: var(--app-height);
     background: transparent;
     background-color: rgb(255, 255, 255);
     /* backdrop-filter: blur(15px); */
@@ -166,10 +183,10 @@ body {
     overflow: hidden;
 }
 
-#app>div {
+/* #app>div {
     width: 100%;
     height: 620px;
-}
+} */
 
 #main {
     display: block;
@@ -192,23 +209,11 @@ body {
     /* height: 100%; */
 }
 
-#uplus {
-    display: none;
-}
-
-#urp {
-    display: none;
-}
-
-#unipus {
-    display: none;
-}
-
-#app>div {
+/* #app>div {
     height: 620px;
     width: 100%;
     background: #ffffff;
-}
+} */
 
 /* #app>div>iframe {
             width: 100%;
@@ -281,13 +286,6 @@ body {
 iframe {
     scroll-behavior: smooth;
 
-}
-
-#function_box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
 
 .notes {

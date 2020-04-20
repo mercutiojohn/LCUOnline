@@ -17,7 +17,7 @@
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <link rel="stylesheet" href="css/mainPage.css">
     <link rel="stylesheet" href="css/blocks.css">
-    <link rel="stylesheet" href="css/functionBox.css">
+    <link rel="stylesheet" href="css/wrap.css">
     <link rel="stylesheet" href="css/searchWrap.css">
     <link rel="stylesheet" href="css/animate.css">
 
@@ -26,23 +26,24 @@
 <body>
     <div id="view">
         <transition name="fade">
-            <div id="timeWrap" v-show="timeWrapDisplay" :style="wrapStyleObj">
-                <div class="headArea" :style="wrapSearchStyleObj">
-                </div>
+            <div id="timeWrap" v-show="timeWrapDisplay" class="float-wrap flex f-left">
+                <!-- <div class="headArea" :style="wrapSearchStyleObj">
+                </div> -->
                 <span class="close" v-on:click="timeWrapDisplay = false">
                     <i class="el-icon-close"></i>
                 </span>
 
-                <el-switch v-model="timePreferences.showSecond" active-text="显示秒" inactive-text="">
-                </el-switch>
-                <el-switch v-model="timePreferences.twelveFormat" active-text="12小时制" inactive-text="">
-                </el-switch>
-
+                <div class="time-indent flex">
+                    <el-switch v-model="timePreferences.showSecond" active-text="显示秒" inactive-text="">
+                    </el-switch>
+                    <el-switch v-model="timePreferences.twelveFormat" active-text="12小时制" inactive-text="">
+                    </el-switch>
+                </div>
             </div>
         </transition>
         <transition name="fade">
-            <div id="todoWrap" v-if="todoWrapDisplay" :style="wrapStyleObj">
-                <div id="container">
+            <div id="todoWrap" v-if="todoWrapDisplay" class="float-wrap">
+                <div id="tab-container">
                     <ul class="tabs">
                         <!-- <li v-for="(item,index) in tabs" @click="changeTab(item)" :class="'tab '+item.status">{{item.title}}
                                         </li> -->
@@ -67,10 +68,8 @@
                 </div>
             </div>
         </transition>
-
-
         <transition name="fade">
-            <div id="searchWrap" v-show="searchWrapDisplay" :style="wrapStyleObj">
+            <div id="searchWrap" v-show="searchWrapDisplay" class="float-wrap">
                 <span class="close" v-on:click="searchWrapDisplay = false">
                     <i class="el-icon-close"></i>
                 </span>
@@ -90,12 +89,11 @@
 
             </div>
         </transition>
-        <div id="container">
+        <div id="tab-container">
             <ul class="tabs">
                 <!-- <li v-for="(item,index) in tabs" @click="changeTab(item)" :class="'tab '+item.status">{{item.title}}
                 </li> -->
-                <li @click="changeTab('functionBox')"
-                    :class="'tab' + (functionBox.status?' activeTab mainTab':' inactiveTab')">
+                <li @click="changeTab('wrap')" :class="'tab' + (wrap.status?' activeTab mainTab':' inactiveTab')">
                     主页
                 </li>
                 <li v-for="(item,index) in tabs" @click="changeTab(index)"
@@ -108,7 +106,7 @@
         </div>
         <div id="app">
             <!-- <iframe :src="currentItem.url" frameborder="0" scrolling="auto"></iframe> -->
-            <div :style="contentStyleObj" id="function_box" v-if="functionBox.status">
+            <div id="wrap" v-if="wrap.status">
                 <div class="blockBox">
                     <div id="headBox">
                         <div :id="!timeWrapDisplay?time:timeActive" v-on:click="timeWrapDisplay = true">
@@ -179,7 +177,7 @@
                 <!-- <textarea class="notes" v-model="notes" placeholder="你可以在这里记录各科目的网课要求。"></textarea> -->
                 <!-- <button @click="setCookie('notes', notes, 365)">保存</button> -->
             </div>
-            <iframe :style="contentStyleObj" v-for="item in tabs" :src="item.url" frameborder="0" scrolling="auto"
+            <iframe class="iframe-content" v-for="item in tabs" :src="item.url" frameborder="0" scrolling="auto"
                 v-if="item.status"></iframe>
         </div>
     </div>

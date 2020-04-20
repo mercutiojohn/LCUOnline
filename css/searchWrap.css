@@ -1,6 +1,5 @@
 #searchWrap {
     width: 100%;
-    height: 200px;
     background: #17181a3f;
     backdrop-filter: blur(50px);
     position: absolute;
@@ -14,22 +13,20 @@
 }
 
 #timeWrap {
-    width: 100%;
-    height: 200px;
-    background: #17181a3f;
-    backdrop-filter: blur(50px);
+    width: 30vw;
+    height: 128px;
+    margin-top: var(--top-height);
+    /* background: #17181a3f; */
+    background: #ffffff00;
+    backdrop-filter: blur(10px);
     position: absolute;
     top: 0;
     z-index: 1002;
-    /* transition: all ease-in-out .5s; */
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
+    border-radius: 20px;
+    margin: var(--top-height) 0 0 10vw;
 }
 
 #todoWrap {
-    /* margin-top: var(--top-distance); */
     width: 100%;
     /* height: 200px; */
     background: #17181ada;
@@ -60,6 +57,13 @@
     justify-content: center;
     align-items: center;
 
+}
+
+.time-indent {
+    margin: 50px 0 25px 20px;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    height: 100%;
 }
 
 .headArea {
@@ -107,4 +111,10 @@
 .blank {
     width: 100%;
     height: 30px;
+}
+
+.float-wrap {
+    width: 100vw;
+    height: 100vh;
+
 }

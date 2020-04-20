@@ -14,21 +14,21 @@ var vm = new Vue({
         // ],
         date: '',
         currentItem: {},
-        functionBox: {
+        wrap: {
             status: true
         },
-        contentStyleObj: {
-            height: '',
-            width: '100%',
-            backgroundColor: '#eee'
-        },
-        wrapStyleObj: {
-            height: '',
-            width: '100%'
-        },
-        wrapSearchStyleObj: {
-            marginTop: ''
-        },
+        // contentStyleObj: {
+        //     height: '',
+        //     width: '100%',
+        //     backgroundColor: '#eee'
+        // },
+        // wrapStyleObj: {
+        //     height: '',
+        //     width: '100%'
+        // },
+        // wrapSearchStyleObj: {
+        //     marginTop: ''
+        // },
         notes: "",
         img_url: 'img/',
         done: [],
@@ -454,16 +454,16 @@ var vm = new Vue({
         // },
         changeTab(selectedTab) {
             // this.currentItem = selectedTab;
-            if (selectedTab == "functionBox") {
-                this.functionBox.status = true;
+            if (selectedTab == "wrap") {
+                this.wrap.status = true;
             } else {
-                this.functionBox.status = false;
+                this.wrap.status = false;
             }
             for (var i = 0; i < this.tabs.length; i++) {
                 this.tabs[i].status = false;
             }
             // if (selectedTab == this.tabs.length - 1)
-            // this.functionBox.status = true;
+            // this.wrap.status = true;
             // else
             this.tabs[selectedTab].status = true;
         },
@@ -474,34 +474,34 @@ var vm = new Vue({
             }
             this.noti[selectedTab].status = true;
         },
-        getHeight() {
-            var h = window.innerHeight || document.documentElement.clientHeight || document.body
-                .clientHeight;
-            this.contentStyleObj.height = h - document.getElementById("container").offsetHeight - 15 +
-                'px';
-            this.wrapStyleObj.height = h + 'px';
-            this.wrapSearchStyleObj.marginTop = document.getElementById("container").offsetHeight +
-                this.getCss(document.querySelector('#timeContent'), 'offsetHeight') + 'px';
+        // getHeight() {
+        //     var h = window.innerHeight || document.documentElement.clientHeight || document.body
+        //         .clientHeight;
+        //     this.contentStyleObj.height = h - document.getElementById("container").offsetHeight - 15 +
+        //         'px';
+        //     this.wrapStyleObj.height = h + 'px';
+        //     this.wrapSearchStyleObj.marginTop = document.getElementById("container").offsetHeight +
+        //         this.getCss(document.querySelector('#timeContent'), 'offsetHeight') + 'px';
 
-        },
-        getCss(curEle, attr) {
-            var val = null,
-                reg = null;
-            if ("getComputedStyle" in window) {
-                val = window.getComputedStyle(curEle, null)[attr];
-            } else { //ie6~8不支持上面属性
-                //不兼容
-                if (attr === "opacity") {
-                    val = curEle.currentStyle["filter"]; //'alpha(opacity=12,345)'
-                    reg = /^alphaopacity=(\d+(?:\.\d+)?)opacity=(\d+(?:\.\d+)?)$/i;
-                    val = reg.test(val) ? reg.exec(val)[1] / 100 : 1;
-                } else {
-                    val = curEle.currentStyle[attr];
-                }
-            }
-            reg = /^(-?\d+(\.\d)?)(px|pt|em|rem)?$/i;
-            return reg.test(val) ? parseFloat(val) : val;
-        },
+        // },
+        // getCss(curEle, attr) {
+        //     var val = null,
+        //         reg = null;
+        //     if ("getComputedStyle" in window) {
+        //         val = window.getComputedStyle(curEle, null)[attr];
+        //     } else { //ie6~8不支持上面属性
+        //         //不兼容
+        //         if (attr === "opacity") {
+        //             val = curEle.currentStyle["filter"]; //'alpha(opacity=12,345)'
+        //             reg = /^alphaopacity=(\d+(?:\.\d+)?)opacity=(\d+(?:\.\d+)?)$/i;
+        //             val = reg.test(val) ? reg.exec(val)[1] / 100 : 1;
+        //         } else {
+        //             val = curEle.currentStyle[attr];
+        //         }
+        //     }
+        //     reg = /^(-?\d+(\.\d)?)(px|pt|em|rem)?$/i;
+        //     return reg.test(val) ? parseFloat(val) : val;
+        // },
         // Cookies
         setCookie(cname, cvalue, exdays) {
             var d = new Date();
