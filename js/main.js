@@ -89,12 +89,12 @@ var vm = new Vue({
                 url: "http://notice.chaoxing.com/pc/notice/myNotice"
             }, {
                 title: "U+",
-                status: true,
+                status: false,
                 url: "http://ee-c.lcu.edu.cn/si/student/studentInform"
             },
             {
                 title: "传智播客",
-                status: true,
+                status: false,
                 url: "http://stu.ityxb.com/notice/msg"
             }
         ],
@@ -466,6 +466,13 @@ var vm = new Vue({
             // this.functionBox.status = true;
             // else
             this.tabs[selectedTab].status = true;
+        },
+        changeNotiTab(selectedTab) {
+            // this.currentItem = selectedTab;
+            for (var i = 0; i < this.noti.length; i++) {
+                this.noti[i].status = false;
+            }
+            this.noti[selectedTab].status = true;
         },
         getHeight() {
             var h = window.innerHeight || document.documentElement.clientHeight || document.body

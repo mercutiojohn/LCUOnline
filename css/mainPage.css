@@ -1,3 +1,8 @@
+:root {
+    --top-distance: 32.4px;
+
+}
+
 /* ------------------------------- Fonts ------------------------------- */
 @font-face {
     font-family: "Mitype2018-90";
@@ -55,13 +60,16 @@
 
 .block-list-enter {
     opacity: 0;
+    /* 中心 */
     transform: translate(-45vw, -45vh);
+
     /* transform: scale(0, 0); */
 
 }
 
 .block-list-leave-to {
     opacity: 0;
+    /* 中心 */
     transform: translate(5vw, 10vh);
 }
 

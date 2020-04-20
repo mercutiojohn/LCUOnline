@@ -42,14 +42,23 @@
         </transition>
         <transition name="fade">
             <div id="todoWrap" v-if="todoWrapDisplay" :style="wrapStyleObj">
-                <!-- <div class="headArea" :style="wrapSearchStyleObj">
-                                    </div> -->
-                <div class="blank"></div>
+                <div id="container">
+                    <ul class="tabs">
+                        <!-- <li v-for="(item,index) in tabs" @click="changeTab(item)" :class="'tab '+item.status">{{item.title}}
+                                        </li> -->
+                        <li v-for="(item,index) in noti" @click="changeNotiTab(index)"
+                            :class="'tab' + (item.status?' activeTab':' inactiveTab')">
+                            {{item.title}}
+                            <a v-if="!item.status" :href="item.url" style="color: #ffffffbb; text-decoration:none"
+                                target="_blank">↗</a>
+                        </li>
+                    </ul>
+                </div>
                 <span class="close" v-on:click="todoWrapDisplay = false">
                     <i class="el-icon-close"></i>
                 </span>
                 <div class="notifyContainer">
-                    <!-- <iframe class="notify" src="http://notice.chaoxing.com/pc/notice/myNotice" frameborder="0"
+                    <!-- <iframe class="chaoxing" src=" http://notice.chaoxing.com/pc/notice/myNotice" frameborder="0"
                         scrolling="auto"></iframe> -->
                     <div class="notifyItem" v-for="item in noti">
                         <iframe class="notify" :id="item.title" :src="item.url" frameborder="0" scrolling="auto"

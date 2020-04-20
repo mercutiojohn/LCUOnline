@@ -29,9 +29,10 @@
 }
 
 #todoWrap {
+    /* margin-top: var(--top-distance); */
     width: 100%;
-    height: 200px;
-    background: #17181a3f;
+    /* height: 200px; */
+    background: #17181ada;
     /* backdrop-filter: blur(50px); */
     position: absolute;
     top: 0;
@@ -76,11 +77,19 @@
     /* flex-direction: row; */
 }
 
+/* .chaoxing {
+    width: 937px;
+    height: 94%;
+    flex-shrink: 0;
+    margin-left: 200px;
+    margin-top: 30px;
+} */
+
 .notify {
-    width: 90vw;
+    width: 100vw;
     height: 90vh;
     border-radius: 12px;
-    margin: 30px;
+    /* margin: 30px; */
     overflow: hidden;
     /* scroll-behavior: smooth; */
 }
