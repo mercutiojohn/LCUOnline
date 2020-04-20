@@ -85,7 +85,7 @@ var vm = new Vue({
         },
         noti: [{
                 title: "学习通",
-                status: false,
+                status: true,
                 url: "http://notice.chaoxing.com/pc/notice/myNotice"
             }, {
                 title: "U+",
