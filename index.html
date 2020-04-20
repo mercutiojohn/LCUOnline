@@ -40,7 +40,7 @@
             </div>
         </transition>
         <transition name="fade">
-            <div id="todoWrap" v-show="todoWrapDisplay" :style="wrapStyleObj">
+            <div id="todoWrap" v-if="todoWrapDisplay" :style="wrapStyleObj">
                 <!-- <div class="headArea" :style="wrapSearchStyleObj">
                                     </div> -->
                 <div class="blank"></div>
@@ -48,123 +48,126 @@
                     <i class="el-icon-close"></i>
                 </span>
                 <div class="notifyContainer">
+                    <iframe class="notify" src="http://notice.chaoxing.com/pc/notice/myNotice" frameborder="0"
+                        scrolling="auto"></iframe>
+
                     <div class="notifyItem" v-for="item in noti">
                         <iframe class="notify" :id="item.title" :src="item.url" frameborder="0" scrolling="auto"
                             v-if="item.status"></iframe></div>
                 </div>
             </div>
-        </transition>
-        <transition name="fade">
-            <div id="searchWrap" v-show="searchWrapDisplay" :style="wrapStyleObj">
-                <span class="close" v-on:click="searchWrapDisplay = false">
-                    <i class="el-icon-close"></i>
-                </span>
-                <div class="headArea" :style="wrapSearchStyleObj">
-                    <!-- <div class="searchBox_inWrap">
+    </div>
+    </transition>
+    <transition name="fade">
+        <div id="searchWrap" v-show="searchWrapDisplay" :style="wrapStyleObj">
+            <span class="close" v-on:click="searchWrapDisplay = false">
+                <i class="el-icon-close"></i>
+            </span>
+            <div class="headArea" :style="wrapSearchStyleObj">
+                <!-- <div class="searchBox_inWrap">
                         <input class="navBar_home_inputText" type="text" name="" id="" placeholder="今日事，今日毕。"
                             v-on:click="searchWrapDisplay = true">
                     </div> -->
-                    <el-radio-group v-model="targetUrl">
-                        <el-radio v-for="(item,index) in searchUrls" :label="item">{{item.title}}</el-radio>
-                    </el-radio-group>
-                </div>
-                <div class="blank"></div>
-                <a href="https://www.jiumodiary.com/">鸠摩搜书</a>
-
-
+                <el-radio-group v-model="targetUrl">
+                    <el-radio v-for="(item,index) in searchUrls" :label="item">{{item.title}}</el-radio>
+                </el-radio-group>
             </div>
-        </transition>
-        <div id="container">
-            <ul class="tabs">
-                <!-- <li v-for="(item,index) in tabs" @click="changeTab(item)" :class="'tab '+item.status">{{item.title}}
-                </li> -->
-                <li @click="changeTab('functionBox')"
-                    :class="'tab' + (functionBox.status?' activeTab mainTab':' inactiveTab')">
-                    主页
-                </li>
-                <li v-for="(item,index) in tabs" @click="changeTab(index)"
-                    :class="'tab' + (item.status?' activeTab':' inactiveTab')">
-                    {{item.title}}
-                    <a v-if="!item.status" :href="item.url" style="color: #ffffffbb; text-decoration:none"
-                        target="_blank">↗</a>
-                </li>
-            </ul>
+            <div class="blank"></div>
+            <a href="https://www.jiumodiary.com/">鸠摩搜书</a>
+
+
         </div>
-        <div id="app">
-            <!-- <iframe :src="currentItem.url" frameborder="0" scrolling="auto"></iframe> -->
-            <div :style="contentStyleObj" id="function_box" v-if="functionBox.status">
-                <div class="blockBox">
-                    <div id="headBox">
-                        <div :id="!timeWrapDisplay?time:timeActive" v-on:click="timeWrapDisplay = true">
-                            <span id="timeContent" :class="searchWrapDisplay?'hideTime':''">{{date}}</span>
-                            <span id="twelveLabel" :class="searchWrapDisplay?'hideTime':''"
-                                v-if="timePreferences.twelveFormat">{{timePreferences.twelveLabel}}</span>
-                            <span id="week">第{{week}}周</span>
-                        </div>
-                        <div id="quote">
-
-                            <span id="notifyButton" v-on:click="todoWrapDisplay = true">通知</span>
-                            <a href="http://jwcweb.lcu.edu.cn/jwglxt/xtgl/login_slogin.html?language=zh_CN&_t=1573135233017"
-                                target="_blank"><span id="notifyButton">教务系统</span></a>
-
-                        </div>
+    </transition>
+    <div id="container">
+        <ul class="tabs">
+            <!-- <li v-for="(item,index) in tabs" @click="changeTab(item)" :class="'tab '+item.status">{{item.title}}
+                </li> -->
+            <li @click="changeTab('functionBox')"
+                :class="'tab' + (functionBox.status?' activeTab mainTab':' inactiveTab')">
+                主页
+            </li>
+            <li v-for="(item,index) in tabs" @click="changeTab(index)"
+                :class="'tab' + (item.status?' activeTab':' inactiveTab')">
+                {{item.title}}
+                <a v-if="!item.status" :href="item.url" style="color: #ffffffbb; text-decoration:none"
+                    target="_blank">↗</a>
+            </li>
+        </ul>
+    </div>
+    <div id="app">
+        <!-- <iframe :src="currentItem.url" frameborder="0" scrolling="auto"></iframe> -->
+        <div :style="contentStyleObj" id="function_box" v-if="functionBox.status">
+            <div class="blockBox">
+                <div id="headBox">
+                    <div :id="!timeWrapDisplay?time:timeActive" v-on:click="timeWrapDisplay = true">
+                        <span id="timeContent" :class="searchWrapDisplay?'hideTime':''+' digits'">{{date}}</span>
+                        <span id="twelveLabel" :class="searchWrapDisplay?'hideTime':''"
+                            v-if="timePreferences.twelveFormat">{{timePreferences.twelveLabel}}</span>
+                        <span id="week">第<span id="digits">{{week}}</span>周</span>
                     </div>
+                    <div id="quote">
 
-                    <!-- <span id="timeContent">{{time}}</span> -->
-                    <div class="searchBox">
-                        <i class="el-icon-search searchIcon"></i>
-                        <form :action="targetUrl.url" target="_blank">
-                            <input class="navBar_home_inputText" type="text" :name="targetUrl.queryWord" id=""
-                                :placeholder="targetUrl.title" v-on:click="searchWrapDisplay = true">
-                        </form>
+                        <span id="notifyButton" v-on:click="todoWrapDisplay = true">通知</span>
+                        <a href="http://jwcweb.lcu.edu.cn/jwglxt/xtgl/login_slogin.html?language=zh_CN&_t=1573135233017"
+                            target="_blank"><span id="notifyButton">教务系统</span></a>
+
                     </div>
-                    <div id="settingsBar">
-                        <el-switch v-model="blocksPreferences.showAll" active-text="全部" inactive-text="今日">
-                        </el-switch>
-                    </div>
-                    <!-- <grid :draggable="true" :sortable="true" :items="items" :height="100" :width="100">
+                </div>
+
+                <!-- <span id="timeContent">{{time}}</span> -->
+                <div class="searchBox">
+                    <i class="el-icon-search searchIcon"></i>
+                    <form :action="targetUrl.url" target="_blank">
+                        <input class="navBar_home_inputText" type="text" :name="targetUrl.queryWord" id=""
+                            :placeholder="targetUrl.title" v-on:click="searchWrapDisplay = true">
+                    </form>
+                </div>
+                <div id="settingsBar">
+                    <el-switch v-model="blocksPreferences.showAll" active-text="全部" inactive-text="今日">
+                    </el-switch>
+                </div>
+                <!-- <grid :draggable="true" :sortable="true" :items="items" :height="100" :width="100">
                         <template slot="cell" scope="props">
                             <div>{{props.item}}</div>
                         </template> -->
-                    <!-- </grid> -->
-                    <ul class="blocks">
-                        <!-- <block></block> -->
-                        <li v-for="(item,index) in blocks" v-show="ifToday(index) || blocksPreferences.showAll">
-                            <div :class="'blockHead'">
-                                <div>
-                                    <el-checkbox v-model="done[index]"></el-checkbox>
-                                    <!-- <input type="checkbox" v-model="done[index]"></input> -->
-                                    <span>{{item.title}}</span>
-                                </div>
-                                <transition name="fade">
-                                    <span :class="'done'" v-show="done[index]">已完成</span>
-                                </transition>
+                <!-- </grid> -->
+                <ul class="blocks">
+                    <!-- <block></block> -->
+                    <li v-for="(item,index) in blocks" v-show="ifToday(index) || blocksPreferences.showAll">
+                        <div :class="'blockHead'">
+                            <div>
+                                <el-checkbox v-model="done[index]"></el-checkbox>
+                                <!-- <input type="checkbox" v-model="done[index]"></input> -->
+                                <span>{{item.title}}</span>
                             </div>
-                            <!-- <hr /> -->
-                            <div :class="'blockBody'">
-                                <a v-for="(link,index) in item.url" :href="link.ref" class="block" target="_blank"
-                                    :style="defineColor(platforms[link.title-1])">
-                                    <!-- <span>{{index+1}}&nbsp;&nbsp;</span> -->
-                                    <img v-if="platforms[link.title-1].img!=0" :class="'icon'"
-                                        :src="img_url + platforms[link.title-1].img"
-                                        :alt="platforms[link.title-1].title">
-                                    <span>{{platforms[link.title-1].title}}</span>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <!-- <textarea class="notes" v-model="notes" placeholder="你可以在这里记录各科目的网课要求。"></textarea> -->
-                <!-- <button @click="setCookie('notes', notes, 365)">保存</button> -->
+                            <transition name="fade">
+                                <span :class="'done'" v-show="done[index]">已完成</span>
+                            </transition>
+                        </div>
+                        <!-- <hr /> -->
+                        <div :class="'blockBody'">
+                            <a v-for="(link,index) in item.url" :href="link.ref" class="block" target="_blank"
+                                :style="defineColor(platforms[link.title-1])">
+                                <!-- <span>{{index+1}}&nbsp;&nbsp;</span> -->
+                                <img v-if="platforms[link.title-1].img!=0" :class="'icon'"
+                                    :src="img_url + platforms[link.title-1].img" :alt="platforms[link.title-1].title">
+                                <span>{{platforms[link.title-1].title}}</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <iframe :style="contentStyleObj" v-for="item in tabs" :src="item.url" frameborder="0" scrolling="auto"
-                v-if="item.status"></iframe>
+            <!-- <textarea class="notes" v-model="notes" placeholder="你可以在这里记录各科目的网课要求。"></textarea> -->
+            <!-- <button @click="setCookie('notes', notes, 365)">保存</button> -->
         </div>
+        <iframe :style="contentStyleObj" v-for="item in tabs" :src="item.url" frameborder="0" scrolling="auto"
+            v-if="item.status"></iframe>
+    </div>
     </div>
 </body>
 <script type="module" src="js/main.js"></script>
 <script type="module" src="js/block.js"></script>
-<script src="js/notify.js"></script>
+<!-- <script src="js/notify.js"></script> -->
 <!-- <script charset="gbk" src="https://www.baidu.com/js/opensug.js"></script>
 <script type="text/javascript">
     BaiduSuggestion.bind('search_submit', { // Input ID

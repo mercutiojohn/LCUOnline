@@ -1,3 +1,33 @@
+@font-face {
+    font-family: "Mitype2018-90";
+    src: url("fonts/MiType/Mitype2018-90.otf");
+}
+
+@font-face {
+    font-family: "Mitype2018-80";
+    src: url("fonts/MiType/Mitype2018-80.otf");
+}
+
+@font-face {
+    font-family: "Mitype2018-70";
+    src: url("fonts/MiType/Mitype2018-70.otf");
+}
+
+@font-face {
+    font-family: "Mitype2018-60";
+    src: url("fonts/MiType/Mitype2018-60.otf");
+}
+
+@font-face {
+    font-family: "Mitype2018-50";
+    src: url("fonts/MiType/Mitype2018-50.otf");
+}
+
+@font-face {
+    font-family: "MitypeVF";
+    src: url("fonts/MiType/MitypeVF.ttf");
+}
+
 body,
 button,
 input,
