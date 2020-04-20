@@ -34,6 +34,11 @@
     src: url("fonts/MiType/MitypeVF.ttf");
 }
 
+@font-face {
+    font-family: "SF Pro Display";
+    src: url("fonts/SanFrancisco/SF-Pro-Display-Regular.otf");
+}
+
 /* ------------------------------- Animations ------------------------------- */
 /* .block-list-enter-active,
 .block-list-leave-active {
@@ -95,7 +100,7 @@ button,
 input,
 select,
 textarea {
-    font-family: -apple-system,
+    font-family: -apple-system, 'SF Pro Display',
         SF UI Text,
         PingFang SC,
         Lucida Grande,
@@ -123,14 +128,6 @@ body {
     background: center/cover no-repeat fixed #343537;
     /* backdrop-filter: blur(10px); */
     margin: 0;
-    font-family:
-        -apple-system,
-        SF UI Text,
-        PingFang SC,
-        Lucida Grande,
-        STheiti,
-        Microsoft YaHei,
-        sans-serif;
 }
 
 #view {
