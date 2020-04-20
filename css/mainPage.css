@@ -231,6 +231,7 @@ body {
 .tabs {
     /* margin-left: 30px; */
     display: flex;
+    height: var(--top-height);
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -242,10 +243,12 @@ body {
 
 .tab {
     /* float: left; */
+    height: var(--top-height);
+    line-height: var(--top-height);
     display: block;
     color: white;
     /* text-align: center; */
-    padding: 5px 16px;
+    padding: 0 16px;
     text-decoration: none;
     /* align-items: center; */
     /* justify-content: center; */
