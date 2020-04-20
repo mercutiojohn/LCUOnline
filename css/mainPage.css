@@ -1,3 +1,4 @@
+/* ------------------------------- Fonts ------------------------------- */
 @font-face {
     font-family: "Mitype2018-90";
     src: url("fonts/MiType/Mitype2018-90.otf");
@@ -27,6 +28,59 @@
     font-family: "MitypeVF";
     src: url("fonts/MiType/MitypeVF.ttf");
 }
+
+/* ------------------------------- Animations ------------------------------- */
+/* .block-list-enter-active,
+.block-list-leave-active {
+    transition: opacity 10s ease;
+} */
+
+.fade-enter-active {
+    transition: opacity .4s ease;
+}
+
+.fade-leave-active {
+    transition: opacity .2s ease;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.block-list-enter,
+.block-list-leave-to {
+    opacity: 0;
+}
+
+.block-list-enter {
+    opacity: 0;
+    transform: translate(-45vw, -45vh);
+    /* transform: scale(0, 0); */
+
+}
+
+.block-list-leave-to {
+    opacity: 0;
+    transform: translate(5vw, 10vh);
+}
+
+
+/* .block-list-enter-active,
+.block-list-leave-active {
+    transition: all 0.5s ease;
+} */
+
+.block-list-move {
+    /* position: relative; */
+    transition: all .5s ease;
+}
+
+.block-list-leave-active {
+    position: absolute;
+}
+
+
 
 body,
 button,

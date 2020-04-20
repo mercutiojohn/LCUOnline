@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/blocks.css">
     <link rel="stylesheet" href="css/functionBox.css">
     <link rel="stylesheet" href="css/searchWrap.css">
+    <link rel="stylesheet" href="css/animate.css">
 
 </head>
 
@@ -133,9 +134,14 @@
                             <div>{{props.item}}</div>
                         </template> -->
                     <!-- </grid> -->
-                    <ul class="blocks">
-                        <!-- <block></block> -->
-                        <li v-for="(item,index) in blocks" v-show="ifToday(index) || blocksPreferences.showAll">
+                    <!-- <ul class="blocks"> -->
+                    <!-- <block></block> -->
+                    <!-- name="fade" -->
+                    <!--  enter-active-class="animated zoomIn"
+                        leave-active-class="animated zoomOut" -->
+                    <transition-group name="block-list" class="blocks">
+                        <li v-for="(item,index) in blocks" v-show="ifToday(index) || blocksPreferences.showAll"
+                            :key='item' :class="'block-list-item'">
                             <div :class="'blockHead'">
                                 <div>
                                     <el-checkbox v-model="done[index]"></el-checkbox>
@@ -158,7 +164,8 @@
                                 </a>
                             </div>
                         </li>
-                    </ul>
+                    </transition-group>
+                    <!-- </ul> -->
                 </div>
                 <!-- <textarea class="notes" v-model="notes" placeholder="你可以在这里记录各科目的网课要求。"></textarea> -->
                 <!-- <button @click="setCookie('notes', notes, 365)">保存</button> -->
