@@ -14,17 +14,21 @@
 }
 
 #timeWrap {
-    width: 30vw;
-    height: 128px;
-    margin-top: var(--tab-height);
+    width: 80%;
+    max-width: 700px;
+    height: 110px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     /* background: var(--bg-color)3f; */
-    background: #ffffff00;
-    backdrop-filter: blur(10px);
+    background: #ffffffaa;
+    backdrop-filter: blur(10px) saturate(80%);
     position: absolute;
     top: 0;
     z-index: 999;
     border-radius: 20px;
-    margin: var(--tab-height) 0 0 10vw;
+    margin: calc(var(--tab-height) + 10px) 0 0 0;
 }
 
 #todoWrap {
@@ -57,14 +61,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.time-close {
+    margin-left: 40px;
+    /* position: absolute; */
+    /* right: 50px;
+    top: 50px; */
+    color: white;
+    background-color: #27282aa2;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
 .time-indent {
-    margin: 50px 0 25px 20px;
+    /* margin: 50px 0 25px 20px; */
     align-items: flex-start;
     justify-content: space-evenly;
-    height: 100%;
+    height: 60%;
 }
 
 .headArea {
@@ -95,10 +115,19 @@
 #biliZone {
     height: 520px;
     width: 390px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 #linkZone {
     height: 100%;
+    background: #fff;
+    margin-left: 20px;
+    width: 55vw;
+    height: 520px;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
     /* width: 50vw; */
 }
 

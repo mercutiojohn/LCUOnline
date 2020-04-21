@@ -29,9 +29,6 @@
             <div id="timeWrap" v-show="timeWrapDisplay" class="float-wrap flex f-left">
                 <!-- <div class="headArea" :style="wrapSearchStyleObj">
                 </div> -->
-                <span class="close" v-on:click="timeWrapDisplay = false">
-                    <i class="el-icon-close"></i>
-                </span>
 
                 <div class="time-indent flex">
                     <el-switch v-model="timePreferences.showSecond" active-text="显示秒" inactive-text="">
@@ -41,6 +38,9 @@
                     <el-switch v-model="bgStatus" active-text="开启壁纸" inactive-text="">
                     </el-switch>
                 </div>
+                <span class="time-close" v-on:click="timeWrapDisplay = false">
+                    <i class="el-icon-close"></i>
+                </span>
             </div>
         </transition>
         <transition name="fade">
@@ -93,7 +93,7 @@
                     <div id="linkZone">
                         <!-- <a href="https://www.jiumodiary.com/">鸠摩搜书</a> -->
                         <iframe src="https://www.bing.com/covid?ref=embedding"
-                            style="margin-left:20px;width: 55vw;height: 520px;border: none;border-radius: 10px;"></iframe>
+                            style="width: 100%;height: 520px;border: none;"></iframe>
                     </div>
                 </div>
             </div>
