@@ -17,18 +17,13 @@ var vm = new Vue({
         wrap: {
             status: true
         },
-        // contentStyleObj: {
-        //     height: '',
-        //     width: '100%',
-        //     backgroundColor: '#eee'
-        // },
-        // wrapStyleObj: {
-        //     height: '',
-        //     width: '100%'
-        // },
-        // wrapSearchStyleObj: {
-        //     marginTop: ''
-        // },
+        bg: {
+            status: true,
+            style: "background:none;",
+            contentBgStyle: "background:rgba(240,240,240,0.8);backdrop-filter:saturate(180%) blur(20px); transition:all .35s ease;",
+            textStyle: "color:#fff;",
+            revTextStyle: "color:#000;"
+        },
         notes: "",
         img_url: 'img/',
         done: [],

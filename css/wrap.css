@@ -8,6 +8,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: url(https://bing.rthe.net/wallpaper) center/cover no-repeat fixed;
+
 }
 
 .iframe-content {
@@ -24,6 +26,7 @@
     justify-content: flex-start;
     flex-direction: column;
     background: var(--bg-color);
+    transition: all .5s ease;
 }
 
 .blockHead {

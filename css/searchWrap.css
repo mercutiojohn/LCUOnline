@@ -91,7 +91,7 @@
 
 .notify {
     width: 100vw;
-    height: 90vh;
+    height: var(--app-height);
     border-radius: 12px;
     /* margin: 30px; */
     overflow: hidden;
