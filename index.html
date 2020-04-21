@@ -84,12 +84,18 @@
                         <el-radio v-for="(item,index) in searchUrls" :label="item">{{item.title}}</el-radio>
                     </el-radio-group>
                 </div>
-                <div class="blank"></div>
-                <div class="blank"></div>
-                <a href="https://www.jiumodiary.com/">鸠摩搜书</a>
 
-                <iframe id="bili" frameborder="0" src="https://t.bilibili.com/pages/nav/index_new"
-                    scrolling="auto"></iframe>
+                <div id="contentZone">
+                    <div id="biliZone">
+                        <iframe id="bili" frameborder="0" src="https://t.bilibili.com/pages/nav/index_new"
+                            scrolling="auto"></iframe>
+                    </div>
+                    <div id="linkZone">
+                        <!-- <a href="https://www.jiumodiary.com/">鸠摩搜书</a> -->
+                        <iframe src="https://www.bing.com/covid?ref=embedding"
+                            style="margin-left:20px;width: 55vw;height: 520px;border: none;border-radius: 10px;"></iframe>
+                    </div>
+                </div>
             </div>
         </transition>
         <div id="tab-container">
@@ -132,7 +138,7 @@
                     </div>
 
                     <!-- <span id="time-content">{{time}}</span> -->
-                    <div class="searchBox">
+                    <div class="searchBox transition" :style="searchWrapDisplay ? transToTop:''">
                         <i class="el-icon-search searchIcon" :style="bg.status?bg.revTextStyle:''"></i>
                         <form :action="targetUrl.url" target="_blank">
                             <input class="navBar_home_inputText" :style="bgStatus?bg.contentBgStyle:''" type="text"

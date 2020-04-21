@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
+    overflow: hidden;
 }
 
 #timeWrap {
@@ -81,8 +82,28 @@
     /* flex-direction: row; */
 }
 
+#contentZone {
+    width: 85vw;
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    /* margin-bottom: 10vh;
+    margin-top: 5vh; */
+}
+
+#biliZone {
+    height: 520px;
+    width: 390px;
+}
+
+#linkZone {
+    height: 100%;
+    /* width: 50vw; */
+}
+
 #bili {
-    width: 380px;
+    width: 100%;
     background: transparent;
     overflow: hidden;
     height: 100%;

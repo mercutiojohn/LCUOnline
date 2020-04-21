@@ -24,6 +24,7 @@ var vm = new Vue({
             textStyle: "color:#fff;transition:all .35s ease;",
             revTextStyle: "color:#000;transition:all .35s ease;"
         },
+        transToTop: "transform:translateY(-120px);",
         notes: "",
         img_url: 'img/',
         done: [],
