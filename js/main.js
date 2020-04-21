@@ -592,7 +592,7 @@ var vm = new Vue({
         // this.tabs[this.tabs.length - 1].status = true;
         // this.tabs[0].status = true;
         window.addEventListener('resize', this.getHeight);
-        this.getHeight();
+        // this.getHeight();
         this.date = this.getTime();
         this.checkCookie();
         /*console.log(document.getElementsByTagName("iframe")[0].offsetHeight);
@@ -608,7 +608,7 @@ var vm = new Vue({
         }
     },
     destroyed() {
-        window.removeEventListener('resize', this.getHeight);
+        // window.removeEventListener('resize', this.getHeight);
     },
     computed: {
         contentHeight: function () {
