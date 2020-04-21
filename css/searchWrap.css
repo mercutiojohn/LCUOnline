@@ -21,7 +21,7 @@
     backdrop-filter: blur(10px);
     position: absolute;
     top: 0;
-    z-index: 1002;
+    z-index: 999;
     border-radius: 20px;
     margin: var(--tab-height) 0 0 10vw;
 }
