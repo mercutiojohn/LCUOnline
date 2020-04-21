@@ -26,7 +26,7 @@
     justify-content: flex-start;
     flex-direction: column;
     background: var(--bg-color);
-    transition: all .5s ease;
+    transition: background-color .5s ease;
 }
 
 .blockHead {
@@ -144,7 +144,7 @@
     left: 18px;
     /* position: absolute; */
     width: 0;
-    color: #fff;
+    color: var(--main-color);
     /* top: 178px; */
     /* left: 245px; */
 }

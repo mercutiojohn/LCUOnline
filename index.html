@@ -38,7 +38,7 @@
                     </el-switch>
                     <el-switch v-model="timePreferences.twelveFormat" active-text="12小时制" inactive-text="">
                     </el-switch>
-                    <el-switch v-model="bg.status" active-text="开启壁纸" inactive-text="">
+                    <el-switch v-model="bgStatus" active-text="开启壁纸" inactive-text="">
                     </el-switch>
                 </div>
             </div>
@@ -109,33 +109,32 @@
         <div id="app">
             <!-- <iframe :src="currentItem.url" frameborder="0" scrolling="auto"></iframe> -->
             <div id="wrap" v-if="wrap.status">
-                <div class="blockBox" :style="bg.status?bg.style:''">
+                <div class="blockBox" :style="bgStatus?bg.style:''">
                     <div id="headBox">
                         <div :id="!timeWrapDisplay?time:timeActive" v-on:click="timeWrapDisplay = true">
                             <span id="time-content" :class="searchWrapDisplay?'hideTime':''"
-                                :style="bg.status?bg.textStyle:''">{{date}}</span>
+                                :style="bgStatus?bg.textStyle:''">{{date}}</span>
                             <span id="twelveLabel" :class="searchWrapDisplay?'hideTime':''"
                                 v-if="timePreferences.twelveFormat"
-                                :style="bg.status?bg.textStyle:''">{{timePreferences.twelveLabel}}</span>
-                            <span id="week" :style="bg.status?bg.textStyle:''">第<span
-                                    id="digits">{{week}}</span>周</span>
+                                :style="bgStatus?bg.textStyle:''">{{timePreferences.twelveLabel}}</span>
+                            <span id="week" :style="bgStatus?bg.textStyle:''">第<span id="digits">{{week}}</span>周</span>
                         </div>
                         <div id="quote">
 
                             <span id="notifyButton" v-on:click="todoWrapDisplay = true"
-                                :style="bg.status?bg.textStyle:''">通知</span>
+                                :style="bgStatus?bg.textStyle:''">通知</span>
                             <a href="http://jwcweb.lcu.edu.cn/jwglxt/xtgl/login_slogin.html?language=zh_CN&_t=1573135233017"
                                 target="_blank"><span id="notifyButton"
-                                    :style="bg.status?bg.textStyle:''">教务系统</span></a>
+                                    :style="bgStatus?bg.textStyle:''">教务系统</span></a>
 
                         </div>
                     </div>
 
                     <!-- <span id="time-content">{{time}}</span> -->
                     <div class="searchBox">
-                        <i class="el-icon-search searchIcon"></i>
+                        <i class="el-icon-search searchIcon" :style="bg.status?bg.revTextStyle:''"></i>
                         <form :action="targetUrl.url" target="_blank">
-                            <input class="navBar_home_inputText" :style="bg.status?bg.contentBgStyle:''" type="text"
+                            <input class="navBar_home_inputText" :style="bgStatus?bg.contentBgStyle:''" type="text"
                                 :name="targetUrl.queryWord" id="" :placeholder="targetUrl.title"
                                 v-on:click="searchWrapDisplay = true">
                         </form>
@@ -156,12 +155,12 @@
                         leave-active-class="animated zoomOut" -->
                     <transition-group name="block-list" class="blocks">
                         <li v-for="(item,index) in blocks" v-show="ifToday(index) || blocksPreferences.showAll"
-                            :key='item' class="block-list-item" :style="bg.status?bg.contentBgStyle:''">
+                            :key='item' class="block-list-item" :style="bgStatus?bg.contentBgStyle:''">
                             <div class="blockHead">
                                 <div>
                                     <el-checkbox v-model="done[index]"></el-checkbox>
                                     <!-- <input type="checkbox" v-model="done[index]"></input> -->
-                                    <span class="class-name" :style="bg.status?bg.revTextStyle:''">{{item.title}}</span>
+                                    <span class="class-name" :style="bgStatus?bg.revTextStyle:''">{{item.title}}</span>
                                 </div>
                                 <transition name="fade">
                                     <span :class="'done'" v-show="done[index]">已完成</span>

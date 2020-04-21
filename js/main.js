@@ -17,12 +17,12 @@ var vm = new Vue({
         wrap: {
             status: true
         },
+        bgStatus: false,
         bg: {
-            status: true,
             style: "background:none;",
             contentBgStyle: "background:rgba(240,240,240,0.8);backdrop-filter:saturate(180%) blur(20px); transition:all .35s ease;",
-            textStyle: "color:#fff;",
-            revTextStyle: "color:#000;"
+            textStyle: "color:#fff;transition:all .35s ease;",
+            revTextStyle: "color:#000;transition:all .35s ease;"
         },
         notes: "",
         img_url: 'img/',
@@ -513,17 +513,17 @@ var vm = new Vue({
             var d = new Date();
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
             var expires = "expires=" + d.toUTCString();
-            // console.info(cname + "=" + cvalue + "; " + expires);
+            console.info(cname + "=" + cvalue + "; " + expires);
             document.cookie = cname + "=" + cvalue + "; " + expires;
-            // console.info(document.cookie);
+            console.info(document.cookie);
         },
         getCookie(cname) {
             var name = cname + "=";
             var ca = document.cookie.split(';');
-            // console.log("获取cookie,现在循环")
+            console.log("获取cookie,现在循环")
             for (var i = 0; i < ca.length; i++) {
                 var c = ca[i];
-                // console.log(c)
+                console.log(c)
                 while (c.charAt(0) == ' ') c = c.substring(1);
                 if (c.indexOf(name) != -1) {
                     return c.substring(name.length, c.length);
@@ -539,7 +539,8 @@ var vm = new Vue({
             this.done = JSON.parse(this.getCookie("done"));
             this.targetUrl = JSON.parse(this.getCookie("targetUrl"));
             this.blocksPreferences = JSON.parse(this.getCookie("blocksPreferences"));
-            this.timePreferences = JSON.parse(this.getCookie("timsPreferences"));
+            this.timePreferences = JSON.parse(this.getCookie("timePreferences"));
+            this.bgStatus = JSON.parse(this.getCookie("bgStatus"));
             // var user = this.getCookie("username");
             // if (user != "") {
             //     console.info("Welcome again " + user);
@@ -650,7 +651,10 @@ var vm = new Vue({
             this.setCookie("blocksPreferences", JSON.stringify(this.blocksPreferences), 365);
         },
         timePreferences: function () {
-            this.setCookie("timePreferences", JSON.stringify(this.blocksPreferences), 365);
+            this.setCookie("timePreferences", JSON.stringify(this.timePreferences), 365);
+        },
+        bgStatus: function () {
+            this.setCookie("bgStatus", JSON.stringify(this.bgStatus), 365);
         }
 
 
