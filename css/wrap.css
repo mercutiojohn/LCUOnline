@@ -23,10 +23,7 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-    background: #f6f7f9;
-    /* change */
-    background: #17181a;
-
+    background: var(--bg-color);
 }
 
 .blockHead {
@@ -80,7 +77,7 @@
     font-family: 'Mitype2018-60';
 }
 
-#timeContent {
+#time-content {
 
     font-size: 40px;
     /* font-weight: 800; */
@@ -88,11 +85,11 @@
         SF UI Text,
         'SF Pro Display';
     /* change */
-    color: white;
+    color: var(--main-color);
 }
 
 #twelveLabel {
-    color: rgba(255, 255, 255, 0.205);
+    color: var(--inactive-color);
 
 }
 
@@ -109,12 +106,12 @@
         STheiti,
         Microsoft YaHei,
         sans-serif;
-    color: #fff;
+    color: var(--main-color);
     margin: 0 10px;
 }
 
 #notifyButton {
-    color: rgba(255, 255, 255, 0.349);
+    color: var(--inactive-color);
     transition: all ease-in-out .5s;
 
 }
@@ -153,7 +150,7 @@
     /* width: 100%; */
     box-shadow: 0 4px 20px rgba(0, 25, 104, .05);
     color: #212832;
-    background: #fff;
+    background: var(--elem-color);
     width: 100%;
     padding: 0 52px;
     box-sizing: border-box;
@@ -162,7 +159,7 @@
     font-size: 16px;
     /* change */
     color: #eef0f4;
-    background: rgba(238, 240, 244, .1);
+    /* background: rgba(238, 240, 244, .1); */
 }
 
 input,

@@ -1,6 +1,6 @@
 #searchWrap {
     width: 100%;
-    background: #17181a3f;
+    background: var(--bg-color)3f;
     backdrop-filter: blur(50px);
     position: absolute;
     top: 0;
@@ -15,21 +15,21 @@
 #timeWrap {
     width: 30vw;
     height: 128px;
-    margin-top: var(--top-height);
-    /* background: #17181a3f; */
+    margin-top: var(--tab-height);
+    /* background: var(--bg-color)3f; */
     background: #ffffff00;
     backdrop-filter: blur(10px);
     position: absolute;
     top: 0;
     z-index: 1002;
     border-radius: 20px;
-    margin: var(--top-height) 0 0 10vw;
+    margin: var(--tab-height) 0 0 10vw;
 }
 
 #todoWrap {
     width: 100%;
     /* height: 200px; */
-    background: #17181ada;
+    background: var(--bg-color);
     /* backdrop-filter: blur(50px); */
     position: absolute;
     top: 0;

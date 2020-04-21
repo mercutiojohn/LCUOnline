@@ -39,10 +39,9 @@
     box-shadow: 0 4px 20px rgba(0, 25, 104, .05);
     /* box-shadow: 0 3px 10px rgba(0, 0, 0, 0.185); */
     border-radius: 10px;
-    background-color: #fff;
     overflow: hidden;
     /* change */
-    background-color: #27282a;
+    background-color: var(--elem-color);
 }
 
 
@@ -61,21 +60,19 @@
 
 .blocks li div a span {
     margin-left: 4px;
-    color: #000;
-    /* change */
-    color: #fff;
+    /* color: var(--main-color); */
+
+    /* color: #fff; */
 }
 
 .blockHead {
     margin-bottom: 10px;
-    border-bottom: 1px solid #343537;
+    border-bottom: 1px solid var(--first-assist-color);
     padding-bottom: 8px;
 }
 
-.blockHead span {
-    color: #000;
-    /* change */
-    color: #fff;
+.class-name {
+    color: var(--main-color);
 }
 
 .blocks li div a:hover {

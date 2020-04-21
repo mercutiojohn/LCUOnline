@@ -96,7 +96,18 @@ var vm = new Vue({
                 title: "传智播客",
                 status: false,
                 url: "http://stu.ityxb.com/notice/msg"
-            }
+            },
+            {
+                title: "Bilibili",
+                status: false,
+                url: "https://t.bilibili.com/pages/nav/index_new"
+            },
+            {
+                title: "QQ空间",
+                status: false,
+                url: "https://rc.qzone.qq.com/im"
+            },
+
         ],
         //DataBases
         platforms: [{
@@ -546,7 +557,7 @@ var vm = new Vue({
         },
         defineColor(obj) {
             return 'background-color:' + obj.bgColor + ';color:' +
-                (obj.color ? '#fff' : '#000') + ';';
+                (obj.color ? '#fff' : 'var(--main-color)') + ';';
         },
         checkTime(i) {
             if (i < 10) {

@@ -110,7 +110,7 @@
                 <div class="blockBox">
                     <div id="headBox">
                         <div :id="!timeWrapDisplay?time:timeActive" v-on:click="timeWrapDisplay = true">
-                            <span id="timeContent" :class="searchWrapDisplay?'hideTime':''+' digits'">{{date}}</span>
+                            <span id="time-content" :class="searchWrapDisplay?'hideTime':''">{{date}}</span>
                             <span id="twelveLabel" :class="searchWrapDisplay?'hideTime':''"
                                 v-if="timePreferences.twelveFormat">{{timePreferences.twelveLabel}}</span>
                             <span id="week">第<span id="digits">{{week}}</span>周</span>
@@ -124,7 +124,7 @@
                         </div>
                     </div>
 
-                    <!-- <span id="timeContent">{{time}}</span> -->
+                    <!-- <span id="time-content">{{time}}</span> -->
                     <div class="searchBox">
                         <i class="el-icon-search searchIcon"></i>
                         <form :action="targetUrl.url" target="_blank">
@@ -153,7 +153,7 @@
                                 <div>
                                     <el-checkbox v-model="done[index]"></el-checkbox>
                                     <!-- <input type="checkbox" v-model="done[index]"></input> -->
-                                    <span>{{item.title}}</span>
+                                    <span class="class-name">{{item.title}}</span>
                                 </div>
                                 <transition name="fade">
                                     <span :class="'done'" v-show="done[index]">已完成</span>
