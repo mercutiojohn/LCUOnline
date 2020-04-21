@@ -81,6 +81,13 @@
     /* flex-direction: row; */
 }
 
+#bili {
+    width: 380px;
+    background: transparent;
+    overflow: hidden;
+    height: 100%;
+}
+
 /* .chaoxing {
     width: 937px;
     height: 94%;

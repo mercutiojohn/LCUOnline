@@ -191,11 +191,11 @@ var vm = new Vue({
                 status: false,
                 url: "http://ee-c.lcu.edu.cn/si/student/group"
             },
-            // {
-            //     title: "课表",
-            //     status: false,
-            //     url: "http://jwcweb.lcu.edu.cn/jwglxt/"
-            // },
+            {
+                title: "疫情追踪",
+                status: false,
+                url: "https://www.bing.com/covid"
+            },
             {
                 title: "Unipus",
                 status: false,
@@ -513,17 +513,18 @@ var vm = new Vue({
             var d = new Date();
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
             var expires = "expires=" + d.toUTCString();
-            console.info(cname + "=" + cvalue + "; " + expires);
+            // console.info(cname + "=" + cvalue + "; " + expires);
             document.cookie = cname + "=" + cvalue + "; " + expires;
-            console.info(document.cookie);
+            // console.info(document.cookie);
         },
         getCookie(cname) {
             var name = cname + "=";
             var ca = document.cookie.split(';');
-            console.log("获取cookie,现在循环")
+            console.log("<cookies> 获取cookie,现在循环")
             for (var i = 0; i < ca.length; i++) {
                 var c = ca[i];
-                console.log(c)
+                console.log("<cookies> " +
+                    c)
                 while (c.charAt(0) == ' ') c = c.substring(1);
                 if (c.indexOf(name) != -1) {
                     return c.substring(name.length, c.length);
@@ -575,7 +576,6 @@ var vm = new Vue({
         const todos = fetch('https://mercutio_john.coding.net/p/LCUOnline/d/LCUOnline/git/raw/master/blocks.json').then(res => {
             return res.json();
         }).then(todos => {
-            console.log("===================================================");
             console.log(blocks);
             // this.todos = todos;
         });
@@ -612,16 +612,16 @@ var vm = new Vue({
         // window.removeEventListener('resize', this.getHeight);
     },
     computed: {
-        contentHeight: function () {
-            var h = window.innerHeight || document.documentElement.clientHeight || document.body
-                .clientHeight;
-            return (h - document.getElementById("container").offsetHeight - 15 + 'px');
-        },
-        wrapHeight: function () {
-            var h = window.innerHeight || document.documentElement.clientHeight || document.body
-                .clientHeight;
-            return h + 'px';
-        },
+        // contentHeight: function () {
+        //     var h = window.innerHeight || document.documentElement.clientHeight || document.body
+        //         .clientHeight;
+        //     return (h - document.getElementById("container").offsetHeight - 15 + 'px');
+        // },
+        // wrapHeight: function () {
+        //     var h = window.innerHeight || document.documentElement.clientHeight || document.body
+        //         .clientHeight;
+        //     return h + 'px';
+        // },
         week: function () {
             function getYearWeek(date) {
                 var date2 = new Date(date.getFullYear(), 0, 1);
