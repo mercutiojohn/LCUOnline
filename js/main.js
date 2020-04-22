@@ -31,6 +31,7 @@ var vm = new Vue({
         searchWrapDisplay: false,
         timeWrapDisplay: false,
         todoWrapDisplay: false,
+        musicWrapDisplay: false,
         timePreferences: {
             showSecond: false,
             twelveFormat: true,
@@ -79,6 +80,21 @@ var vm = new Vue({
 
 
         },
+        musicSites: [{
+                title: "Bilibili",
+                status: true,
+                url: "https://t.bilibili.com/pages/nav/index_new"
+            }, {
+                title: "网易云推荐",
+                status: false,
+                url: "https://mp.music.163.com/5c1c8d76bea7983a7b58ce2d/fm.html"
+            }, {
+                title: "DI.FM",
+                status: false,
+                url: "https://music.163.com/st/difm/index.html"
+            }
+
+        ],
         noti: [{
                 title: "学习通",
                 status: true,
@@ -92,17 +108,7 @@ var vm = new Vue({
                 title: "传智播客",
                 status: false,
                 url: "http://stu.ityxb.com/notice/msg"
-            },
-            {
-                title: "Bilibili",
-                status: false,
-                url: "https://t.bilibili.com/pages/nav/index_new"
-            },
-            {
-                title: "QQ空间",
-                status: false,
-                url: "https://rc.qzone.qq.com/im"
-            },
+            }
 
         ],
         //DataBases
@@ -191,11 +197,6 @@ var vm = new Vue({
                 title: "U+",
                 status: false,
                 url: "http://ee-c.lcu.edu.cn/si/student/group"
-            },
-            {
-                title: "疫情追踪",
-                status: false,
-                url: "https://www.bing.com/covid"
             },
             {
                 title: "Unipus",
@@ -459,27 +460,21 @@ var vm = new Vue({
         //         console.log("居然没有弹窗");
         //     })
         // },
-        changeTab(selectedTab) {
+        changeTab(selectedTab, tabGroup) {
             // this.currentItem = selectedTab;
             if (selectedTab == "wrap") {
                 this.wrap.status = true;
-            } else {
+            } else if (tabGroup == this.tabs) {
                 this.wrap.status = false;
             }
-            for (var i = 0; i < this.tabs.length; i++) {
-                this.tabs[i].status = false;
+            for (var i = 0; i < tabGroup.length; i++) {
+                tabGroup[i].status = false;
             }
             // if (selectedTab == this.tabs.length - 1)
             // this.wrap.status = true;
             // else
-            this.tabs[selectedTab].status = true;
-        },
-        changeNotiTab(selectedTab) {
-            // this.currentItem = selectedTab;
-            for (var i = 0; i < this.noti.length; i++) {
-                this.noti[i].status = false;
-            }
-            this.noti[selectedTab].status = true;
+            tabGroup[selectedTab].status = true;
+            return tabGroup;
         },
         // getHeight() {
         //     var h = window.innerHeight || document.documentElement.clientHeight || document.body

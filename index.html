@@ -48,8 +48,8 @@
                 <div id="tab-container">
                     <ul class="tabs">
                         <!-- <li v-for="(item,index) in tabs" @click="changeTab(item)" :class="'tab '+item.status">{{item.title}}
-                                        </li> -->
-                        <li v-for="(item,index) in noti" @click="changeNotiTab(index)"
+                                                </li> -->
+                        <li v-for="(item,index) in noti" @click="noti = changeTab(index, noti)"
                             :class="'tab' + (item.status?' activeTab':' inactiveTab')">
                             {{item.title}}
                             <a v-if="!item.status" :href="item.url" style="color: #85858580; text-decoration:none"
@@ -62,9 +62,36 @@
                 </span>
                 <div class="notifyContainer">
                     <!-- <iframe class="chaoxing" src=" http://notice.chaoxing.com/pc/notice/myNotice" frameborder="0"
-                        scrolling="auto"></iframe> -->
+                                scrolling="auto"></iframe> -->
                     <div class="notifyItem" v-for="item in noti">
                         <iframe class="notify" :id="item.title" :src="item.url" frameborder="0" scrolling="auto"
+                            v-if="item.status"></iframe>
+                    </div>
+                </div>
+            </div>
+        </transition>
+        <transition name="fade">
+            <div id="musicWrap" v-show="musicWrapDisplay" class="float-wrap" v-on:click="musicWrapDisplay = false">
+                <div id="music-tab-container" v-on:click="musicWrapDisplay = true">
+                    <ul class="tabs" @click.stop>
+                        <!-- <li v-for="(item,index) in tabs" @click="changeTab(item)" :class="'tab '+item.status">{{item.title}}
+                                                </li> -->
+                        <li v-for="(item,index) in musicSites" @click="changeTab(index,musicSites)"
+                            :class="'tab' + (item.status?' activeTab':' inactiveTab')">
+                            {{item.title}}
+                            <a v-if="!item.status" :href="item.url" style="color: #85858580; text-decoration:none"
+                                target="_blank">↗</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- <span class="close" v-on:click="musicWrapDisplay = false">
+                    <i class="el-icon-close"></i>
+                </span> -->
+                <div class="musicContainer">
+                    <!-- <iframe class="chaoxing" src=" http://notice.chaoxing.com/pc/notice/myNotice" frameborder="0"
+                                scrolling="auto"></iframe> -->
+                    <div class="music-item" v-for="item in musicSites" @click.stop>
+                        <iframe class="music" :id="item.title" :src="item.url" frameborder="0" scrolling="auto"
                             v-if="item.status"></iframe>
                     </div>
                 </div>
@@ -75,7 +102,7 @@
                 <span class="close" v-on:click="searchWrapDisplay = false">
                     <i class="el-icon-close"></i>
                 </span>
-                <div class="headArea" :style="wrapSearchStyleObj">
+                <div class="headArea" :style="wrapSearchStyleObj" @click.stop>
                     <!-- <div class="searchBox_inWrap">
                         <input class="navBar_home_inputText" type="text" name="" id="" placeholder="今日事，今日毕。"
                             v-on:click="searchWrapDisplay = true">
@@ -85,7 +112,7 @@
                     </el-radio-group>
                 </div>
 
-                <div id="contentZone">
+                <div id="contentZone" @click.stop>
                     <div id="biliZone">
                         <iframe id="bili" frameborder="0" src="https://t.bilibili.com/pages/nav/index_new"
                             scrolling="auto"></iframe>
@@ -102,10 +129,11 @@
             <ul class="tabs">
                 <!-- <li v-for="(item,index) in tabs" @click="changeTab(item)" :class="'tab '+item.status">{{item.title}}
                 </li> -->
-                <li @click="changeTab('wrap')" :class="'tab' + (wrap.status?' activeTab mainTab':' inactiveTab')">
+                <li @click="tabs = changeTab('wrap',tabs)"
+                    :class="'tab' + (wrap.status?' activeTab mainTab':' inactiveTab')">
                     主页
                 </li>
-                <li v-for="(item,index) in tabs" @click="changeTab(index)"
+                <li v-for="(item,index) in tabs" @click="tabs = changeTab(index,tabs)"
                     :class="'tab' + (item.status?' activeTab':' inactiveTab')">
                     {{item.title}}
                     <a v-if="!item.status" :href="item.url" style="color: #ffffffbb; text-decoration:none"
@@ -130,6 +158,8 @@
 
                             <span id="notifyButton" v-on:click="todoWrapDisplay = true"
                                 :style="bgStatus?bg.textStyle:''">通知</span>
+                            <span id="notifyButton" v-on:click="musicWrapDisplay = true"
+                                :style="bgStatus?bg.textStyle:''">音乐盒</span>
                             <a href="http://jwcweb.lcu.edu.cn/jwglxt/xtgl/login_slogin.html?language=zh_CN&_t=1573135233017"
                                 target="_blank"><span id="notifyButton"
                                     :style="bgStatus?bg.textStyle:''">教务系统</span></a>
