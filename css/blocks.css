@@ -24,7 +24,7 @@
     /* overflow: scroll; */
 }
 
-.blocks li {
+.block-list-item {
     display: flex;
     /* width: auto; */
     /* max-width: 300px; */
@@ -42,8 +42,16 @@
     overflow: hidden;
     /* change */
     background-color: var(--elem-color);
+    transition: all .25s ease;
 }
 
+.block-list-item:hover {
+    transform: scale(1.06);
+}
+
+.block-list-item:active {
+    transform: scale(0.97);
+}
 
 .blocks li div a {
     padding: 4px 7px;

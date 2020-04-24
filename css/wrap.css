@@ -133,6 +133,15 @@
     z-index: 1001;
     display: flex;
     align-items: center;
+    transition: all .25s ease;
+}
+
+.searchBox:hover {
+    transform: scale(1.01);
+}
+
+.searchBox:active {
+    transform: scale(0.99);
 }
 
 .searchBox form {

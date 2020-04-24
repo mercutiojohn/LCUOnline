@@ -90,9 +90,9 @@
                 <div class="musicContainer">
                     <!-- <iframe class="chaoxing" src=" http://notice.chaoxing.com/pc/notice/myNotice" frameborder="0"
                                 scrolling="auto"></iframe> -->
-                    <div class="music-item" v-for="item in musicSites" @click.stop>
-                        <iframe class="music" :id="item.title" :src="item.url" frameborder="0" scrolling="auto"
-                            v-if="item.status"></iframe>
+                    <div class="music-item" @click.stop>
+                        <iframe class="music" v-for="item in musicSites" :id="item.title" :src="item.url"
+                            frameborder="0" scrolling="auto" v-if="item.status"></iframe>
                     </div>
                 </div>
             </div>
@@ -190,7 +190,7 @@
                     <!-- name="fade" -->
                     <!--  enter-active-class="animated zoomIn"
                         leave-active-class="animated zoomOut" -->
-                    <transition-group name="block-list" class="blocks">
+                    <transition-group name="block-list" tag="ul" class="blocks">
                         <li v-for="(item,index) in blocks" v-show="ifToday(index) || blocksPreferences.showAll"
                             :key='item' class="block-list-item" :style="bgStatus?bg.contentBgStyle:''">
                             <div class="blockHead">
