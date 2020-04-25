@@ -17,7 +17,7 @@ var vm = new Vue({
         wrap: {
             status: true
         },
-        bgStatus: true,
+        bgStatus: false,
         bg: {
             style: "background:none;",
             contentBgStyle: "background:rgba(240,240,240,0.8);backdrop-filter:saturate(180%) blur(20px); transition:all .35s ease;",

@@ -7,7 +7,7 @@
     --elem-color: #ffffff;
     --first-assist-color: #eee;
     --main-color: #000000;
-    --body-color: #ffffff;
+    --body-color: #f1f3f4;
     --inactive-color: #888;
 }
 
@@ -18,7 +18,7 @@
         --elem-color: #ffffff;
         --first-assist-color: #eee;
         --main-color: #000000;
-        --body-color: #ffffff;
+        --body-color: #f1f3f4;
         --inactive-color: #888;
     }
 }
