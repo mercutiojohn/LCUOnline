@@ -516,11 +516,10 @@ var vm = new Vue({
         getCookie(cname) {
             var name = cname + "=";
             var ca = document.cookie.split(';');
-            console.log("<cookies> 获取cookie,现在循环")
+            // console.log("<cookies> 获取cookie,现在循环")
             for (var i = 0; i < ca.length; i++) {
                 var c = ca[i];
-                console.log("<cookies> " +
-                    c)
+                // console.log("<cookies> " +c);
                 while (c.charAt(0) == ' ') c = c.substring(1);
                 if (c.indexOf(name) != -1) {
                     return c.substring(name.length, c.length);
@@ -569,12 +568,23 @@ var vm = new Vue({
         this.timer = setInterval(() => {
             _this.date = _this.getTime();
         }, 1000);
-        const todos = fetch('https://mercutio_john.coding.net/p/LCUOnline/d/LCUOnline/git/raw/master/blocks.json').then(res => {
-            return res.json();
-        }).then(todos => {
-            console.log(blocks);
-            // this.todos = todos;
-        });
+        // const todos = fetch('https://mercutio_john.coding.net/p/LCUOnline/d/LCUOnline/git/raw/master/blocks.json').then(res => {
+        //     return res.json();
+        // }).then(todos => {
+        //     // console.log(blocks);
+        //     // this.todos = todos;
+        // });
+        var mode = getComputedStyle(document.documentElement).getPropertyValue('--mode').trim();
+        // console.log(mode);
+        // var a = document.getElementsByTagName("meta")[6].content;
+        // console.log(document.getElementsByTagName("meta")[6].content);
+        // if (mode == 'dark') {
+        var bodyColor = getComputedStyle(document.documentElement).getPropertyValue('--body-color').trim();
+        // console.log("bodycolor is " + bodyColor);
+        // document.getElementsByTagName("meta")[6].content = bodyColor;
+        document.querySelectorAll('meta')[6].setAttribute('content', bodyColor);
+        // console.log(document.getElementsByTagName("meta")[6].content);
+        // }
     },
     created() {
 
@@ -630,6 +640,10 @@ var vm = new Vue({
             }
             var start = new Date(2020, 2, 17);
             return getYearWeek(start);
+        },
+        mode: function () {
+            return getComputedStyle(document.documentElement).getPropertyValue('--mode').trim();
+            // TODO: change theme color while change mode 
         }
     },
     watch: {
@@ -651,6 +665,13 @@ var vm = new Vue({
         },
         bgStatus: function () {
             this.setCookie("bgStatus", JSON.stringify(this.bgStatus), 365);
+        },
+        mode: function () {
+            var bodyColor = getComputedStyle(document.documentElement).getPropertyValue('--body-color').trim();
+            document.querySelectorAll('meta')[6].setAttribute('content', bodyColor);
+            console.log("bodyColor:" + bodyColor);
+            console.log("metaContent:" + document.querySelectorAll('meta')[6].content);
+            // TODO: change theme color while change mode 
         }
 
 

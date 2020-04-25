@@ -30,7 +30,9 @@
     <meta name="apple-mobile-web-app-title" content="LCU在线">
     <meta name="application-name" content="LCU在线">
     <meta name="msapplication-TileColor" content="#005663">
-    <meta name="theme-color" content="#005663">
+    <!-- <meta name="theme-color" content="#005663"> -->
+    <!-- <meta name="theme-color" content="#343537"> -->
+    <meta name="theme-color" content="#ffffff">
 </head>
 
 <body>
@@ -108,7 +110,7 @@
             </div>
         </transition>
         <transition name="fade">
-            <div id="searchWrap" v-if="searchWrapDisplay" class="float-wrap" v-on:click="searchWrapDisplay = false">
+            <div id="searchWrap" v-show="searchWrapDisplay" class="float-wrap" v-on:click="searchWrapDisplay = false">
                 <span class="close" v-on:click="searchWrapDisplay = false">
                     <i class="el-icon-close"></i>
                 </span>
