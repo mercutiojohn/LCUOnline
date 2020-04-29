@@ -30,7 +30,8 @@ var vm = new Vue({
         done: [],
         searchWrapDisplay: false,
         timeWrapDisplay: false,
-        todoWrapDisplay: false,
+        notiWrapDisplay: false,
+        todoDisplay: true,
         musicWrapDisplay: false,
         timePreferences: {
             showSecond: false,
@@ -81,6 +82,10 @@ var vm = new Vue({
 
         },
         musicSites: [{
+                //     title: "Apple Music",
+                //     status: false,
+                //     url: "https://music.apple.com/cn/browse"
+                // }, {
                 title: "Bilibili",
                 status: true,
                 url: "https://t.bilibili.com/pages/nav/index_new"
@@ -335,11 +340,14 @@ var vm = new Vue({
             "title": "概率论",
             "url": [{
                     "title": 8,
-                    "ref": "file:///D:/视频/下载的视频/高数叔概率论与数理统计/",
+                    "ref": "file:///D:/视频/下载的视频/高数叔概率论与数理统计/"
                 },
                 {
                     "title": 1,
                     "ref": "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=207354731&vc=1&clazzid=14743425&enc=eed97f64c9fa8563d5339dd8ab5ab9d5"
+                }， {
+                    "title": 2,
+                    "ref": "https://www.bilibili.com/video/av36206436"
                 }
             ]
         }, {
