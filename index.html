@@ -12,7 +12,7 @@
     <!-- vue -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script> -->
     <script src="js/vue.js"></script>
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
     <!-- eleme -->
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <!-- Own CSS -->
@@ -34,6 +34,29 @@
     <!-- <meta name="theme-color" content="#343537"> -->
     <meta name="theme-color" content="#ffffff">
 </head>
+<style>
+    #view {
+        filter: blur(15px);
+        transform: scale(1.30);
+        /* transition: filter 1s ease; */
+        transition-property: transform, filter;
+        transition-duration: 1.2s, 1s;
+        transition-timing-function: ease;
+    }
+
+    /* 
+    body::before {
+        content: "loading";
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        font-size: 100px;
+        color: #fff;
+    } */
+</style>
 
 <body>
     <div id="view">

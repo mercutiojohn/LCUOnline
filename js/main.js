@@ -4,6 +4,8 @@
 // };
 // import Grid from 'vue-js-grid'
 // Vue.use(Grid);
+// document.querySelector("body").style.filter = "blur(120px)";
+
 var vm = new Vue({
     el: '#view',
     data: {
@@ -345,7 +347,7 @@ var vm = new Vue({
                 {
                     "title": 1,
                     "ref": "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=207354731&vc=1&clazzid=14743425&enc=eed97f64c9fa8563d5339dd8ab5ab9d5"
-                }， {
+                }, {
                     "title": 2,
                     "ref": "https://www.bilibili.com/video/av36206436"
                 }
@@ -568,6 +570,8 @@ var vm = new Vue({
 
     },
     beforeCreate() {
+        this.date = this.getTime();
+        this.checkCookie();
 
     },
     mounted() {
@@ -606,15 +610,21 @@ var vm = new Vue({
         // this.currentItem = this.tabs[0];
         // this.tabs[this.tabs.length - 1].status = true;
         // this.tabs[0].status = true;
-        window.addEventListener('resize', this.getHeight);
         // this.getHeight();
-        this.date = this.getTime();
-        this.checkCookie();
+
         /*console.log(document.getElementsByTagName("iframe")[0].offsetHeight);
         var i = document.getElementsByTagName("iframe").length;
         // while (i--) document.getElementsByTagName("iframe")[i].height = this.frameHeight;
         while (--i) document.getElementsByTagName("iframe")[i].offsetHeight = this.frameHeight;
         console.log(document.getElementsByTagName("iframe")[0].offsetHeight);*/
+        // this.timer = setInterval(() => {
+        //     document.querySelector("body").style.filter = "blur(10px)";
+        // }, 200);
+        this.timer = setTimeout(() => {
+            this.bgStatus = true;
+            document.querySelector("#view").style.filter = "none";
+            document.querySelector("#view").style.transform = "scale(1)";
+        }, 1000);
 
     },
     beforeDestroy() {
