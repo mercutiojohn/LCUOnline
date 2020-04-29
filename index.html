@@ -129,7 +129,8 @@
                                 scrolling="auto"></iframe> -->
                     <div class="music-item" @click.stop>
                         <iframe class="music" v-for="item in musicSites" :id="item.title" :src="item.url"
-                            frameborder="0" scrolling="auto" v-if="item.status"></iframe>
+                            frameborder="0" scrolling="auto" v-if="item.status"
+                            :style="'background:' + item.bg + ';'"></iframe>
                     </div>
                 </div>
             </div>

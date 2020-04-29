@@ -177,7 +177,7 @@
     height: 520px;
     border-radius: 12px;
     overflow: hidden;
-    background: #000;
+    /* background: #0000000a; */
     transition: all .5s ease;
 }
 

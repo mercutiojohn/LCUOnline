@@ -84,15 +84,21 @@ var vm = new Vue({
 
         },
         musicSites: [{
+                title: "红心",
+                status: false,
+                bg: 'transparent',
+                url: "https://music.163.com/outchain/player?type=0&id=52069549&auto=0&height=520"
+            }, {
                 //     title: "Apple Music",
                 //     status: false,
                 //     url: "https://music.apple.com/cn/browse"
                 // }, {
-                title: "Bilibili",
+                title: "B站动态",
                 status: true,
+                bg: 'white',
                 url: "https://t.bilibili.com/pages/nav/index_new"
             }, {
-                title: "网易云推荐",
+                title: "推荐",
                 status: false,
                 url: "https://mp.music.163.com/5c1c8d76bea7983a7b58ce2d/fm.html"
             }, {
