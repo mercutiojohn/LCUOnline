@@ -40,7 +40,7 @@
         --mode: 'dark';
         --bg-color: #17181a;
         --elem-color: #2d2e30;
-        --first-assist-color: #343537;
+        --first-assist-color: #595a5e;
         --main-color: #ffffff;
         --body-color: #343537;
         /* --body-color: #005663; */
@@ -104,6 +104,47 @@
 
 .fade-enter,
 .fade-leave-to {
+    opacity: 0;
+}
+
+.block-list-enter,
+.block-list-leave-to {
+    opacity: 0;
+}
+
+.blur-enter-active {
+    /* filter: blur(200px); */
+    /* opacity: 0; */
+    transition: all .5s ease;
+    /* filter: blur(200px); */
+    /* transform: translate(-50vw, 0); */
+    /* width: 1000000000000000000000px; */
+}
+
+.blur-leave-active {
+    /* opacity: 0; */
+    /* transition: all .5s ease; */
+    transition: all .5s ease;
+    /* width: 1000000000000000000000px; */
+    /* transform: translate(-1000vw, 0); */
+
+    /* filter: blur(200px); */
+
+}
+
+.blur-enter {
+    /* transform: translate(50vw, 0); */
+    opacity: 0;
+    filter: blur(200px);
+    /* transition: all .5s ease; */
+
+}
+
+.blur-leave-to {
+    /* transform: translate(10000vw, 0); */
+    /* width: 0; */
+    filter: blur(200px);
+    /* transition: all .5s ease; */
     opacity: 0;
 }
 
@@ -221,7 +262,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     overflow: hidden;
@@ -324,6 +365,7 @@ body {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     white-space: nowrap;
+    transition: all .2s ease;
     text-overflow: ellipsis;
     /* overflow: hidden; */
 
@@ -336,6 +378,7 @@ body {
     display: block;
     color: var(--inactive-color);
     /* text-align: center; */
+    /* transition: all .2s ease; */
     padding: 0 16px;
     text-decoration: none;
     /* align-items: center; */
@@ -351,11 +394,19 @@ body {
 
 .music-tab:hover {
     /* background-color: rgba(51, 51, 51, 0.384); */
-    background-color: var(--first-assist-color);
-    transition: all .2s;
+    /* background-color: var(--first-assist-color); */
+    transform: scale(1.2) translateX(-5px);
+    transition: all .2s ease;
     cursor: pointer;
-    z-index: 100;
+    z-index: 1;
     flex-shrink: 0;
+}
+
+.music-tab:active {
+    background-color: #fff;
+    color: #333;
+    transform: scale(1.05) translateX(0px);
+
 }
 
 .activeTab {

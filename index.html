@@ -115,8 +115,8 @@
                         <li v-for="(item,index) in musicSites" @click="changeTab(index,musicSites)"
                             :class="'music-tab' + (item.status?' activeTab':' inactiveTab')">
                             {{item.title}}
-                            <a v-if="!item.status" :href="item.url" style="color: #85858580; text-decoration:none"
-                                target="_blank">↗</a>
+                            <!-- <a v-if="!item.status" :href="item.url" style="color: #85858580; text-decoration:none"
+                                target="_blank">↗</a> -->
                         </li>
                     </ul>
                 </div>
@@ -135,7 +135,7 @@
                 </div>
             </div>
         </transition>
-        <transition name="fade">
+        <transition name="blur">
             <div id="searchWrap" v-show="searchWrapDisplay" class="float-wrap" v-on:click="searchWrapDisplay = false">
                 <span class="close" v-on:click="searchWrapDisplay = false">
                     <i class="el-icon-close"></i>
@@ -181,86 +181,90 @@
         </div>
         <div id="app">
             <!-- <iframe :src="currentItem.url" frameborder="0" scrolling="auto"></iframe> -->
-            <div id="wrap" v-if="wrap.status">
-                <div class="blockBox" :style="bgStatus?bg.style:''">
-                    <div id="headBox">
-                        <div :id="!timeWrapDisplay?time:timeActive" v-on:click="timeWrapDisplay = true">
-                            <span id="time-content" :class="searchWrapDisplay?'hideTime':''"
-                                :style="bgStatus?bg.textStyle:''">{{date}}</span>
-                            <span id="twelveLabel" :class="searchWrapDisplay?'hideTime':''"
-                                v-if="timePreferences.twelveFormat"
-                                :style="bgStatus?bg.textStyle:''">{{timePreferences.twelveLabel}}</span>
-                            <span id="week" :style="bgStatus?bg.textStyle:''">第<span id="digits">{{week}}</span>周</span>
+            <transition name="blur">
+                <div id="wrap" v-if="wrap.status">
+                    <div class="blockBox" :style="bgStatus?bg.style:''">
+                        <div id="headBox">
+                            <div :id="!timeWrapDisplay?time:timeActive" v-on:click="timeWrapDisplay = true">
+                                <span id="time-content" :class="searchWrapDisplay?'hideTime':''"
+                                    :style="bgStatus?bg.textStyle:''">{{date}}</span>
+                                <span id="twelveLabel" :class="searchWrapDisplay?'hideTime':''"
+                                    v-if="timePreferences.twelveFormat"
+                                    :style="bgStatus?bg.textStyle:''">{{timePreferences.twelveLabel}}</span>
+                                <span id="week" :style="bgStatus?bg.textStyle:''">第<span
+                                        id="digits">{{week}}</span>周</span>
+                            </div>
+                            <div id="quote">
+
+                                <span id="notifyButton" @click="notiWrapDisplay = true"
+                                    :style="bgStatus?bg.textStyle:''">通知</span>
+                                <span id="notifyButton" @click="musicWrapDisplay = true"
+                                    :style="bgStatus?bg.textStyle:''">音乐盒</span>
+                                <a href="http://jwcweb.lcu.edu.cn/jwglxt/xtgl/login_slogin.html?language=zh_CN&_t=1573135233017"
+                                    target="_blank"><span id="notifyButton"
+                                        :style="bgStatus?bg.textStyle:''">教务系统</span></a>
+
+                            </div>
                         </div>
-                        <div id="quote">
 
-                            <span id="notifyButton" @click="notiWrapDisplay = true"
-                                :style="bgStatus?bg.textStyle:''">通知</span>
-                            <span id="notifyButton" @click="musicWrapDisplay = true"
-                                :style="bgStatus?bg.textStyle:''">音乐盒</span>
-                            <a href="http://jwcweb.lcu.edu.cn/jwglxt/xtgl/login_slogin.html?language=zh_CN&_t=1573135233017"
-                                target="_blank"><span id="notifyButton"
-                                    :style="bgStatus?bg.textStyle:''">教务系统</span></a>
-
+                        <!-- <span id="time-content">{{time}}</span> -->
+                        <div class="searchBox transition" :style="searchWrapDisplay ? transToTop:''">
+                            <i class="el-icon-search searchIcon" :style="bg.status?bg.revTextStyle:''"></i>
+                            <form :action="targetUrl.url" target="_blank">
+                                <input class="navBar_home_inputText" :style="bgStatus?bg.contentBgStyle:''" type="text"
+                                    :name="targetUrl.queryWord" id="" :placeholder="targetUrl.title"
+                                    v-on:click="searchWrapDisplay = true">
+                            </form>
                         </div>
-                    </div>
-
-                    <!-- <span id="time-content">{{time}}</span> -->
-                    <div class="searchBox transition" :style="searchWrapDisplay ? transToTop:''">
-                        <i class="el-icon-search searchIcon" :style="bg.status?bg.revTextStyle:''"></i>
-                        <form :action="targetUrl.url" target="_blank">
-                            <input class="navBar_home_inputText" :style="bgStatus?bg.contentBgStyle:''" type="text"
-                                :name="targetUrl.queryWord" id="" :placeholder="targetUrl.title"
-                                v-on:click="searchWrapDisplay = true">
-                        </form>
-                    </div>
-                    <div id="settingsBar">
-                        <el-switch v-model="blocksPreferences.showAll" active-text="全部" inactive-text="今日">
-                        </el-switch>
-                    </div>
-                    <!-- <grid :draggable="true" :sortable="true" :items="items" :height="100" :width="100">
+                        <div id="settingsBar">
+                            <el-switch v-model="blocksPreferences.showAll" active-text="全部" inactive-text="今日">
+                            </el-switch>
+                        </div>
+                        <!-- <grid :draggable="true" :sortable="true" :items="items" :height="100" :width="100">
                         <template slot="cell" scope="props">
                             <div>{{props.item}}</div>
                         </template> -->
-                    <!-- </grid> -->
-                    <!-- <ul class="blocks"> -->
-                    <!-- <block></block> -->
-                    <!-- name="fade" -->
-                    <!--  enter-active-class="animated zoomIn"
+                        <!-- </grid> -->
+                        <!-- <ul class="blocks"> -->
+                        <!-- <block></block> -->
+                        <!-- name="fade" -->
+                        <!--  enter-active-class="animated zoomIn"
                         leave-active-class="animated zoomOut" -->
-                    <transition-group name="block-list" tag="ul" class="blocks">
-                        <li v-for="(item,index) in blocks" v-show="ifToday(index) || blocksPreferences.showAll"
-                            :key='item' class="block-list-item" :style="bgStatus?bg.contentBgStyle:''">
-                            <div class="blockHead">
-                                <div>
-                                    <el-checkbox v-model="done[index]"></el-checkbox>
-                                    <!-- <input type="checkbox" v-model="done[index]"></input> -->
-                                    <span class="class-name" :style="bgStatus?bg.revTextStyle:''">{{item.title}}</span>
+                        <transition-group name="block-list" tag="ul" class="blocks">
+                            <li v-for="(item,index) in blocks" v-show="ifToday(index) || blocksPreferences.showAll"
+                                :key='item' class="block-list-item" :style="bgStatus?bg.contentBgStyle:''">
+                                <div class="blockHead">
+                                    <div>
+                                        <el-checkbox v-model="done[index]"></el-checkbox>
+                                        <!-- <input type="checkbox" v-model="done[index]"></input> -->
+                                        <span class="class-name"
+                                            :style="bgStatus?bg.revTextStyle:''">{{item.title}}</span>
+                                    </div>
+                                    <transition name="fade">
+                                        <span :class="'done'" v-show="done[index]">已完成</span>
+                                    </transition>
                                 </div>
-                                <transition name="fade">
-                                    <span :class="'done'" v-show="done[index]">已完成</span>
-                                </transition>
-                            </div>
-                            <!-- <hr /> -->
-                            <div :class="'blockBody'">
-                                <a v-for="(link,index) in item.url" :href="link.ref" class="block" target="_blank"
-                                    :style="defineColor(platforms[link.title-1])">
-                                    <!-- <span>{{index+1}}&nbsp;&nbsp;</span> -->
-                                    <img v-if="platforms[link.title-1].img!=0" :class="'icon'"
-                                        :src="img_url + platforms[link.title-1].img"
-                                        :alt="platforms[link.title-1].title">
-                                    <span>{{platforms[link.title-1].title}}</span>
-                                </a>
-                            </div>
-                        </li>
-                    </transition-group>
-                    <!-- </ul> -->
+                                <!-- <hr /> -->
+                                <div :class="'blockBody'">
+                                    <a v-for="(link,index) in item.url" :href="link.ref" class="block" target="_blank"
+                                        :style="defineColor(platforms[link.title-1])">
+                                        <!-- <span>{{index+1}}&nbsp;&nbsp;</span> -->
+                                        <img v-if="platforms[link.title-1].img!=0" :class="'icon'"
+                                            :src="img_url + platforms[link.title-1].img"
+                                            :alt="platforms[link.title-1].title">
+                                        <span>{{platforms[link.title-1].title}}</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </transition-group>
+                        <!-- </ul> -->
+                    </div>
+                    <!-- <textarea class="notes" v-model="notes" placeholder="你可以在这里记录各科目的网课要求。"></textarea> -->
+                    <!-- <button @click="setCookie('notes', notes, 365)">保存</button> -->
                 </div>
-                <!-- <textarea class="notes" v-model="notes" placeholder="你可以在这里记录各科目的网课要求。"></textarea> -->
-                <!-- <button @click="setCookie('notes', notes, 365)">保存</button> -->
-            </div>
-            <iframe allow="autoplay *; encrypted-media *; geolocation; microphone; camera" class="iframe-content"
-                v-for="item in tabs" :src="item.url" frameborder="0" scrolling="auto" v-if="item.status"></iframe>
+                <iframe allow="autoplay *; encrypted-media *; geolocation; microphone; camera" class="iframe-content"
+                    v-for="item in tabs" :src="item.url" frameborder="0" scrolling="auto" v-if="item.status"></iframe>
+            </transition>
         </div>
     </div>
 </body>

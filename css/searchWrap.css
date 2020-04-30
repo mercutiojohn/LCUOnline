@@ -179,6 +179,7 @@
     overflow: hidden;
     background: #ffffffaa;
     transition: all .5s ease;
+    z-index: 1000;
 }
 
 #music-tab-container {
@@ -190,7 +191,8 @@
     align-items: flex-end;
     flex-direction: row;
     flex-wrap: nowrap;
-    overflow: hidden;
+    /* overflow: hidden; */
+    width: max-content;
 }
 
 .music {
