@@ -84,27 +84,34 @@ var vm = new Vue({
 
         },
         musicSites: [{
+                title: "Hits",
+                status: true,
+                bg: 'transparent',
+                url: "https://embed.music.apple.com/us/playlist/todays-hits/pl.f4d106fed2bd41149aaacabb233eb5eb?app=music"
+                // }, {
+                //     title: "B站动态",
+                //     status: false,
+                //     bg: 'white',
+                //     url: "https://t.bilibili.com/pages/nav/index_new"
+            }, {
                 title: "红心",
                 status: false,
                 bg: 'transparent',
-                url: "https://music.163.com/outchain/player?type=0&id=52069549&auto=0&height=520"
-            }, {
-                //     title: "Apple Music",
-                //     status: false,
-                //     url: "https://music.apple.com/cn/browse"
-                // }, {
-                title: "B站动态",
-                status: true,
-                bg: 'white',
-                url: "https://t.bilibili.com/pages/nav/index_new"
+                url: "https://music.163.com/outchain/player?type=0&id=52069549&auto=1&height=520"
             }, {
                 title: "推荐",
                 status: false,
+                bg: 'black',
                 url: "https://mp.music.163.com/5c1c8d76bea7983a7b58ce2d/fm.html"
+                // }, {
+                //     title: "DI.FM",
+                //     status: false,
+                //     url: "https://music.163.com/st/difm/index.html"
             }, {
-                title: "DI.FM",
+                title: "A-List Pop",
                 status: false,
-                url: "https://music.163.com/st/difm/index.html"
+                bg: 'transparent',
+                url: "https://embed.music.apple.com/us/playlist/a-list-pop/pl.5ee8333dbe944d9f9151e97d92d1ead9?app=music"
             }
 
         ],
@@ -623,13 +630,15 @@ var vm = new Vue({
         // while (i--) document.getElementsByTagName("iframe")[i].height = this.frameHeight;
         while (--i) document.getElementsByTagName("iframe")[i].offsetHeight = this.frameHeight;
         console.log(document.getElementsByTagName("iframe")[0].offsetHeight);*/
-        // this.timer = setInterval(() => {
-        //     document.querySelector("body").style.filter = "blur(10px)";
-        // }, 200);
+        this.timer = setInterval(() => {
+            // document.querySelector("#view").style.filter = "blur(10px)";
+            document.querySelector("#view").style.transform = "scale(1)";
+
+        }, 800);
         this.timer = setTimeout(() => {
             this.bgStatus = true;
+            // document.querySelector("#view").style.transform = "scale(1)";
             document.querySelector("#view").style.filter = "none";
-            document.querySelector("#view").style.transform = "scale(1)";
         }, 1000);
 
     },

@@ -36,8 +36,9 @@
 </head>
 <style>
     #view {
-        filter: blur(15px);
+        filter: blur(20px);
         transform: scale(1.30);
+        /* transform: scale(100); */
         /* transition: filter 1s ease; */
         transition-property: transform, filter;
         transition-duration: 1.2s, 1s;
@@ -60,8 +61,6 @@
 
 <body>
     <div id="view">
-
-
         <transition name="fade">
             <div id="timeWrap" v-show="timeWrapDisplay" class="float-wrap flex f-left">
                 <!-- <div class="headArea" :style="wrapSearchStyleObj">
@@ -128,9 +127,10 @@
                     <!-- <iframe class="chaoxing" src=" http://notice.chaoxing.com/pc/notice/myNotice" frameborder="0"
                                 scrolling="auto"></iframe> -->
                     <div class="music-item" @click.stop>
-                        <iframe class="music" v-for="item in musicSites" :id="item.title" :src="item.url"
-                            frameborder="0" scrolling="auto" v-if="item.status"
-                            :style="'background:' + item.bg + ';'"></iframe>
+                        <iframe class="music" allow="autoplay *; encrypted-media *; geolocation; microphone; camera"
+                            sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+                            v-for="item in musicSites" :id="item.title" :src="item.url" frameborder="0" scrolling="auto"
+                            v-if="item.status" :style="'background:' + item.bg + ';'"></iframe>
                     </div>
                 </div>
             </div>
@@ -259,8 +259,8 @@
                 <!-- <textarea class="notes" v-model="notes" placeholder="你可以在这里记录各科目的网课要求。"></textarea> -->
                 <!-- <button @click="setCookie('notes', notes, 365)">保存</button> -->
             </div>
-            <iframe class="iframe-content" v-for="item in tabs" :src="item.url" frameborder="0" scrolling="auto"
-                v-if="item.status"></iframe>
+            <iframe allow="autoplay *; encrypted-media *; geolocation; microphone; camera" class="iframe-content"
+                v-for="item in tabs" :src="item.url" frameborder="0" scrolling="auto" v-if="item.status"></iframe>
         </div>
     </div>
 </body>
