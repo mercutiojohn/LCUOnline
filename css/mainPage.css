@@ -289,6 +289,46 @@ body {
     /* backdrop-filter: blur(18px); */
 }
 
+.music-tabs {
+    /* width: 100%; */
+    height: ;
+    /* margin: 0 30px; */
+    padding: 0;
+    /* width: 100vw; */
+    display: flex;
+    justify-content: center;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    /* height: var(--tab-height); */
+    list-style-type: none;
+    /* overflow: hidden;     */
+    flex-wrap: nowrap;
+    /* background-color: rgba(51, 51, 51, 0.384); */
+    /* backdrop-filter: blur(18px); */
+}
+
+.music-tab {
+    cursor: pointer;
+    /* float: left; */
+    height: var(--tab-height);
+    line-height: var(--tab-height);
+    display: block;
+    color: var(--inactive-color);
+    /* text-align: center; */
+    padding: 0 16px;
+    text-decoration: none;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* justify-items: center; */
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    /* overflow: hidden; */
+
+}
+
 .tab {
     /* float: left; */
     height: var(--tab-height);
@@ -307,6 +347,15 @@ body {
     text-overflow: ellipsis;
     /* overflow: hidden; */
 
+}
+
+.music-tab:hover {
+    /* background-color: rgba(51, 51, 51, 0.384); */
+    background-color: var(--first-assist-color);
+    transition: all .2s;
+    cursor: pointer;
+    z-index: 100;
+    flex-shrink: 0;
 }
 
 .activeTab {

@@ -61,7 +61,7 @@
     align-items: center;
     justify-content: flex-start;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 
@@ -177,17 +177,17 @@
     height: 520px;
     border-radius: 12px;
     overflow: hidden;
-    /* background: #0000000a; */
+    background: #ffffffaa;
     transition: all .5s ease;
 }
 
 #music-tab-container {
-    width: 100%;
-    height: var(--tab-height);
+    /* width: 100%; */
+    /* height: var(--tab-height); */
     /* max-height: 50px; */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     flex-direction: row;
     flex-wrap: nowrap;
     overflow: hidden;
@@ -212,7 +212,7 @@
 }
 
 .musicContainer {
-    width: 100%;
+    width: 390px;
     display: flex;
     flex-direction: row;
     overflow-x: scroll;

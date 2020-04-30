@@ -84,8 +84,13 @@ var vm = new Vue({
 
         },
         musicSites: [{
-                title: "Hits",
+                title: "白噪音",
                 status: true,
+                bg: 'transparent',
+                url: "https://music.163.com/outchain/player?type=4&id=526504585&auto=1&height=520"
+            }, {
+                title: "Hits",
+                status: false,
                 bg: 'transparent',
                 url: "https://embed.music.apple.com/us/playlist/todays-hits/pl.f4d106fed2bd41149aaacabb233eb5eb?app=music"
                 // }, {
@@ -94,12 +99,12 @@ var vm = new Vue({
                 //     bg: 'white',
                 //     url: "https://t.bilibili.com/pages/nav/index_new"
             }, {
-                title: "红心",
+                title: "音乐盒",
                 status: false,
                 bg: 'transparent',
-                url: "https://music.163.com/outchain/player?type=0&id=52069549&auto=1&height=520"
+                url: "https://music.163.com/outchain/player?type=0&id=4995805373&auto=1&height=520"
             }, {
-                title: "推荐",
+                title: "私藏",
                 status: false,
                 bg: 'black',
                 url: "https://mp.music.163.com/5c1c8d76bea7983a7b58ce2d/fm.html"
@@ -108,7 +113,7 @@ var vm = new Vue({
                 //     status: false,
                 //     url: "https://music.163.com/st/difm/index.html"
             }, {
-                title: "A-List Pop",
+                title: "A-Pop",
                 status: false,
                 bg: 'transparent',
                 url: "https://embed.music.apple.com/us/playlist/a-list-pop/pl.5ee8333dbe944d9f9151e97d92d1ead9?app=music"
@@ -634,7 +639,7 @@ var vm = new Vue({
             // document.querySelector("#view").style.filter = "blur(10px)";
             document.querySelector("#view").style.transform = "scale(1)";
 
-        }, 800);
+        }, 500);
         this.timer = setTimeout(() => {
             this.bgStatus = true;
             // document.querySelector("#view").style.transform = "scale(1)";
