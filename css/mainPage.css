@@ -113,38 +113,23 @@
 }
 
 .blur-enter-active {
-    /* filter: blur(200px); */
-    /* opacity: 0; */
-    transition: all .5s ease;
-    /* filter: blur(200px); */
-    /* transform: translate(-50vw, 0); */
-    /* width: 1000000000000000000000px; */
+    transition: all .7s ease;
 }
 
 .blur-leave-active {
-    /* opacity: 0; */
-    /* transition: all .5s ease; */
-    transition: all .5s ease;
-    /* width: 1000000000000000000000px; */
-    /* transform: translate(-1000vw, 0); */
-
-    /* filter: blur(200px); */
-
+    transition: all .7s ease;
 }
 
 .blur-enter {
-    /* transform: translate(50vw, 0); */
     opacity: 0;
     filter: blur(200px);
-    /* transition: all .5s ease; */
+    transform: scale(1.5);
 
 }
 
 .blur-leave-to {
-    /* transform: translate(10000vw, 0); */
-    /* width: 0; */
     filter: blur(200px);
-    /* transition: all .5s ease; */
+    transform: scale(1.5);
     opacity: 0;
 }
 
