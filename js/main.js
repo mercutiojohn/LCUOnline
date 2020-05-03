@@ -20,6 +20,8 @@ var vm = new Vue({
             status: true
         },
         bgStatus: false,
+        lowQuality: false,
+        save: ['', ''],
         bg: {
             style: "background:none;",
             contentBgStyle: "background:rgba(240,240,240,0.8);backdrop-filter:saturate(180%) blur(20px); transition:all .35s ease;",
@@ -685,6 +687,23 @@ var vm = new Vue({
         }
     },
     watch: {
+        lowQuality: function () {
+            if (this.lowQuality == true) {
+                this.bg.contentBgStyle = "background:rgba(240,240,240,0.9); transition:all .35s ease;";
+                this.save[0] = document.querySelector("#searchWrap").style.backdropFilter;
+                this.save[1] = document.querySelector("#searchWrap").style.background;
+                document.querySelector("#searchWrap").style.backdropFilter = "none";
+                document.querySelector("#searchWrap").style.background = "#e9e9e9dd";
+
+            } else {
+                this.bg.contentBgStyle = "background:rgba(240,240,240,0.8);backdrop-filter:saturate(180%) blur(20px); transition:all .35s ease;";
+                document.querySelector("#searchWrap").style.backdropFilter = this.save[0];
+                document.querySelector("#searchWrap").style.background = this.save[1];
+
+
+            }
+
+        },
         notes: function () {
             this.setCookie("notes", this.notes, 365);
         },

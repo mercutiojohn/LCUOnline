@@ -61,7 +61,7 @@
 
 <body>
     <div id="view">
-        <transition name="fade">
+        <transition name="zoom">
             <div id="timeWrap" v-show="timeWrapDisplay" class="float-wrap flex f-left">
                 <!-- <div class="headArea" :style="wrapSearchStyleObj">
                 </div> -->
@@ -72,6 +72,8 @@
                     <el-switch v-model="timePreferences.twelveFormat" active-text="12小时制" inactive-text="">
                     </el-switch>
                     <el-switch v-model="bgStatus" active-text="开启壁纸" inactive-text="">
+                    </el-switch>
+                    <el-switch v-model="lowQuality" active-text="极速模式" v-if="bgStatus" inactive-text="">
                     </el-switch>
                 </div>
                 <span class="time-close" v-on:click="timeWrapDisplay = false">
@@ -135,7 +137,7 @@
                 </div>
             </div>
         </transition>
-        <transition name="fade">
+        <transition name="zoom">
             <div id="searchWrap" v-show="searchWrapDisplay" class="float-wrap" v-on:click="searchWrapDisplay = false">
                 <span class="close" v-on:click="searchWrapDisplay = false">
                     <i class="el-icon-close"></i>
@@ -181,7 +183,7 @@
         </div>
         <div id="app">
             <!-- <iframe :src="currentItem.url" frameborder="0" scrolling="auto"></iframe> -->
-            <transition name="blur">
+            <transition name="fade">
                 <div id="wrap" v-if="wrap.status">
                     <div class="blockBox" :style="bgStatus?bg.style:''">
                         <div id="headBox">

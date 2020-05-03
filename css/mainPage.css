@@ -9,6 +9,7 @@
     --main-color: #000000;
     --body-color: #f1f3f4;
     --inactive-color: #888;
+    --search-padding: 500px;
 }
 
 @media screen and (prefers-color-scheme: light) {
@@ -107,10 +108,21 @@
     opacity: 0;
 }
 
-.block-list-enter,
-.block-list-leave-to {
+.zoom-enter-active {
+    transition: all .2s ease;
+}
+
+.zoom-leave-active {
+    transition: all .2s ease;
+}
+
+.zoom-enter,
+.zoom-leave-to {
+    transform: scale(0.8);
     opacity: 0;
 }
+
+
 
 .blur-enter-active {
     transition: all .7s ease;
@@ -133,15 +145,17 @@
     opacity: 0;
 }
 
+/* 
 .block-list-enter,
 .block-list-leave-to {
     opacity: 0;
-}
+} */
 
 .block-list-enter {
     opacity: 0;
     /* 中心 */
     transform: translate(-45vw, -45vh);
+    filter: blur(10px);
 
     /* transform: scale(0, 0); */
 
@@ -151,6 +165,7 @@
     opacity: 0;
     /* 中心 */
     transform: translate(5vw, 10vh);
+    filter: blur(10px);
 }
 
 
@@ -162,6 +177,7 @@
 .block-list-move {
     /* position: relative; */
     transition: all .5s ease;
+    transform: scale(1.02);
 }
 
 .block-list-leave-active {
