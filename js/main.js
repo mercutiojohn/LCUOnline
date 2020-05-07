@@ -147,46 +147,122 @@ var vm = new Vue({
 
         ],
         links: [{
-            title: "教务系统",
-            url: "http://jwcweb.lcu.edu.cn/jwglxt/xtgl/login_slogin.html",
-            icon: "",
-            color: "white"
-        }, {
-            title: "聊大VPN",
-            url: "https://vpn.lcu.edu.cn/",
-            icon: "",
-            color: "white"
-        }, {
-            title: "Apple Music",
-            url: "https://music.apple.com/",
-            icon: "applemusic.svg",
-            color: "white"
-        }, {
-            title: "鸠摩搜书",
-            url: "https://www.jiumodiary.com/",
-            icon: "",
-            color: "white"
-        }, {
-            title: "FreeCodeCamp",
-            url: "https://www.freecodecamp.one/",
-            icon: "",
-            color: "white"
-        }, {
-            title: "Runoob",
-            url: "http://www.runoob.com/",
-            icon: "",
-            color: "white"
-        }, {
-            title: "LeetCode",
-            url: "https://leetcode.com/problemset/all/",
-            icon: "",
-            color: "white"
-        }, {
-            title: "Kuangbin带你飞",
-            url: "https://vjudge.net/article/187",
-            icon: "",
-            color: "white"
-        }],
+                title: "教务系统",
+                url: "http://jwcweb.lcu.edu.cn/jwglxt/xtgl/login_slogin.html",
+                icon: "",
+                color: "white"
+            }, {
+                title: "聊大VPN",
+                url: "https://vpn.lcu.edu.cn/",
+                icon: "",
+                color: "white"
+            }, {
+                title: "Apple Music",
+                url: "https://music.apple.com/",
+                icon: "applemusic.svg",
+                color: "white"
+            }, {
+                title: "鸠摩搜书",
+                url: "https://www.jiumodiary.com/",
+                icon: "",
+                color: "white"
+            }, {
+                title: "FreeCodeCamp",
+                url: "https://www.freecodecamp.one/",
+                icon: "",
+                color: "white"
+            }, {
+                title: "Runoob",
+                url: "http://www.runoob.com/",
+                icon: "",
+                color: "white"
+            }, {
+                title: "LeetCode",
+                url: "https://leetcode.com/problemset/all/",
+                icon: "",
+                color: "white"
+            }, {
+                title: "Kuangbin带你飞",
+                url: "https://vjudge.net/article/187",
+                icon: "",
+                color: "white"
+            }, {
+                title: "日历",
+                icon: "",
+                url: "https://outlook.live.com/calendar/0/"
+            }, {
+                title: "学习通",
+                icon: "",
+
+                url: "http://i.chaoxing.com/base"
+            },
+            {
+                title: "U+",
+                icon: "",
+
+                url: "http://ee-c.lcu.edu.cn/si/student/group"
+            },
+            {
+                title: "Unipus",
+                icon: "",
+
+                url: "http://210.44.112.108"
+            },
+            {
+                title: "传智播客",
+                icon: "",
+
+                url: "http://stu.ityxb.com/Classroom/course/learning"
+            },
+            {
+                title: "Runoob",
+                icon: "",
+
+                url: "http://runoob.com/"
+            },
+            {
+                title: "斗鱼",
+                icon: "",
+
+                url: "https://www.douyu.com/directory/myFollow"
+            },
+            {
+                title: "We Learn",
+                icon: "",
+
+                url: "https://welearn.sflep.com/2019/student/index.aspx"
+            },
+            {
+                title: "有道",
+                icon: "",
+                url: "https://ke.youdao.com/user/mycourse/"
+
+            },
+            {
+                title: "千锋",
+                icon: "",
+
+                url: "http://nz.1000phone.com/studentIndex"
+            },
+            {
+                title: "B站",
+                icon: "",
+
+                url: "https://space.bilibili.com/4325844/favlist"
+            },
+            {
+                title: "腾讯课堂",
+                icon: "",
+
+                url: "https://imissu.ke.qq.com/user/index/index.html"
+            },
+            {
+                title: "计划",
+                icon: "",
+
+                url: "https://www.notion.so/mercutio/8029f70aeeaf44fc9312f788507414fd"
+            }
+        ],
         //DataBases
         platforms: [{
                 "title": "超星",
@@ -284,41 +360,41 @@ var vm = new Vue({
                 status: false,
                 url: "http://stu.ityxb.com/Classroom/course/learning"
             },
-            {
-                title: "Runoob",
-                status: false,
-                url: "http://runoob.com/"
-            },
-            {
-                title: "斗鱼",
-                status: false,
-                url: "https://www.douyu.com/directory/myFollow"
-            },
+            // {
+            //     title: "Runoob",
+            //     status: false,
+            //     url: "http://runoob.com/"
+            // },
+            // {
+            //     title: "斗鱼",
+            //     status: false,
+            //     url: "https://www.douyu.com/directory/myFollow"
+            // },
             // {
             //     title: "We Learn",
             //     status: false,
             //     url: "https://welearn.sflep.com/2019/student/index.aspx"
             // },
-            {
-                title: "有道",
-                url: "https://ke.youdao.com/user/mycourse/",
-                status: false
-            },
+            // {
+            //     title: "有道",
+            //     url: "https://ke.youdao.com/user/mycourse/",
+            //     status: false
+            // },
             // {
             //     title: "千锋",
             //     status: false,
             //     url: "http://nz.1000phone.com/studentIndex"
             // },
-            {
-                title: "B站",
-                status: false,
-                url: "https://space.bilibili.com/4325844/favlist"
-            },
-            {
-                title: "腾讯课堂",
-                status: false,
-                url: "https://imissu.ke.qq.com/user/index/index.html"
-            },
+            // {
+            //     title: "B站",
+            //     status: false,
+            //     url: "https://space.bilibili.com/4325844/favlist"
+            // },
+            // {
+            //     title: "腾讯课堂",
+            //     status: false,
+            //     url: "https://imissu.ke.qq.com/user/index/index.html"
+            // },
             // {
             //     title: "",
             //     status: false,
