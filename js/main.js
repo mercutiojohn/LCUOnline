@@ -22,12 +22,6 @@ var vm = new Vue({
         bgStatus: false,
         lowQuality: false,
         save: ['', ''],
-        // bg: {
-        //     style: "background:none;",
-        //     contentBgStyle: "background:var(--blur-color-solid);backdrop-filter:saturate(180%) blur(20px); transition:all .35s ease;",
-        //     textStyle: "color:#fff;transition:all .35s ease;",
-        //     revTextStyle: "color:var(--main-color);transition:all .35s ease;"
-        // },
         transToTop: "transform:translateY(-120px);",
         notes: "",
         img_url: 'img/',
