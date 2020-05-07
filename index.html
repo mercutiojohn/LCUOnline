@@ -229,23 +229,22 @@
                     <div class="blockBox" :class="bgStatus?'bg-enable':''">
                         <div id="headBox">
                             <div :id="!timeWrapDisplay?time:timeActive" v-on:click="timeWrapDisplay = true">
-                                <span id="time-content" :class="searchWrapDisplay?'hideTime':''"
-                                    :class="bgStatus && !lowQuality?'bg-text-style':''">{{date}}</span>
-                                <span id="twelveLabel" :class="searchWrapDisplay?'hideTime':''"
+                                <span id="time-content" :class="bgStatus ?'bg-text-style':''">{{date}}</span>
+                                <span id="twelveLabel" :class="bgStatus ?'bg-text-style':''"
                                     v-if="timePreferences.twelveFormat"
-                                    :class="bgStatus && !lowQuality?'bg-text-style':''">{{timePreferences.twelveLabel}}</span>
-                                <span id="week" :class="bgStatus && !lowQuality?'bg-text-style':''">第<span
+                                    :class="bgStatus ?'bg-text-style':''">{{timePreferences.twelveLabel}}</span>
+                                <span id="week" :class="bgStatus?'bg-text-style':''">第<span
                                         id="digits">{{week}}</span>周</span>
                             </div>
                             <div id="quote">
 
                                 <span id="notifyButton" @click="notiWrapDisplay = true"
-                                    :class="bgStatus && !lowQuality?'bg-text-style':''">通知</span>
+                                    :class="bgStatus ?'bg-text-style':''">通知</span>
                                 <!-- <span id="notifyButton" @click="musicWrapDisplay = true"
                                     :class="bgStatus && !lowQuality?'bg-text-style':''">音乐盒</span> -->
                                 <a href="http://jwcweb.lcu.edu.cn/jwglxt/xtgl/login_slogin.html?language=zh_CN&_t=1573135233017"
                                     target="_blank"><span id="notifyButton"
-                                        :class="bgStatus && !lowQuality?'bg-text-style':''">教务系统</span></a>
+                                        :class="bgStatus ?'bg-text-style':''">教务系统</span></a>
 
                             </div>
                         </div>

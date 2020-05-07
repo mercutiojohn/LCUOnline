@@ -266,8 +266,8 @@ body {
 }
 
 .bg-rev-text-style {
-    color: #fff !important;
-    transition: all .35s ease !important;
+    /* color: #fff !important; */
+    /* transition: all .35s ease !important; */
 }
 
 #tab-container {

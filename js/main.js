@@ -20,7 +20,7 @@ var vm = new Vue({
             status: true
         },
         bgStatus: false,
-        lowQuality: true,
+        lowQuality: false,
         save: ['', ''],
         // bg: {
         //     style: "background:none;",

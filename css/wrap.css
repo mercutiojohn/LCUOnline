@@ -85,7 +85,7 @@
 }
 
 #time-content {
-
+    cursor: pointer;
     font-size: 40px;
     /* font-weight: 800; */
     font-family: "Mitype2018-90", -apple-system,
