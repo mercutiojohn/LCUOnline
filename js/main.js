@@ -20,14 +20,14 @@ var vm = new Vue({
             status: true
         },
         bgStatus: false,
-        lowQuality: false,
+        lowQuality: true,
         save: ['', ''],
-        bg: {
-            style: "background:none;",
-            contentBgStyle: "background:rgba(240,240,240,0.8);backdrop-filter:saturate(180%) blur(20px); transition:all .35s ease;",
-            textStyle: "color:#fff;transition:all .35s ease;",
-            revTextStyle: "color:#000;transition:all .35s ease;"
-        },
+        // bg: {
+        //     style: "background:none;",
+        //     contentBgStyle: "background:var(--blur-color-solid);backdrop-filter:saturate(180%) blur(20px); transition:all .35s ease;",
+        //     textStyle: "color:#fff;transition:all .35s ease;",
+        //     revTextStyle: "color:var(--main-color);transition:all .35s ease;"
+        // },
         transToTop: "transform:translateY(-120px);",
         notes: "",
         img_url: 'img/',
@@ -95,14 +95,11 @@ var vm = new Vue({
                 status: false,
                 bg: 'transparent',
                 url: "https://embed.music.apple.com/us/playlist/todays-hits/pl.f4d106fed2bd41149aaacabb233eb5eb?app=music"
-                // }, {
-                //     title: "B站动态",
-                //     status: false,
-                //     bg: 'white',
-                //     url: "https://t.bilibili.com/pages/nav/index_new"
+
             }, {
                 title: "音乐盒",
                 status: false,
+                // bg: 'transparent',
                 bg: 'transparent',
                 url: "https://music.163.com/outchain/player?type=0&id=4995805373&auto=1&height=520"
             }, {
@@ -110,15 +107,26 @@ var vm = new Vue({
                 status: false,
                 bg: 'black',
                 url: "https://mp.music.163.com/5c1c8d76bea7983a7b58ce2d/fm.html"
-                // }, {
-                //     title: "DI.FM",
-                //     status: false,
-                //     url: "https://music.163.com/st/difm/index.html"
+            }, {
+                title: "DI.FM",
+                status: false,
+                bg: 'black',
+                url: "https://music.163.com/st/difm/index.html"
             }, {
                 title: "A-Pop",
                 status: false,
                 bg: 'transparent',
                 url: "https://embed.music.apple.com/us/playlist/a-list-pop/pl.5ee8333dbe944d9f9151e97d92d1ead9?app=music"
+            }, {
+                title: "能量充电",
+                status: false,
+                bg: 'transparent',
+                url: "https://embed.music.apple.com/cn/playlist/%E8%83%BD%E9%87%8F%E5%85%85%E7%94%B5/pl.pm-d5779e520ff52d7f1461ff2469dc00ff"
+            }, {
+                title: "B站动态",
+                status: false,
+                bg: 'white',
+                url: "https://t.bilibili.com/pages/nav/index_new"
             }
 
         ],
@@ -138,6 +146,47 @@ var vm = new Vue({
             }
 
         ],
+        links: [{
+            title: "教务系统",
+            url: "http://jwcweb.lcu.edu.cn/jwglxt/xtgl/login_slogin.html",
+            icon: "",
+            color: "white"
+        }, {
+            title: "聊大VPN",
+            url: "https://vpn.lcu.edu.cn/",
+            icon: "",
+            color: "white"
+        }, {
+            title: "Apple Music",
+            url: "https://music.apple.com/",
+            icon: "applemusic.svg",
+            color: "white"
+        }, {
+            title: "鸠摩搜书",
+            url: "https://www.jiumodiary.com/",
+            icon: "",
+            color: "white"
+        }, {
+            title: "FreeCodeCamp",
+            url: "https://www.freecodecamp.one/",
+            icon: "",
+            color: "white"
+        }, {
+            title: "Runoob",
+            url: "http://www.runoob.com/",
+            icon: "",
+            color: "white"
+        }, {
+            title: "LeetCode",
+            url: "https://leetcode.com/problemset/all/",
+            icon: "",
+            color: "white"
+        }, {
+            title: "Kuangbin带你飞",
+            url: "https://vjudge.net/article/187",
+            icon: "",
+            color: "white"
+        }],
         //DataBases
         platforms: [{
                 "title": "超星",
@@ -689,18 +738,14 @@ var vm = new Vue({
     watch: {
         lowQuality: function () {
             if (this.lowQuality == true) {
-                this.bg.contentBgStyle = "background:rgba(240,240,240,0.9); transition:all .35s ease;";
                 this.save[0] = document.querySelector("#searchWrap").style.backdropFilter;
                 this.save[1] = document.querySelector("#searchWrap").style.background;
                 document.querySelector("#searchWrap").style.backdropFilter = "none";
-                document.querySelector("#searchWrap").style.background = "#e9e9e9dd";
+                document.querySelector("#searchWrap").style.background = "var(--bg-color)";
 
             } else {
-                this.bg.contentBgStyle = "background:rgba(240,240,240,0.8);backdrop-filter:saturate(180%) blur(20px); transition:all .35s ease;";
                 document.querySelector("#searchWrap").style.backdropFilter = this.save[0];
                 document.querySelector("#searchWrap").style.background = this.save[1];
-
-
             }
 
         },

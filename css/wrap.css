@@ -9,7 +9,7 @@
     align-items: center;
     flex-direction: column;
     background: url(https://bing.rthe.net/wallpaper) center/cover no-repeat fixed;
-
+    backdrop-filter: brightness(.7);
 }
 
 .iframe-content {
@@ -160,6 +160,7 @@
     color: var(--main-color);
     /* top: 178px; */
     /* left: 245px; */
+    z-index: 100;
 }
 
 .navBar_home_inputText {
