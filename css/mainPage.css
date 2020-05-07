@@ -19,8 +19,6 @@
     --shadow-color: var(--shadow-color-light);
     --shadow-color-light: rgba(29, 29, 29, 0.219);
     --shadow-color-dark: rgba(29, 29, 29, 0.411);
-
-
 }
 
 @media screen and (prefers-color-scheme: light) {
@@ -36,6 +34,10 @@
         --blur-color-solid: var(--blur-color-light-solid);
         --shadow-color: var(--shadow-color-light);
 
+    }
+
+    .bg-enable {
+        background: none !important;
     }
 }
 
@@ -53,6 +55,10 @@
         --blur-color-solid: var(--blur-color-dark-solid);
         --shadow-color: var(--shadow-color-dark);
 
+    }
+
+    .bg-enable {
+        background: #00000058 !important;
     }
 
     /* img {
@@ -250,9 +256,6 @@ body {
     transition: all .25s ease;
 }
 
-.bg-enable {
-    background: none !important;
-}
 
 .bg-content-bg-style {
     background: var(--blur-color-solid) !important;

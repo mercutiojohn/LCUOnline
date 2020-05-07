@@ -9,7 +9,6 @@
     align-items: center;
     flex-direction: column;
     background: url(https://bing.rthe.net/wallpaper) center/cover no-repeat fixed;
-    backdrop-filter: brightness(.7);
 }
 
 .iframe-content {
