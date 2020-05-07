@@ -40,9 +40,9 @@ var vm = new Vue({
             showAll: false
         },
         targetUrl: {
-            "title": "多吉",
-            "url": "https://www.dogedoge.com/results",
-            "queryWord": "q"
+            "title": "百度一下，你就知道",
+            "url": "http://www.baidu.com/s",
+            "queryWord": "wd"
         },
         searchUrls: {
             doge: {
