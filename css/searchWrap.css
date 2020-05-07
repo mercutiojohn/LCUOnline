@@ -262,9 +262,6 @@
 
 }
 
-#music-box-toggle+span svg {
-    color: #fff;
-}
 
 #music-box-toggle:checked+span {
     /* background: #fff; */
@@ -310,7 +307,7 @@
     height: var(--tab-height);
     line-height: var(--tab-height);
     display: block;
-    color: #ffffff;
+    color: var(--main-color);
     /* text-align: center; */
     padding: 0 16px;
     text-decoration: none;
