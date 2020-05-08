@@ -156,6 +156,21 @@ var vm = new Vue({
                 icon: "applemusic.svg",
                 color: "white"
             }, {
+                title: "网易云音乐",
+                url: "https://music.163.com/#/my",
+                icon: "neteasemusic.svg",
+                color: "white"
+            }, {
+                title: "Telegram",
+                url: "https://web.telegram.org/",
+                icon: "telegram.svg",
+                color: "white"
+            }, {
+                title: "Twitter",
+                url: "https://twitter.com/home",
+                icon: "twitter.svg",
+                color: "white"
+            }, {
                 title: "鸠摩搜书",
                 url: "https://www.jiumodiary.com/",
                 icon: "",

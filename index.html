@@ -252,8 +252,8 @@
                         <!-- <span id="time-content">{{time}}</span> -->
                         <div class="searchBox transition" :style="searchWrapDisplay ? transToTop:''">
                             <i class="el-icon-search searchIcon"></i>
-                            <form :action="targetUrl.url" target="_blank">
-                                <input class="navBar_home_inputText"
+                            <form :action="targetUrl.url" target="_blank" autocomplete="off">
+                                <input class="navBar_home_inputText" autocomplete="off"
                                     :class="bgStatus && !lowQuality?'bg-content-bg-style':''" type="text"
                                     :name="targetUrl.queryWord" id="" :placeholder="targetUrl.title"
                                     v-on:click="searchWrapDisplay = true">
