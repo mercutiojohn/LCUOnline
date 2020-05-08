@@ -61,6 +61,7 @@
 </style>
 
 <body>
+    <!-- <img id="bgImg" src="https://bing.rthe.net/wallpaper" alt="" style="display: none;"> -->
     <div id="view">
         <transition name="zoom">
             <div id="timeWrap" v-show="timeWrapDisplay" class="float-wrap flex f-left">
@@ -211,7 +212,7 @@
                 <!-- <li v-for="(item,index) in tabs" @click="changeTab(item)" :class="'tab '+item.status">{{item.title}}
                 </li> -->
                 <li @click="tabs = changeTab('wrap',tabs)"
-                    :class="'tab' + (wrap.status?' activeTab mainTab':' inactiveTab')">
+                    :class="'tab' + (wrap.status?' activeTab mainTab':' inactiveTab') + (bgStatus && wrap.status?' mainTab-bgon':'')">
                     主页
                 </li>
                 <li v-for="(item,index) in tabs" @click="tabs = changeTab(index,tabs)"
@@ -313,7 +314,8 @@
     </div>
 </body>
 <script type="module" src="js/main.js"></script>
-<script type="module" src="js/block.js"></script>
+<!-- <script type="module" src="js/block.js"></script> -->
+<!-- <script src="js/rgbaster.min.js"></script> -->
 <!-- <script src="js/notify.js"></script> -->
 <!-- <script charset="gbk" src="https://www.baidu.com/js/opensug.js"></script>
 <script type="text/javascript">

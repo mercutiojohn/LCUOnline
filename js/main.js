@@ -36,6 +36,7 @@ var vm = new Vue({
             twelveFormat: true,
             twelveLabel: ''
         },
+        mainTabColor: '',
         blocksPreferences: {
             showAll: false
         },
@@ -781,7 +782,12 @@ var vm = new Vue({
             // document.querySelector("#view").style.transform = "scale(1)";
             document.querySelector("#view").style.filter = "none";
         }, 1000);
-
+        // RGBaster.colors(document.querySelector('#bgImg'), {
+        //     exclude: ['rgb(255,255,255)', 'rgb(0,0,0)'],
+        //     success: function (payload) {
+        //         document.querySelector('.mainTab').style.backgroundColor = payload.dominant;
+        //     }
+        // });
     },
     beforeDestroy() {
         if (this.timer) {

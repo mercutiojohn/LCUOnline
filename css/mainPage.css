@@ -434,9 +434,19 @@ body {
 }
 
 .mainTab {
-    /* change */
     background-color: var(--bg-color);
     color: var(--main-color);
+}
+
+.mainTab-bgon {
+    background: url(https://bing.rthe.net/wallpaper) center/cover no-repeat fixed;
+    backdrop-filter: blur(50px);
+    color: #fff;
+    transition: all .5s ease;
+}
+
+.mainTab-bgon:hover {
+    color: #fff;
 }
 
 iframe {
