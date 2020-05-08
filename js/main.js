@@ -20,7 +20,7 @@ var vm = new Vue({
             status: true
         },
         bgStatus: false,
-        lowQuality: false,
+        lowQuality: true,
         save: ['', ''],
         transToTop: "transform:translateY(-120px);",
         notes: "",
@@ -808,14 +808,14 @@ var vm = new Vue({
     watch: {
         lowQuality: function () {
             if (this.lowQuality == true) {
-                this.save[0] = document.querySelector("#searchWrap").style.backdropFilter;
-                this.save[1] = document.querySelector("#searchWrap").style.background;
-                document.querySelector("#searchWrap").style.backdropFilter = "none";
-                document.querySelector("#searchWrap").style.background = "var(--bg-color)";
+                // this.save[0] = document.querySelector("#searchWrap").style.backdropFilter;
+                // this.save[1] = document.querySelector("#searchWrap").style.background;
+                // document.querySelector("#searchWrap").style.backdropFilter = "none";
+                // document.querySelector("#searchWrap").style.background = "var(--bg-color)";
 
             } else {
-                document.querySelector("#searchWrap").style.backdropFilter = this.save[0];
-                document.querySelector("#searchWrap").style.background = this.save[1];
+                // document.querySelector("#searchWrap").style.backdropFilter = this.save[0];
+                // document.querySelector("#searchWrap").style.background = this.save[1];
             }
 
         },
