@@ -71,15 +71,13 @@
         width: 95vw;
         height: calc(100vh - var(--tab-height) - 20px) !important;
         background: #000;
-        position: relative;
-        top: var(--tab-height);
+        /* position: relative; */
+        top: 10px;
         color: #fff;
         z-index: 999;
         /* border-radius: 15px; */
-        margin-bottom: 50px;
-        margin-left: 0;
+        margin: 20px 0 20px 0;
         /* display: none; */
-        margin-top: 0;
 
     }
 }
