@@ -131,13 +131,19 @@
 
 @media screen and (min-width: 600px) and (max-width: 1200px) {
     .block-list-item {
+        width: 25%;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 600px) {
+    .block-list-item {
         width: 30%;
     }
 }
 
-@media screen and (min-width: 10px) and (max-width: 600px) {
+@media screen and (min-width: 0px) and (max-width: 500px) {
     .block-list-item {
-        width: 70%;
+        width: 60%;
     }
 }
 
