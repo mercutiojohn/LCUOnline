@@ -213,7 +213,7 @@
                 </li> -->
                 <li @click="tabs = changeTab('wrap',tabs)"
                     :class="'tab' + (wrap.status?' activeTab mainTab':' inactiveTab') + (bgStatus && wrap.status?' mainTab-bgon':'')">
-                    主页
+                    <span :class="(bgStatus && wrap.status?' tab-dark':'')">主页</span>
                 </li>
                 <li v-for="(item,index) in tabs" @click="tabs = changeTab(index,tabs)"
                     :class="'tab' + (item.status?' activeTab':' inactiveTab')">
