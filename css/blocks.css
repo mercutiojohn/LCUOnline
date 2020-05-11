@@ -24,7 +24,7 @@
     position: sticky;
     top: var(--tab-height);
     color: #fff;
-    z-index: 999;
+    z-index: 998;
     border-radius: 10px;
     /* margin-left: 40px; */
     flex-shrink: 0;
@@ -50,7 +50,6 @@
         position: relative;
         top: var(--tab-height);
         color: #fff;
-        z-index: 999;
         margin-bottom: 50px;
         margin-left: 0;
         border-radius: 0 10px 10px 0;
@@ -68,15 +67,16 @@
 
 @media screen and (min-width: 10px) and (max-width: 600px) {
     #left-col {
-        width: 95vw;
-        height: calc(100vh - var(--tab-height) - 20px) !important;
+        width: 99vw;
+        height: calc(100vh - var(--tab-height) - 0px);
+        max-height: calc(100vh - var(--tab-height) - 25px);
         background: #000;
         /* position: relative; */
-        top: 10px;
+        top: 25px;
         color: #fff;
-        z-index: 999;
+        z-index: 998;
         /* border-radius: 15px; */
-        margin: 20px 0 20px 0;
+        margin: 20px 0 0 0;
         /* display: none; */
 
     }
@@ -89,6 +89,9 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-end;
+    position: sticky;
+    top: var(--tab-height);
+    z-index: 999;
 }
 
 .blocks {
