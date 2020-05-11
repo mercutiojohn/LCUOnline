@@ -30,6 +30,7 @@
     top: 0;
     z-index: 999;
     border-radius: 20px;
+    overflow: scroll;
     margin: calc(var(--tab-height) + 10px) 0 0 0;
 }
 
@@ -149,6 +150,13 @@
 .time-indent .el-switch {
     margin: 4px 5px;
     width: 45%;
+}
+
+@media screen and (min-width: 10px) and (max-width: 600px) {
+    .time-indent .el-switch {
+        margin: 4px 5px;
+        width: 100%;
+    }
 }
 
 .headArea {
