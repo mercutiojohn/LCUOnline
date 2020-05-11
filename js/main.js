@@ -30,6 +30,7 @@ var vm = new Vue({
         timeWrapDisplay: false,
         notiWrapDisplay: false,
         todoDisplay: true,
+        leftColDisplay: false,
         musicWrapDisplay: false,
         timePreferences: {
             showSecond: false,

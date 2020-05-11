@@ -65,6 +65,8 @@
     flex-direction: row;
 }
 
+
+
 #music-wrap-new {
     width: fit-content;
     height: auto;
@@ -83,6 +85,12 @@
     flex-direction: row;
     transition: all .2s ease;
     padding: 10px 10px 10px 0;
+}
+
+@media screen and (min-width: 10px) and (max-width: 600px) {
+    #music-wrap-new {
+        display: none;
+    }
 }
 
 .music-box-fold {
@@ -169,12 +177,27 @@
     margin-top: 5vh; */
 }
 
+@media screen and (min-width: 10px) and (max-width: 600px) {
+    #contentZone {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100vw;
+    }
+}
+
 #biliZone {
     height: 520px;
     /* width: 390px; */
     width: 383px;
     border-radius: 10px;
     overflow: hidden;
+}
+
+@media screen and (min-width: 10px) and (max-width: 1200px) {
+    #biliZone {
+        display: none;
+    }
 }
 
 .zone {
@@ -194,6 +217,8 @@
     /* width: 50vw; */
 }
 
+@media screen and (min-width: 10px) and (max-width: 600px) {}
+
 #specialZone {
     height: 100%;
     background: var(--blur-color-light-solid) !important;
@@ -203,6 +228,16 @@
     border: none;
     overflow: hidden;
     /* width: 50vw; */
+}
+
+@media screen and (min-width: 10px) and (max-width: 600px) {
+    .zone {
+        height: calc(100vh - 220px) !important;
+        width: 90% !important;
+        flex-shrink: 0;
+        margin-left: 0 !important;
+        margin-bottom: 30px;
+    }
 }
 
 #bili {
