@@ -82,11 +82,11 @@ var vm = new Vue({
 
         },
         musicSites: [{
-                title: "滴答清单",
-                status: true,
-                bg: 'white',
-                url: "https://www.dida365.com/webapp/#q/all/today"
-            }, {
+                //     title: "滴答清单",
+                //     status: true,
+                //     bg: 'white',
+                //     url: "https://www.dida365.com/webapp/#q/all/today"
+                // }, {
                 title: "白噪音",
                 status: false,
                 bg: 'transparent',
@@ -120,7 +120,7 @@ var vm = new Vue({
                 url: "https://embed.music.apple.com/us/playlist/a-list-pop/pl.5ee8333dbe944d9f9151e97d92d1ead9?app=music"
             }, {
                 title: "能量充电",
-                status: false,
+                status: true,
                 bg: 'transparent',
                 url: "https://embed.music.apple.com/cn/playlist/%E8%83%BD%E9%87%8F%E5%85%85%E7%94%B5/pl.pm-d5779e520ff52d7f1461ff2469dc00ff"
             }, {
