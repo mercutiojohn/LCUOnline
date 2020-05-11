@@ -19,6 +19,7 @@
     --shadow-color: var(--shadow-color-light);
     --shadow-color-light: rgba(29, 29, 29, 0.219);
     --shadow-color-dark: rgba(29, 29, 29, 0.411);
+    --music-box-height: 600px;
 }
 
 @media screen and (prefers-color-scheme: light) {

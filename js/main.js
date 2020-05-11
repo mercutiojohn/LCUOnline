@@ -81,8 +81,13 @@ var vm = new Vue({
 
         },
         musicSites: [{
-                title: "白噪音",
+                title: "滴答清单",
                 status: true,
+                bg: 'white',
+                url: "https://www.dida365.com/webapp/#q/all/today"
+            }, {
+                title: "白噪音",
+                status: false,
                 bg: 'transparent',
                 url: "https://music.163.com/outchain/player?type=4&id=526504585&auto=1&height=520"
             }, {
@@ -369,7 +374,15 @@ var vm = new Vue({
                 title: "传智播客",
                 status: false,
                 url: "http://stu.ityxb.com/Classroom/course/learning"
-            },
+            }, {
+                title: "滴答清单",
+                status: false,
+                url: "https://www.dida365.com/webapp/#q/all/today"
+            }, {
+                title: "自定义",
+                status: false,
+                url: "https://www.baidu.com/"
+            }
             // {
             //     title: "Runoob",
             //     status: false,
@@ -576,6 +589,10 @@ var vm = new Vue({
 
     },
     methods: {
+        getTempIframe() {
+            this.tabs[5].url = prompt("请键入链接");
+            this.tabs[5].title = prompt("请键入名称");
+        },
         getTime() {
             var today = new Date();
             var h = today.getHours();
