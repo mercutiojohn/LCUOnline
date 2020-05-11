@@ -1,6 +1,6 @@
 #wrap {
     width: 100vw;
-    height: var(--app-height);
+    height: 100%;
     /* overflow: scroll; */
     /* scroll-padding: 1000px; */
     /* background-color: rgb(206, 206, 206); */
@@ -22,7 +22,7 @@
 
 .blockBox {
     width: 100vw;
-    height: var(--app-height);
+    height: 100%;
     overflow: scroll;
     display: flex;
     align-items: center;
@@ -41,7 +41,7 @@
 
 .blockBox_black {
     width: 100%;
-    height: var(--app-height);
+    height: 100%;
     overflow: scroll;
     display: flex;
     align-items: center;
@@ -97,6 +97,12 @@
 #twelveLabel {
     color: var(--inactive-color);
 
+}
+
+@media screen and (min-width: 10px) and (max-width: 600px) {
+    #quote {
+        display: none;
+    }
 }
 
 #quote span {
