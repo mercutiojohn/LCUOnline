@@ -189,8 +189,22 @@
     padding-bottom: 8px;
 }
 
+.blockHead div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    /* justify-content: center; */
+    overflow: hidden;
+}
+
 .class-name {
+    width: 80%;
     color: var(--main-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    margin-left: 5px;
 }
 
 .block:hover {
@@ -226,10 +240,15 @@ a {
 }
 
 .done {
+    display: inline-block;
     color: #fff;
     padding: 3px;
     border-radius: 4px;
     background: rgb(0, 187, 100);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0;
 }
 
 .icon {
