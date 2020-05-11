@@ -60,7 +60,7 @@
     } */
 </style>
 
-<body>
+<body><button class="add-button">Add to home screen</button>
     <!-- <img id="bgImg" src="https://bing.rthe.net/wallpaper" alt="" style="display: none;"> -->
     <div id="view">
         <transition name="zoom">
@@ -286,7 +286,8 @@
                                         scrolling="auto"></iframe>
                                 </div>
                             </transition>
-                            <transition-group name="block-list" tag="ul" class="blocks">
+                            <transition-group name="block-list" tag="ul"
+                                :class="'blocks' + (leftColDisplay?' blocks-left-open':'')">
                                 <li v-for="(item,index) in blocks" v-show="ifToday(index) || blocksPreferences.showAll"
                                     :key='item' class="block-list-item"
                                     :class="bgStatus && !lowQuality?'bg-content-bg-style':''">
