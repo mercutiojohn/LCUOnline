@@ -515,7 +515,7 @@ var vm = new Vue({
                 },
                 {
                     "title": 1,
-                    "ref": "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=207354731&vc=1&clazzid=14743425&enc=eed97f64c9fa8563d5339dd8ab5ab9d5"
+                    "ref": "https://mooc1-1.chaoxing.com/mycourse/studentstudy?chapterId=220494725&courseId=207354731&clazzid=14743425&enc=eed97f64c9fa8563d5339dd8ab5ab9d5"
                 }, {
                     "title": 2,
                     "ref": "https://www.bilibili.com/video/av36206436"
@@ -563,7 +563,7 @@ var vm = new Vue({
             "title": "毛概",
             "url": [{
                     "title": 1,
-                    "ref": "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=206752418&vc=1&clazzid=13628828&enc=728905676290eef8d0dc38cdee3f5482"
+                    "ref": "https://mooc1-1.chaoxing.com/mycourse/studentstudy?chapterId=258362314&courseId=206752418&clazzid=13628828&enc=728905676290eef8d0dc38cdee3f5482"
                 },
 
             ]

@@ -122,13 +122,13 @@
     margin: 0 10px;
 }
 
-#notifyButton {
+#notify-button {
     color: var(--inactive-color);
     transition: all ease-in-out .5s;
 
 }
 
-#notifyButton:hover {
+#notify-button:hover {
     color: rgb(51, 173, 255);
     transition: all ease-in-out .5s;
     cursor: pointer;
