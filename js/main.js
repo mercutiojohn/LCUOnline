@@ -440,19 +440,6 @@ var vm = new Vue({
             }, {
                 "title": 5,
                 "ref": "https://ke.youdao.com/course/detail/50664"
-            }],
-            "notes": [{
-                "done": "",
-                "content": ""
-            }, {
-                "done": "",
-                "content": ""
-            }, {
-                "done": "",
-                "content": ""
-            }, {
-                "done": "",
-                "content": ""
             }]
 
         }, {

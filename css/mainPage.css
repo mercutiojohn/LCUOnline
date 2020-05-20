@@ -2,7 +2,7 @@
     --mode: 'unknown';
     --tab-height: 33px;
     --app-height: calc(100vh - var(--tab-height));
-
+    --bg-url: url(https://bing.rthe.net/wallpaper);
     --bg-color: #f6f7f9;
     --elem-color: #ffffff;
     --first-assist-color: #eee;
@@ -55,7 +55,7 @@
         --blur-color: var(--blur-color-dark);
         --blur-color-solid: var(--blur-color-dark-solid);
         --shadow-color: var(--shadow-color-dark);
-
+        --bg-url: url(https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4u5lE?ver=9d50);
     }
 
     .bg-enable {
@@ -466,10 +466,10 @@ body {
 }
 
 .mainTab-bgon {
-    background: url(https://bing.rthe.net/wallpaper) center/cover no-repeat fixed;
+    background: var(--bg-url) center/cover no-repeat fixed;
     /* backdrop-filter: blur(50px) brightness(-1); */
     color: #fff;
-    /* transition: all .5s ease; */
+    transition: none;
     display: flex;
     padding: 0;
 }
@@ -482,6 +482,13 @@ body {
     padding: 0 16px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    /* transition: background-color .2s ease; */
+}
+
+@media screen and (prefers-color-scheme: light) {
+    .tab-dark {
+        background: #00000000;
+    }
 }
 
 .mainTab-bgon:hover {
