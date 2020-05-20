@@ -55,7 +55,6 @@
         --blur-color: var(--blur-color-dark);
         --blur-color-solid: var(--blur-color-dark-solid);
         --shadow-color: var(--shadow-color-dark);
-        --bg-url: url(https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4u5lE?ver=9d50);
     }
 
     .bg-enable {
