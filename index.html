@@ -227,7 +227,7 @@
         <div id="app">
             <!-- <iframe :src="currentItem.url" frameborder="0" scrolling="auto"></iframe> -->
             <transition name="fade">
-                <div id="wrap" v-if="wrap.status">
+                <div id="wrap" v-show="wrap.status">
                     <div class="blockBox" :class="bgStatus?'bg-enable':''">
                         <div id="headBox">
                             <div :id="!timeWrapDisplay?time:timeActive" v-on:click="timeWrapDisplay = true">

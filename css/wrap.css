@@ -8,7 +8,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: var(--bg-url) center/cover no-repeat fix ed;
+
+    background: var(--bg-url) center/cover no-repeat fixed;
+    background-image: var(--bg-url);
 }
 
 .iframe-content {
@@ -87,7 +89,7 @@
     cursor: pointer;
     font-size: 40px;
     /* font-weight: 800; */
-    font-family: "Mitype2018-90", -apple-system,
+    font-family: "Mitype2018-90", Politica, -apple-system,
         SF UI Text,
         'SF Pro Display';
     /* change */
