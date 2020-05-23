@@ -152,7 +152,7 @@
 
 @media screen and (min-width: 0px) and (max-width: 500px) {
     .block-list-item {
-        width: 60%;
+        width: calc(50% - 40px);
     }
 }
 

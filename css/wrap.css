@@ -67,18 +67,28 @@
     justify-content: space-evenly;
 }
 
+@media screen and (max-width:600px) {
+    #headBox {
+        padding-top: 20px;
+        padding-bottom: 10px;
+        width: 80%;
+        /* color: white; */
+        /* font-size: 40px; */
+        /* font-weight: 800; */
+        /* font-family: 'SF Pro Display'; */
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
 #time {
     /* z-index: 1003; */
 }
 
 #timeActive {
     z-index: 10000;
-}
-
-.hideTime {
-    /* display: none; */
-    /* filter: blur(50px); */
-    /* color: rgba(255, 255, 255, 0); */
 }
 
 .digits {
@@ -104,6 +114,7 @@
 @media screen and (min-width: 10px) and (max-width: 600px) {
     #quote {
         display: none;
+        /* zoom: 0.01; */
     }
 }
 
@@ -147,6 +158,8 @@
     transition: all .25s ease;
 }
 
+
+
 .searchBox:hover {
     transform: scale(1.01);
 }
@@ -184,6 +197,34 @@
     /* change */
     color: #eef0f4;
     /* background: rgba(238, 240, 244, .1); */
+}
+
+@media screen and (max-width:600px) {
+    .searchBox {
+        margin-top: 0px;
+        width: 95%;
+        /* max-width: 500px; */
+        margin-bottom: 30px;
+        z-index: 1001;
+        display: flex;
+        align-items: center;
+        transition: all .25s ease;
+    }
+
+    .navBar_home_inputText {
+        /* width: 100%; */
+        box-shadow: 0 4px 20px rgba(0, 25, 104, .05);
+        color: #212832;
+        background: var(--elem-color);
+        width: 100%;
+        padding: 0 42px;
+        box-sizing: border-box;
+        height: 42px;
+        border-radius: 21px;
+        font-size: 16px;
+        color: #eef0f4;
+        /* background: rgba(238, 240, 244, .1); */
+    }
 }
 
 input,

@@ -251,7 +251,7 @@
                         </div>
 
                         <!-- <span id="time-content">{{time}}</span> -->
-                        <div class="searchBox transition" :style="searchWrapDisplay ? transToTop:''">
+                        <div :class="'searchBox transition' + (searchWrapDisplay ? ' trans-to-top':'')">
                             <i class="el-icon-search searchIcon"></i>
                             <form :action="targetUrl.url" target="_blank" autocomplete="off">
                                 <input class="navBar_home_inputText" autocomplete="off"

@@ -22,7 +22,6 @@ var vm = new Vue({
         bgStatus: false,
         lowQuality: true,
         save: ['', ''],
-        transToTop: "transform:translateY(-120px);",
         notes: "",
         img_url: 'img/',
         done: [],
