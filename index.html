@@ -152,7 +152,8 @@
                 <ul class="music-tabs" @click.stop>
                     <li v-for="(item,index) in musicSites" @click="changeTab(index,musicSites)"
                         :class="'music-tab' + ' music' + (item.status?'-active-tab':'-inactive-tab')">
-                        {{item.title}}
+                        <img class="small-icon" :src="img_url + item.icon" v-if="item.icon" alt="">
+                        <span>{{item.title}}</span>
 
                     </li>
                 </ul>
@@ -194,8 +195,9 @@
                     </div>
                     <div id="linkZone" class="zone">
                         <ul class="link-list">
-                            <li v-for="item in links" class="link"><img v-if="item.icon!=0" :src="img_url + item.icon"
-                                    :alt="item.title"><a :href="item.url" target="_blank">{{item.title}}</a></li>
+                            <li v-for="item in links" class="link">
+                                <img v-if="item.icon!=0" :src="img_url + item.icon" :alt="item.title"><a
+                                    :href="item.url" target="_blank">{{item.title}}</a></li>
                         </ul>
                     </div>
                     <div id="specialZone" class="zone">

@@ -89,43 +89,53 @@ var vm = new Vue({
                 title: "白噪音",
                 status: false,
                 bg: 'transparent',
+                icon: "neteasemusic.svg",
                 url: "https://music.163.com/outchain/player?type=4&id=526504585&auto=1&height=520"
             }, {
                 title: "Hits",
                 status: false,
                 bg: 'transparent',
-                url: "https://embed.music.apple.com/us/playlist/todays-hits/pl.f4d106fed2bd41149aaacabb233eb5eb?app=music"
+                url: "https://embed.music.apple.com/us/playlist/todays-hits/pl.f4d106fed2bd41149aaacabb233eb5eb?app=music",
+                icon: "applemusic.svg"
 
             }, {
                 title: "音乐盒",
                 status: false,
                 // bg: 'transparent',
                 bg: 'transparent',
-                url: "https://music.163.com/outchain/player?type=0&id=4995805373&auto=1&height=520"
+                icon: "neteasemusic.svg",
+                url: "https://music.163.com/outchain/player?type=0&id=4995805373&auto=1&height=520",
             }, {
                 title: "私藏",
                 status: false,
                 bg: 'black',
+                icon: "neteasemusic.svg",
                 url: "https://mp.music.163.com/5c1c8d76bea7983a7b58ce2d/fm.html"
             }, {
                 title: "DI.FM",
                 status: false,
                 bg: 'black',
+                icon: "neteasemusic.svg",
                 url: "https://music.163.com/st/difm/index.html"
             }, {
                 title: "A-Pop",
                 status: false,
                 bg: 'transparent',
-                url: "https://embed.music.apple.com/us/playlist/a-list-pop/pl.5ee8333dbe944d9f9151e97d92d1ead9?app=music"
+                url: "https://embed.music.apple.com/us/playlist/a-list-pop/pl.5ee8333dbe944d9f9151e97d92d1ead9?app=music",
+                icon: "applemusic.svg"
+
             }, {
                 title: "能量充电",
                 status: true,
                 bg: 'transparent',
-                url: "https://embed.music.apple.com/cn/playlist/%E8%83%BD%E9%87%8F%E5%85%85%E7%94%B5/pl.pm-d5779e520ff52d7f1461ff2469dc00ff"
+                url: "https://embed.music.apple.com/cn/playlist/%E8%83%BD%E9%87%8F%E5%85%85%E7%94%B5/pl.pm-d5779e520ff52d7f1461ff2469dc00ff",
+                icon: "applemusic.svg"
+
             }, {
                 title: "B站动态",
                 status: false,
                 bg: 'white',
+                icon: "bilibili.png",
                 url: "https://t.bilibili.com/pages/nav/index_new"
             }
 

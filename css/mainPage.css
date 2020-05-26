@@ -3,6 +3,7 @@
     --tab-height: 33px;
     --app-height: calc(100vh - var(--tab-height));
     --bg-url: url(https://bing.rthe.net/wallpaper);
+    --bg-url: url(https://picsum.photos/1920/1080);
     --bg-color: #f6f7f9;
     --elem-color: #ffffff;
     --first-assist-color: #eee;

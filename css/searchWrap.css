@@ -390,12 +390,23 @@
     /* backdrop-filter: blur(18px); */
 }
 
+.small-icon {
+    /* width: 20px; */
+    height: 17px;
+    margin-right: 5px;
+    /* margin: calc((33px - 20px) / 2); */
+}
+
 .music-tab {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
     cursor: pointer;
     /* float: left; */
+    width: fit-content;
     height: var(--tab-height);
     line-height: var(--tab-height);
-    display: block;
+    /* display: block; */
     color: var(--main-color);
     /* text-align: center; */
     padding: 0 16px;
