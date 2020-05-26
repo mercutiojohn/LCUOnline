@@ -22,6 +22,7 @@
     --shadow-color-light: rgba(29, 29, 29, 0.219);
     --shadow-color-dark: rgba(29, 29, 29, 0.411);
     --music-box-height: 600px;
+    --music-box-fold-width: translateX(518px);
 }
 
 @media screen and (prefers-color-scheme: light) {
@@ -318,6 +319,7 @@ body {
 .bg-text-style {
     color: #fff !important;
     transition: all .35s ease !important;
+    text-shadow: 0 0 7px #00000065;
 }
 
 .bg-rev-text-style {

@@ -95,7 +95,7 @@
 }
 
 .music-box-fold {
-    transform: translateX(495px);
+    transform: var(--music-box-fold-width);
 
 }
 
