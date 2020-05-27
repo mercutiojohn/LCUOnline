@@ -311,7 +311,9 @@
                                             <img v-if="platforms[link.title-1].img!=0" :class="'icon'"
                                                 :src="img_url + platforms[link.title-1].img"
                                                 :alt="platforms[link.title-1].title">
-                                            <span>{{platforms[link.title-1].title}}</span>
+                                            <span v-if="!link.note">{{platforms[link.title-1].title}}</span><span
+                                                v-if="link.note">
+                                                {{link.note}}</span>
                                         </a>
                                     </div>
                                 </li>

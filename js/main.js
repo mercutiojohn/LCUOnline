@@ -353,7 +353,7 @@ var vm = new Vue({
                 "color": 1
             }, {
                 "title": "斗鱼",
-                "img": "",
+                "img": "douyu.svg",
                 "bgColor": "#ea5145",
                 "color": 1
             },
@@ -448,24 +448,31 @@ var vm = new Vue({
                 "ref": "https://live.youdao.com/live/index.html?courseId=50664&lesson=2808486&type=1&groupId=-1"
             }, {
                 "title": 5,
+                "note": "详情页",
                 "ref": "https://ke.youdao.com/course/detail/50664"
             }]
 
         }, {
             "title": "Java",
             "url": [{
-                    "title": 3,
-                    "ref": "http://ee-c.lcu.edu.cn/si/student/studentHeadline/fb017e8c6e789fd9016f0ee96f2d3285/stuCourseInfo"
-                },
-                {
                     "title": 4,
                     "ref": "http://stu.ityxb.com/learning/3b97338b3d7546e6936aabd43f7d16a9/preview/list"
+                }, {
+                    "title": 3,
+                    "ref": "http://ee-c.lcu.edu.cn/si/student/studentHeadline/fb017e8c6e789fd9016f0ee96f2d3285/stuCourseInfo"
                 }
+
+
             ]
         }, {
             "title": "数据库",
             "url": [{
+                    "title": 3,
+                    "note": "王玉亭",
+                    "ref": "http://ee-c.lcu.edu.cn/si/student/studentHeadline/8a7d8a95703d185c01704941e4ac1c63/teachClassStudent"
+                }, {
                     "title": 2,
+                    "note": "清华大学",
                     "ref": "https://www.bilibili.com/video/av20449194",
                 },
                 {
@@ -480,6 +487,11 @@ var vm = new Vue({
             "title": "操作系统",
             "url": [{
                     "title": 2,
+                    "note": "王道",
+                    "ref": "https://www.bilibili.com/video/av70156862",
+                }, {
+                    "note": "清华大学",
+                    "title": 2,
                     "ref": "https://www.bilibili.com/video/av6538245?p=38"
                 },
                 {
@@ -492,7 +504,6 @@ var vm = new Vue({
             "url": [{
                     "title": 1,
                     "ref": "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=205991712&clazzid=11988613&vc=1&cpi=111705708&enc=5631fa62522de5e965a295121b2fbfac",
-
                 },
                 {
                     "title": 7,
@@ -506,17 +517,17 @@ var vm = new Vue({
         }, {
             "title": "概率论",
             "url": [{
-                    "title": 8,
-                    "ref": "file:///D:/视频/下载的视频/高数叔概率论与数理统计/"
-                },
-                {
-                    "title": 1,
-                    "ref": "https://mooc1-1.chaoxing.com/mycourse/studentstudy?chapterId=220494725&courseId=207354731&clazzid=14743425&enc=eed97f64c9fa8563d5339dd8ab5ab9d5"
-                }, {
-                    "title": 2,
-                    "ref": "https://www.bilibili.com/video/av36206436"
-                }
-            ]
+                "title": 1,
+                "note": "高数叔",
+                "ref": "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=211385159&clazzid=24036284&vc=1&cpi=111705708&enc=09e2a0a81536875d9a857ad629ffd029"
+            }, {
+                "title": 1,
+                "note": "孟之天",
+                "ref": "https://mooc1-1.chaoxing.com/mycourse/studentstudy?chapterId=220494725&courseId=207354731&clazzid=14743425&enc=eed97f64c9fa8563d5339dd8ab5ab9d5"
+            }, {
+                "title": 2,
+                "ref": "https://www.bilibili.com/video/av36206436"
+            }]
         }, {
             "title": "信息安全",
             "url": [{
