@@ -518,7 +518,7 @@ var vm = new Vue({
             "title": "概率论",
             "url": [{
                 "title": 1,
-                "note": "高数叔·木叔·期末冲刺",
+                "note": "木叔·期末",
                 "ref": "https://mooc1-1.chaoxing.com/mycourse/studentcourse?courseId=211385159&clazzid=24036284&vc=1&cpi=111705708&enc=09e2a0a81536875d9a857ad629ffd029"
             }, {
                 "title": 1,
@@ -530,11 +530,11 @@ var vm = new Vue({
                 "ref": "https://www.bilibili.com/video/av36206436"
             }, {
                 "title": 2,
-                "note": "高数叔·熙哥·基础知识",
+                "note": "熙哥·基础知识",
                 "ref": "https://www.bilibili.com/video/av46968562"
             }, {
                 "title": 2,
-                "note": "高数叔·熙哥·总复习",
+                "note": "熙哥·总复习",
                 "ref": "https://www.bilibili.com/video/av46963412"
             }]
         }, {
