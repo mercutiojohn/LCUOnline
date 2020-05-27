@@ -526,6 +526,7 @@ var vm = new Vue({
                 "ref": "https://mooc1-1.chaoxing.com/mycourse/studentstudy?chapterId=220494725&courseId=207354731&clazzid=14743425&enc=eed97f64c9fa8563d5339dd8ab5ab9d5"
             }, {
                 "title": 2,
+                "note": "宋浩",
                 "ref": "https://www.bilibili.com/video/av36206436"
             }]
         }, {
